@@ -17,7 +17,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="2dp"
         android:layout_marginTop="2dp"
-        android:minHeight="48dp"
+        android:minHeight="152dp"
+        android:minWidth="213dip"
         android:text="A" />
 
     <Button
@@ -28,6 +29,8 @@
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="2dp"
         android:layout_marginLeft="2dp"
+        android:minHeight="152dip"
+        android:minWidth="213dip"
         android:text="O" />
 
     <Button
@@ -38,6 +41,8 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="2dp"
         android:layout_marginRight="2dp"
+        android:minHeight="152dip"
+        android:minWidth="213dip"
         android:text="T" />
 
     <Button
@@ -46,6 +51,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:minHeight="68dip"
+        android:minWidth="394dip"
         android:text="BARRA ESPACIADORA" />
 
     <Button
@@ -57,6 +64,8 @@
         android:layout_alignTop="@dimen/activity_horizontal_margin"
         android:layout_centerVertical="true"
         android:layout_marginTop="260dp"
+        android:minHeight="81dip"
+        android:minWidth="116dip"
         android:text="." />
 
     <Button
@@ -65,6 +74,8 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/button6"
         android:layout_alignRight="@+id/button2"
+        android:minHeight="81dip"
+        android:minWidth="116dip"
         android:text="Borrar" />
 
     <Button
@@ -74,45 +85,51 @@
         android:layout_alignBaseline="@+id/button7"
         android:layout_alignBottom="@+id/button7"
         android:layout_centerHorizontal="true"
+        android:minHeight="152dip"
+        android:minWidth="213dip"
         android:text="K" />
 
     <EditText
         android:id="@+id/editText1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button4"
         android:layout_alignBottom="@+id/button4"
-        android:layout_centerHorizontal="true"
-        android:ems="10" >
-
-        <requestFocus />
-    </EditText>
+        android:layout_alignLeft="@+id/button8"
+        android:ems="10"
+        android:maxHeight="55dp"
+        android:maxWidth="507dp" />
 
     <Button
         android:id="@+id/button9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button3"
-        android:layout_alignLeft="@+id/editText1"
+        android:layout_alignBaseline="@+id/button3"
+        android:layout_alignBottom="@+id/button3"
+        android:layout_alignLeft="@+id/button5"
+        android:minHeight="77dip"
+        android:minWidth="116dip"
         android:text="SI" />
 
     <Button
         android:id="@+id/button10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button9"
         android:layout_alignBottom="@+id/button9"
         android:layout_alignRight="@+id/button5"
+        android:minHeight="77dip"
+        android:minWidth="116dip"
         android:text="NO" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button5"
-        android:layout_alignBottom="@+id/button5"
         android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/button1"
         android:layout_marginRight="2dp"
-        android:layout_marginTop="2dp"
+        android:minHeight="152dp"
+        android:minWidth="213dp"
         android:text="F" />
 
 </RelativeLayout>
