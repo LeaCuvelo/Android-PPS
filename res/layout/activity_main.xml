@@ -10,7 +10,7 @@
     tools:context=".MainActivity" >
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/bttnPrA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -22,7 +22,7 @@
         android:text="A" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/bttnPrO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -34,10 +34,10 @@
         android:text="O" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/bttnPrT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button2"
+        android:layout_alignLeft="@+id/bttnPrF"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="2dp"
         android:layout_marginRight="2dp"
@@ -46,7 +46,7 @@
         android:text="T" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/bttnPrSpace"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -56,10 +56,10 @@
         android:text="BARRA ESPACIADORA" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/bttnPrPoint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button1"
+        android:layout_alignLeft="@+id/bttnPrA"
         android:layout_alignParentLeft="false"
         android:layout_alignTop="@dimen/activity_horizontal_margin"
         android:layout_centerVertical="true"
@@ -69,64 +69,64 @@
         android:text="." />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/bttnPrDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button6"
-        android:layout_alignRight="@+id/button2"
+        android:layout_alignBottom="@+id/bttnPrPoint"
+        android:layout_alignRight="@+id/bttnPrF"
         android:minHeight="81dip"
         android:minWidth="116dip"
         android:text="Borrar" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/bttnPrK"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button7"
-        android:layout_alignBottom="@+id/button7"
+        android:layout_alignBaseline="@+id/bttnPrDelete"
+        android:layout_alignBottom="@+id/bttnPrDelete"
         android:layout_centerHorizontal="true"
         android:minHeight="152dip"
         android:minWidth="213dip"
         android:text="K" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/txtField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button4"
-        android:layout_alignLeft="@+id/button8"
+        android:layout_alignBottom="@+id/bttnPrT"
+        android:layout_alignLeft="@+id/bttnPrK"
         android:ems="10"
         android:maxHeight="55dp"
         android:maxWidth="507dp" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/bttnPrSI"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button3"
-        android:layout_alignBottom="@+id/button3"
-        android:layout_alignLeft="@+id/button5"
+        android:layout_alignBaseline="@+id/bttnPrO"
+        android:layout_alignBottom="@+id/bttnPrO"
+        android:layout_alignLeft="@+id/bttnPrSpace"
         android:minHeight="77dip"
         android:minWidth="116dip"
         android:text="SI" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/bttnPrNO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button9"
-        android:layout_alignBottom="@+id/button9"
-        android:layout_alignRight="@+id/button5"
+        android:layout_alignBaseline="@+id/bttnPrSI"
+        android:layout_alignBottom="@+id/bttnPrSI"
+        android:layout_alignRight="@+id/bttnPrSpace"
         android:minHeight="77dip"
         android:minWidth="116dip"
         android:text="NO" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/bttnPrF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/button1"
+        android:layout_alignTop="@+id/bttnPrA"
         android:layout_marginRight="2dp"
         android:minHeight="152dp"
         android:minWidth="213dp"
