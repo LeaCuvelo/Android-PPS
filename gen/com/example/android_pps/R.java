@@ -24,7 +24,7 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f08000b;
+        public static final int action_settings=0x7f080010;
         public static final int bttnPrA=0x7f080000;
         public static final int bttnPrDelete=0x7f080006;
         public static final int bttnPrF=0x7f080003;
@@ -35,6 +35,11 @@ public final class R {
         public static final int bttnPrSI=0x7f080009;
         public static final int bttnPrSpace=0x7f080004;
         public static final int bttnPrT=0x7f080002;
+        public static final int bttnSeA=0x7f08000b;
+        public static final int bttnSeB=0x7f08000e;
+        public static final int bttnSeC=0x7f08000f;
+        public static final int bttnSeD=0x7f08000c;
+        public static final int bttnSeE=0x7f08000d;
         public static final int txtField=0x7f08000a;
     }
     public static final class layout {
