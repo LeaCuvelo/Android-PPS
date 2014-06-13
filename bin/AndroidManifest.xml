@@ -18,8 +18,47 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="VentanaA" 
+            android:label="Ventana A" > //Nombre de la actividad y el label de la actividad
+            <intent-filter>
+                <action android:name="com.example.android_pps.VentanaA" /> //Nombre de la actividad con que otras actividades podrán invocarla
+                <category android:name="android.intent.category.DEFAULT" /> //Permite que otras actividades puedan invocar esta actividad utilizando el método StartActivity()
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="VentanaF" 
+            android:label="Ventana F" > //Nombre de la actividad y el label de la actividad
+            <intent-filter>
+                <action android:name="com.example.android_pps.VentanaF" /> //Nombre de la actividad con que otras actividades podrán invocarla
+                <category android:name="android.intent.category.DEFAULT" /> //Permite que otras actividades puedan invocar esta actividad utilizando el método StartActivity()
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="VentanaK" 
+            android:label="Ventana K" > //Nombre de la actividad y el label de la actividad
+            <intent-filter>
+                <action android:name="com.example.android_pps.VentanaK" /> //Nombre de la actividad con que otras actividades podrán invocarla
+                <category android:name="android.intent.category.DEFAULT" /> //Permite que otras actividades puedan invocar esta actividad utilizando el método StartActivity()
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="VentanaO" 
+            android:label="Ventana O" > //Nombre de la actividad y el label de la actividad
+            <intent-filter>
+                <action android:name="com.example.android_pps.VentanaO" /> //Nombre de la actividad con que otras actividades podrán invocarla
+                <category android:name="android.intent.category.DEFAULT" /> //Permite que otras actividades puedan invocar esta actividad utilizando el método StartActivity()
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="VentanaT" 
+            android:label="Ventana T" > //Nombre de la actividad y el label de la actividad
+            <intent-filter>
+                <action android:name="com.example.android_pps.VentanaT" /> //Nombre de la actividad con que otras actividades podrán invocarla
+                <category android:name="android.intent.category.DEFAULT" /> //Permite que otras actividades puedan invocar esta actividad utilizando el método StartActivity()
             </intent-filter>
         </activity>
     </application>
