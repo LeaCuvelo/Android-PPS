@@ -29,13 +29,13 @@ public final class R {
         public static final int bttnPrDelete=0x7f080006;
         public static final int bttnPrF=0x7f080003;
         public static final int bttnPrK=0x7f080007;
-        public static final int bttnPrNO=0x7f08000a;
+        public static final int bttnPrNO=0x7f080009;
         public static final int bttnPrO=0x7f080001;
         public static final int bttnPrPoint=0x7f080005;
-        public static final int bttnPrSI=0x7f080009;
+        public static final int bttnPrSI=0x7f080008;
         public static final int bttnPrSpace=0x7f080004;
         public static final int bttnPrT=0x7f080002;
-        public static final int txtField=0x7f080008;
+        public static final int txtField=0x7f08000a;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
