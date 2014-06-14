@@ -24,7 +24,7 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f080010;
+        public static final int action_settings=0x7f080024;
         public static final int bttnPrA=0x7f080000;
         public static final int bttnPrDelete=0x7f080006;
         public static final int bttnPrF=0x7f080003;
@@ -40,6 +40,26 @@ public final class R {
         public static final int bttnSeC=0x7f08000f;
         public static final int bttnSeD=0x7f08000c;
         public static final int bttnSeE=0x7f08000d;
+        public static final int bttnSeEnie=0x7f080017;
+        public static final int bttnSeF=0x7f080010;
+        public static final int bttnSeG=0x7f080012;
+        public static final int bttnSeH=0x7f080013;
+        public static final int bttnSeI=0x7f080014;
+        public static final int bttnSeJ=0x7f080011;
+        public static final int bttnSeK=0x7f080015;
+        public static final int bttnSeL=0x7f080018;
+        public static final int bttnSeM=0x7f080019;
+        public static final int bttnSeN=0x7f080016;
+        public static final int bttnSeO=0x7f08001a;
+        public static final int bttnSeP=0x7f08001d;
+        public static final int bttnSeQ=0x7f08001e;
+        public static final int bttnSeR=0x7f08001b;
+        public static final int bttnSeS=0x7f08001c;
+        public static final int bttnSeT=0x7f08001f;
+        public static final int bttnSeU=0x7f080022;
+        public static final int bttnSeV=0x7f080023;
+        public static final int bttnSeX=0x7f080020;
+        public static final int bttnSeY=0x7f080021;
         public static final int txtField=0x7f08000a;
     }
     public static final class layout {
