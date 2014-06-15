@@ -27,17 +27,17 @@ public class MainActivity extends Activity {
         //Mostramos la actividad
         setContentView(R.layout.activity_main);
         
-        //Enlazamos botones
+        //Enlazamos botones con sus respectivas acciones
         bttnPrA = (Button) findViewById(R.id.bttnPrA);
-        bttnPrA.setOnClickListener(myHandlerA);
+        bttnPrA.setOnClickListener(controladorA);
         bttnPrF = (Button) findViewById(R.id.bttnPrF);
-        bttnPrF.setOnClickListener(myHandlerF);
+        bttnPrF.setOnClickListener(controladorF);
         bttnPrK = (Button) findViewById(R.id.bttnPrK);
-        bttnPrK.setOnClickListener(myHandlerK);
+        bttnPrK.setOnClickListener(controladorK);
         bttnPrO = (Button) findViewById(R.id.bttnPrO);
-        bttnPrO.setOnClickListener(myHandlerO);
+        bttnPrO.setOnClickListener(controladorO);
         bttnPrT = (Button) findViewById(R.id.bttnPrT);
-        bttnPrT.setOnClickListener(myHandlerT);
+        bttnPrT.setOnClickListener(controladorT);
 	}
 
 	@Override
@@ -53,8 +53,8 @@ public class MainActivity extends Activity {
 		return false;
 	}
 	
-	//Manejadores (Handlers) de los botones, determinan la acción luego de presionar el botón
-	View.OnClickListener myHandlerA = new View.OnClickListener() {
+	//Controladores de los botones, determinan la acción luego de presionar el botón
+	View.OnClickListener controladorA = new View.OnClickListener() {
 	    public void onClick(View v) {
 	    	//Acción al hacer click   
             Intent activityChangeIntent = new Intent(MainActivity.this, VentanaA.class);
@@ -62,7 +62,7 @@ public class MainActivity extends Activity {
 	    }
 	  };
 	  
-	View.OnClickListener myHandlerF = new View.OnClickListener() {
+	View.OnClickListener controladorF = new View.OnClickListener() {
 		    public void onClick(View v) {
 		    	//Acción al hacer click   
 	            Intent activityChangeIntent = new Intent(MainActivity.this, VentanaF.class);
@@ -70,7 +70,7 @@ public class MainActivity extends Activity {
 		    }
 	};
 	  
-	View.OnClickListener myHandlerK = new View.OnClickListener() {
+	View.OnClickListener controladorK = new View.OnClickListener() {
 		    public void onClick(View v) {
 		    	//Acción al hacer click   
 	            Intent activityChangeIntent = new Intent(MainActivity.this, VentanaK.class);
@@ -78,7 +78,7 @@ public class MainActivity extends Activity {
 		    }
 	};
 	  
-    View.OnClickListener myHandlerO = new View.OnClickListener() {
+    View.OnClickListener controladorO = new View.OnClickListener() {
 		    public void onClick(View v) {
 		    	//Acción al hacer click   
 	            Intent activityChangeIntent = new Intent(MainActivity.this, VentanaO.class);
@@ -86,7 +86,7 @@ public class MainActivity extends Activity {
 		    }
     };
 	  
-	View.OnClickListener myHandlerT = new View.OnClickListener() {
+	View.OnClickListener controladorT = new View.OnClickListener() {
 		    public void onClick(View v) {
 		    	//Acción al hacer click   
 	            Intent activityChangeIntent = new Intent(MainActivity.this, VentanaT.class);
