@@ -9,9 +9,11 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
 	private Button bttnPrA,bttnPrF,bttnPrK,bttnPrO,bttnPrT;
+	public static TextView texto;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,8 @@ public class MainActivity extends Activity {
         bttnPrO.setOnClickListener(controladorO);
         bttnPrT = (Button) findViewById(R.id.bttnPrT);
         bttnPrT.setOnClickListener(controladorT);
+        //Enlazamos el textView
+        texto = (TextView) findViewById(R.id.textView);
 	}
 
 	@Override

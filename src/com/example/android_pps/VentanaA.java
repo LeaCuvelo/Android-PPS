@@ -15,7 +15,7 @@ public class VentanaA extends Activity {
 		super.onCreate(savedInstanceState);
 		
 		//Mostramos la actividad
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.ventanaa);
         
         //Enlazamos botones con sus respectivas acciones
         bttnSeA = (Button) findViewById(R.id.bttnSeA);
