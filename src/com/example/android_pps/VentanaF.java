@@ -44,7 +44,7 @@ public class VentanaF extends Activity {
 		        Intent activityChangeIntent = new Intent(VentanaF.this, MainActivity.class);
 		        // TODO: Escribir la letra F en el textField
 		        VentanaF.this.startActivity(activityChangeIntent);
-		      //finish();
+		        finish();
 		    }
 		};
 			  
@@ -54,7 +54,7 @@ public class VentanaF extends Activity {
 			    Intent activityChangeIntent = new Intent(VentanaF.this, MainActivity.class);
 			 // TODO: Escribir la letra G en el textField
 			    VentanaF.this.startActivity(activityChangeIntent);
-			  //finish();
+			    finish();
 			}
 		};
 			  
@@ -64,7 +64,7 @@ public class VentanaF extends Activity {
 			    Intent activityChangeIntent = new Intent(VentanaF.this, MainActivity.class);
 			 // TODO: Escribir la letra C en el textField
 			    VentanaF.this.startActivity(activityChangeIntent);
-			  //finish();
+			    finish();
 			}
 		};
 			  
@@ -74,7 +74,7 @@ public class VentanaF extends Activity {
 			    Intent activityChangeIntent = new Intent(VentanaF.this, MainActivity.class);
 			 // TODO: Escribir la letra D en el textField
 			    VentanaF.this.startActivity(activityChangeIntent);
-			  //finish();
+			    finish();
 			}
 		};
 			  
@@ -84,7 +84,7 @@ public class VentanaF extends Activity {
 			    Intent activityChangeIntent = new Intent(VentanaF.this, MainActivity.class);
 			 // TODO: Escribir la letra E en el textField
 			    VentanaF.this.startActivity(activityChangeIntent);
-			  //finish();
+			    finish();
 			}
 		};
 }
