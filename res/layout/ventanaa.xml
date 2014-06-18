@@ -148,23 +148,6 @@
         android:text="B"
         android:width="213dp" />
 
-    <EditText
-        android:id="@+id/txtField"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/bttnSeE"
-        android:layout_centerHorizontal="true"
-        android:ems="10"
-        android:height="55dp"
-        android:maxHeight="55dp"
-        android:maxWidth="507dp"
-        android:minHeight="1dp"
-        android:minWidth="1dp"
-        android:width="507dp" android:inputType="text">
-
-        <requestFocus />
-    </EditText>
-
     <Button
         android:id="@+id/bttnPrSI"
         android:layout_width="wrap_content"
@@ -178,6 +161,15 @@
         android:minWidth="1dp"
         android:text="SI"
         android:width="116dp" />
-        
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/bttnSeD"
+        android:layout_alignLeft="@+id/bttnPrSI"
+        android:layout_alignRight="@+id/bttnPrNO"
+        android:layout_below="@+id/bttnPrNO"
+        android:text="TextView" />
 
 </RelativeLayout>
