@@ -44,7 +44,7 @@ public class VentanaO extends Activity {
 			Intent activityChangeIntent = new Intent(VentanaO.this, MainActivity.class);
 			// TODO: Escribir la letra K en el textField
 			VentanaO.this.startActivity(activityChangeIntent);
-			        
+			//finish();        
 	    }
 	};
 	
@@ -54,7 +54,7 @@ public class VentanaO extends Activity {
 			Intent activityChangeIntent = new Intent(VentanaO.this, MainActivity.class);
 			// TODO: Escribir la letra K en el textField
 			VentanaO.this.startActivity(activityChangeIntent);
-			        
+			//finish();        
 	    }
 	};
 	
@@ -64,7 +64,7 @@ public class VentanaO extends Activity {
 			Intent activityChangeIntent = new Intent(VentanaO.this, MainActivity.class);
 			// TODO: Escribir la letra K en el textField
 			VentanaO.this.startActivity(activityChangeIntent);
-			        
+			//finish();        
 	    }
 	};
 	
@@ -74,7 +74,7 @@ public class VentanaO extends Activity {
 			Intent activityChangeIntent = new Intent(VentanaO.this, MainActivity.class);
 			// TODO: Escribir la letra K en el textField
 			VentanaO.this.startActivity(activityChangeIntent);
-			        
+			//finish();        
 	    }
 	};
 	
@@ -84,7 +84,7 @@ public class VentanaO extends Activity {
 			Intent activityChangeIntent = new Intent(VentanaO.this, MainActivity.class);
 			// TODO: Escribir la letra K en el textField
 			VentanaO.this.startActivity(activityChangeIntent);
-			        
+			//finish();        
 	    }
 	};
 }
