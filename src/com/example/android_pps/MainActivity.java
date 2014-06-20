@@ -51,6 +51,23 @@ public class MainActivity extends Activity {
 		return true;
 	}
 	
+	//onPause debe ser llamado justo antes de ir a otra actividad, y guardar todo
+	@Override protected void onPause(){
+		super.onPause();
+	}
+	
+	@Override protected void onRestart(){
+		super.onRestart();
+	}
+	
+	@Override protected void onResume(){
+		super.onResume();
+	}
+	
+	@Override protected void onDestroy(){
+		super.onDestroy();
+	}
+	
 	//Para salir de la apliación tocando el botón "Atrás"
 	public boolean onKeyDown(int keyCode, KeyEvent event){
 		finish();
@@ -62,7 +79,9 @@ public class MainActivity extends Activity {
 	    public void onClick(View v) {
 	    	//Acción al hacer click   
             Intent activityChangeIntent = new Intent(MainActivity.this, VentanaA.class);
+            texto.setText(R.string.my_name);
             MainActivity.this.startActivity(activityChangeIntent);
+            
 	    }
 	  };
 	  

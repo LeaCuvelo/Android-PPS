@@ -169,7 +169,6 @@
         android:layout_alignBottom="@+id/bttnPrO"
         android:layout_alignLeft="@+id/bttnPrSI"
         android:layout_alignRight="@+id/bttnPrNO"
-        android:layout_below="@+id/bttnPrNO"
-        android:text="TextView" />
+        android:layout_below="@+id/bttnPrNO" />
 
 </RelativeLayout>

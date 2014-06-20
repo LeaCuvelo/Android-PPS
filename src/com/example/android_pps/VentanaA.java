@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class VentanaA extends Activity {
 	private Button bttnSeA,bttnSeB,bttnSeC,bttnSeD,bttnSeE;
+	private TextView texto;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,9 @@ public class VentanaA extends Activity {
         bttnSeD.setOnClickListener(controladorD);
         bttnSeE = (Button) findViewById(R.id.bttnSeE);
         bttnSeE.setOnClickListener(controladorE);
+      //Enlazamos el textView
+        texto = (TextView) findViewById(R.id.textView);
+        texto.setText(MainActivity.texto.getText());
 	}
 
 	@Override
@@ -43,6 +48,7 @@ public class VentanaA extends Activity {
 	    	//Acción al hacer click   
 	        Intent activityChangeIntent = new Intent(VentanaA.this, MainActivity.class);
 	        // TODO: Escribir la letra A en el textField
+	        //MainActivity.texto.append("A");
 	        VentanaA.this.startActivity(activityChangeIntent);
 	        finish();
 	        
