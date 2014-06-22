@@ -2,6 +2,7 @@ package com.example.android_pps;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -40,6 +41,11 @@ public class VentanaA extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+	
+	//Evita que se vuelva a cargar la actividad cuando el telefono es rotado
+	@Override public void onConfigurationChanged(Configuration newConfig) {
+		super.onConfigurationChanged(newConfig);
 	}
 	
 	//Controladores de los botones, determinan la acción luego de presionar el botón

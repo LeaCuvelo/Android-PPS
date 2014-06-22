@@ -3,6 +3,7 @@ package com.example.android_pps;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
@@ -66,6 +67,11 @@ public class MainActivity extends Activity {
 	
 	@Override protected void onDestroy(){
 		super.onDestroy();
+	}
+	
+	//Evita que se vuelva a cargar la actividad cuando el telefono es rotado
+	@Override public void onConfigurationChanged(Configuration newConfig) {
+		super.onConfigurationChanged(newConfig);
 	}
 	
 	//Para salir de la apliación tocando el botón "Atrás"
