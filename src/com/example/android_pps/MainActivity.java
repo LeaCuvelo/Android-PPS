@@ -66,23 +66,12 @@ public class MainActivity extends Activity {
 		return true;
 	}
 	
-<<<<<<< HEAD
-	/* onPause debe ser llamado justo antes de ir a otra actividad, y guardar todo. No el metodo
-	 * que debe hacer eso es onStop(), onPause es por ej cuando hay un Pop-Up, 
-	*/ 
+	 
 	
-	@Override protected void onPause()
-	{
-=======
-	public static MainActivity getInstance(){
-		if(instance == null)
-				instance = new MainActivity();
-		return instance;
-	}
+	
 	
 	//onPause debe ser llamado justo antes de ir a otra actividad, y guardar todo
 	@Override protected void onPause(){
->>>>>>> branch 'master' of https://github.com/LeaCuvelo/Android-PPS.git
 		super.onPause();
 	}
 	
