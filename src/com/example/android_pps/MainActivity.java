@@ -43,6 +43,14 @@ public class MainActivity extends Activity {
         bttnPrT.setOnClickListener(controladorT);
         //Enlazamos el textView
         texto = (TextView) findViewById(R.id.textView);
+        
+        
+        
+        // Tomamos el valor del buffer
+         String mainBuffer = getIntent().getStringExtra("mainBuffer");
+         texto.setText(mainBuffer);
+        
+        
 	}
 
 	@Override
@@ -52,8 +60,12 @@ public class MainActivity extends Activity {
 		return true;
 	}
 	
-	//onPause debe ser llamado justo antes de ir a otra actividad, y guardar todo
-	@Override protected void onPause(){
+	/* onPause debe ser llamado justo antes de ir a otra actividad, y guardar todo. No el metodo
+	 * que debe hacer eso es onStop(), onPause es por ej cuando hay un Pop-Up, 
+	*/ 
+	
+	@Override protected void onPause()
+	{
 		super.onPause();
 	}
 	
@@ -61,12 +73,19 @@ public class MainActivity extends Activity {
 		super.onRestart();
 	}
 	
-	@Override protected void onResume(){
-		super.onResume();
-	}
 	
 	@Override protected void onDestroy(){
 		super.onDestroy();
+	}
+	
+	// Cuando hay un cambio de activity
+	
+	@Override protected void onStop(){
+		super.onStop();
+	}
+	
+	@Override protected void onResume(){
+		super.onResume();
 	}
 	
 	//Evita que se vuelva a cargar la actividad cuando el telefono es rotado
@@ -85,7 +104,12 @@ public class MainActivity extends Activity {
 	    public void onClick(View v) {
 	    	//Acción al hacer click   
             Intent activityChangeIntent = new Intent(MainActivity.this, VentanaA.class);
-            texto.setText(R.string.my_name);
+            
+            //texto.setText(R.string.my_name);
+            
+            activityChangeIntent.putExtra("textBufferA", texto.getText()+"");
+            
+            
             MainActivity.this.startActivity(activityChangeIntent);
             
 	    }
@@ -95,6 +119,9 @@ public class MainActivity extends Activity {
 		    public void onClick(View v) {
 		    	//Acción al hacer click   
 	            Intent activityChangeIntent = new Intent(MainActivity.this, VentanaF.class);
+	            
+	            activityChangeIntent.putExtra("textBufferF", texto.getText()+"");
+	            
 	            MainActivity.this.startActivity(activityChangeIntent);
 		    }
 	};
@@ -103,6 +130,9 @@ public class MainActivity extends Activity {
 		    public void onClick(View v) {
 		    	//Acción al hacer click   
 	            Intent activityChangeIntent = new Intent(MainActivity.this, VentanaK.class);
+	            
+	            activityChangeIntent.putExtra("textBufferK", texto.getText()+"");
+	            
 	            MainActivity.this.startActivity(activityChangeIntent);
 		    }
 	};
@@ -111,6 +141,9 @@ public class MainActivity extends Activity {
 		    public void onClick(View v) {
 		    	//Acción al hacer click   
 	            Intent activityChangeIntent = new Intent(MainActivity.this, VentanaO.class);
+	            
+	            activityChangeIntent.putExtra("textBufferO", texto.getText()+"");
+	            
 	            MainActivity.this.startActivity(activityChangeIntent);
 		    }
     };
@@ -119,6 +152,9 @@ public class MainActivity extends Activity {
 		    public void onClick(View v) {
 		    	//Acción al hacer click   
 	            Intent activityChangeIntent = new Intent(MainActivity.this, VentanaT.class);
+	            
+	            activityChangeIntent.putExtra("textBufferT", texto.getText()+"");
+	            
 	            MainActivity.this.startActivity(activityChangeIntent);
 		    }
 	};
