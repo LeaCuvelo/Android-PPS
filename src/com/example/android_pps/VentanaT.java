@@ -19,6 +19,8 @@ public class VentanaT extends Activity {
 		
 		//Mostramos la actividad
         setContentView(R.layout.ventanat);
+       
+        //PARA EL GIT
         
         //Enlazamos botones con sus respectivas acciones
         bttnSeT = (Button) findViewById(R.id.bttnSeT);
