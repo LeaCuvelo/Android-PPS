@@ -76,6 +76,7 @@ public class VentanaT extends Activity {
 	        bufferT += 'U';
 	        activityChangeIntent.putExtra("mainBuffer", bufferT);
 	        
+	        
 	        VentanaT.this.startActivity(activityChangeIntent);
 	        finish();
 	    }
