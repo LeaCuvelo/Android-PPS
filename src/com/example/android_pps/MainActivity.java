@@ -50,7 +50,10 @@ public class MainActivity extends Activity {
          String mainBuffer = getIntent().getStringExtra("mainBuffer");
          texto.setText(mainBuffer);
         
-        
+     /*
+      * PRUEBA PARA EL GIT
+      *    
+      */
 	}
 
 	@Override
