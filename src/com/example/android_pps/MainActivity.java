@@ -50,7 +50,9 @@ public class MainActivity extends Activity {
         // Tomamos el valor del buffer
          String mainBuffer = getIntent().getStringExtra("mainBuffer");
          texto.setText(mainBuffer);
+         //texto.setText("AAAAAAAAAAAAAAAAAAAAAAAAAF FFSDGSDFDG                             DGSDGSGSDGSDGSDGSDGSDGSDGSDGSGSDGSDJFGJGHJGH11 dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
   
+         
 	}
 	
 	public static MainActivity getInstance(){

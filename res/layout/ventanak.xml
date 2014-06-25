@@ -169,6 +169,8 @@
         android:layout_alignBottom="@+id/bttnSeN"
         android:layout_alignLeft="@+id/bttnPrSI"
         android:layout_alignRight="@+id/bttnPrNO"
-        android:layout_below="@+id/bttnPrNO" />
+        android:layout_below="@+id/bttnPrNO" 
+        android:textSize="30sp"
+        android:typeface="monospace"/>
 
 </RelativeLayout>

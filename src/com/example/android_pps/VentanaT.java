@@ -90,9 +90,9 @@ public class VentanaT extends Activity {
 	        Intent activityChangeIntent = new Intent(VentanaT.this, MainActivity.class);
 	        // TODO: Escribir la letra V en el textField
 	        
-	     // Tomamos el buffer T, le concatenamos T y se lo "enlazamos" al mainBuffer	        
+	     // Tomamos el buffer T, le concatenamos V y se lo "enlazamos" al mainBuffer	        
 	        String bufferT = getIntent().getStringExtra("textBufferT") ;
-	        bufferT += 'T';
+	        bufferT += 'V';
 	        activityChangeIntent.putExtra("mainBuffer", bufferT);
 	        
 	        VentanaT.this.startActivity(activityChangeIntent);
