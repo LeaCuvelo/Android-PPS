@@ -15,6 +15,7 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
 	private Button bttnPrA,bttnPrF,bttnPrK,bttnPrO,bttnPrT;
 	public static TextView texto;
+	private static MainActivity instance = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,11 +50,13 @@ public class MainActivity extends Activity {
         // Tomamos el valor del buffer
          String mainBuffer = getIntent().getStringExtra("mainBuffer");
          texto.setText(mainBuffer);
-        
-     /*
-      * PRUEBA PARA EL GIT
-      *    
-      */
+  
+	}
+	
+	public static MainActivity getInstance(){
+		if (instance == null)
+						instance = new MainActivity();
+		return instance;
 	}
 
 	@Override
@@ -114,6 +117,7 @@ public class MainActivity extends Activity {
             
             
             MainActivity.this.startActivity(activityChangeIntent);
+            
             
 	    }
 	  };
