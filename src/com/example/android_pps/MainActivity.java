@@ -15,6 +15,7 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
 	private Button bttnPrA,bttnPrF,bttnPrK,bttnPrO,bttnPrT;
 	public static TextView texto;
+	private static MainActivity instance = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,12 @@ public class MainActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+	
+	public static MainActivity getInstance(){
+		if(instance == null)
+				instance = new MainActivity();
+		return instance;
 	}
 	
 	//onPause debe ser llamado justo antes de ir a otra actividad, y guardar todo
