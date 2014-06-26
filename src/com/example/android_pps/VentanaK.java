@@ -33,7 +33,7 @@ public class VentanaK extends Activity {
         bttnSeEnie.setOnClickListener(controladorEnie);
         bttnPrSpace = (Button) findViewById(R.id.bttnPrSpace);
         bttnPrSpace.setOnClickListener(controladorEspacio);
-        
+        //Enlazamos el textView        
         texto = (TextView) findViewById(R.id.textView);
         texto.setText(MainActivity.texto.getText());
 	}
@@ -55,13 +55,10 @@ public class VentanaK extends Activity {
 		public void onClick(View v) {
 			//Acción al hacer click   
 			Intent activityChangeIntent = new Intent(VentanaK.this, MainActivity.class);
-			// TODO: Escribir la letra K en el textField
-			
 			 // Tomamos el buffer K, le concatenamos K y se lo "enlazamos" al mainBuffer	        
 	        String bufferK = getIntent().getStringExtra("textBufferK") ;
 	        bufferK += 'K';
 	        activityChangeIntent.putExtra("mainBuffer", bufferK);
-	        
 			VentanaK.this.startActivity(activityChangeIntent);
 			finish();        
 	    }
@@ -71,13 +68,10 @@ public class VentanaK extends Activity {
 		public void onClick(View v) {
 			//Acción al hacer click   
 			Intent activityChangeIntent = new Intent(VentanaK.this, MainActivity.class);
-			// TODO: Escribir la letra L en el textField
-			
 			 // Tomamos el buffer K, le concatenamos L y se lo "enlazamos" al mainBuffer	        
 	        String bufferK = getIntent().getStringExtra("textBufferK") ;
 	        bufferK += 'L';
 	        activityChangeIntent.putExtra("mainBuffer", bufferK);
-	        
 			VentanaK.this.startActivity(activityChangeIntent);
 			finish();        
 	    }
@@ -87,13 +81,10 @@ public class VentanaK extends Activity {
 		public void onClick(View v) {
 			//Acción al hacer click   
 			Intent activityChangeIntent = new Intent(VentanaK.this, MainActivity.class);
-			// TODO: Escribir la letra M en el textField
-
 			 // Tomamos el buffer K, le concatenamos M y se lo "enlazamos" al mainBuffer	        
 	        String bufferK = getIntent().getStringExtra("textBufferK") ;
 	        bufferK += 'M';
 	        activityChangeIntent.putExtra("mainBuffer", bufferK);
-	        
 			VentanaK.this.startActivity(activityChangeIntent);
 			finish();        
 	    }
@@ -103,13 +94,10 @@ public class VentanaK extends Activity {
 		public void onClick(View v) {
 			//Acción al hacer click   
 			Intent activityChangeIntent = new Intent(VentanaK.this, MainActivity.class);
-			// TODO: Escribir la letra N en el textField
-			
 			 // Tomamos el buffer K, le concatenamos N y se lo "enlazamos" al mainBuffer	        
 	        String bufferK = getIntent().getStringExtra("textBufferK") ;
 	        bufferK += 'N';
 	        activityChangeIntent.putExtra("mainBuffer", bufferK);
-	        
 			VentanaK.this.startActivity(activityChangeIntent);
 			finish();        
 	    }
@@ -119,13 +107,10 @@ public class VentanaK extends Activity {
 		public void onClick(View v) {
 			//Acción al hacer click   
 			Intent activityChangeIntent = new Intent(VentanaK.this, MainActivity.class);
-			// TODO: Escribir la letra Ñ en el textField
-			
 			 // Tomamos el buffer K, le concatenamos enie y se lo "enlazamos" al mainBuffer	        
 	        String bufferK = getIntent().getStringExtra("textBufferK") ;
 	        bufferK += 'ñ';
 	        activityChangeIntent.putExtra("mainBuffer", bufferK);
-	        
 			VentanaK.this.startActivity(activityChangeIntent);
 			finish();        
 	    }
@@ -135,14 +120,10 @@ public class VentanaK extends Activity {
 		public void onClick(View v) {
 			//Acción al hacer click   
 		    Intent activityChangeIntent = new Intent(VentanaK.this, MainActivity.class);
-		 // TODO: Escribir la letra E en el textField
-		   
 		    // Tomamos el buffer A, le concatenamos E y se lo "enlazamos" al mainBuffer
 		    String bufferA = getIntent().getStringExtra("textBufferA") ;
 	        bufferA += ' ';
 	        activityChangeIntent.putExtra("mainBuffer", bufferA);
-	        
-	        
 		    VentanaK.this.startActivity(activityChangeIntent);
 		    finish();
 		}

@@ -53,9 +53,9 @@ public class MainActivity extends Activity {
         // Tomamos el valor del buffer
          mainBuffer = getIntent().getStringExtra("mainBuffer");
          texto.setText(mainBuffer);
-         //texto.setText("AAAAAAAAAAAAAAAAAAAAAAAAAF FFSDGSDFDG                             DGSDGSGSDGSDGSDGSDGSDGSDGSDGSGSDGSDJFGJGHJGH11 dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
-  
          
+         //AL DESCOMENTAR LA LÍNEA DE ABAJO, PODEMOS PROBAR SI EL TEXTVIEW SE VE COMPLETO, SCROLLEA, ETC.
+         //texto.setText("AAAAAAAAAAAAAAAAAAAAAAAAAF FFSDGSDFDG                             DGSDGSGSDGSDGSDGSDGSDGSDGSDGSGSDGSDJFGJGHJGH11 dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
 	}
 	
 	public static MainActivity getInstance(){
@@ -70,10 +70,6 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-	
-	 
-	
-	
 	
 	//onPause debe ser llamado justo antes de ir a otra actividad, y guardar todo
 	@Override protected void onPause(){
@@ -90,7 +86,6 @@ public class MainActivity extends Activity {
 	}
 	
 	// Cuando hay un cambio de activity
-	
 	@Override protected void onStop(){
 		super.onStop();
 	}
@@ -110,20 +105,14 @@ public class MainActivity extends Activity {
 		return false;
 	}
 	
-	//Controladores de los botones, determinan la acción luego de presionar el botón
+	//CONTROLADOR DE LOS BOTONES, DETERMINAN LA ACCIÓN LUEGO DE PRESIONAR EL BOTÓN.
+	
 	View.OnClickListener controladorA = new View.OnClickListener() {
 	    public void onClick(View v) {
 	    	//Acción al hacer click   
             Intent activityChangeIntent = new Intent(MainActivity.this, VentanaA.class);
-            
-            //texto.setText(R.string.my_name);
-            
             activityChangeIntent.putExtra("textBufferA", texto.getText()+"");
-            
-            
-            MainActivity.this.startActivity(activityChangeIntent);
-            
-            
+            MainActivity.this.startActivity(activityChangeIntent);  
 	    }
 	  };
 	  
@@ -131,9 +120,7 @@ public class MainActivity extends Activity {
 		    public void onClick(View v) {
 		    	//Acción al hacer click   
 	            Intent activityChangeIntent = new Intent(MainActivity.this, VentanaF.class);
-	            
 	            activityChangeIntent.putExtra("textBufferF", texto.getText()+"");
-	            
 	            MainActivity.this.startActivity(activityChangeIntent);
 		    }
 	};
@@ -142,9 +129,7 @@ public class MainActivity extends Activity {
 		    public void onClick(View v) {
 		    	//Acción al hacer click   
 	            Intent activityChangeIntent = new Intent(MainActivity.this, VentanaK.class);
-	            
 	            activityChangeIntent.putExtra("textBufferK", texto.getText()+"");
-	            
 	            MainActivity.this.startActivity(activityChangeIntent);
 		    }
 	};
@@ -153,9 +138,7 @@ public class MainActivity extends Activity {
 		    public void onClick(View v) {
 		    	//Acción al hacer click   
 	            Intent activityChangeIntent = new Intent(MainActivity.this, VentanaO.class);
-	            
 	            activityChangeIntent.putExtra("textBufferO", texto.getText()+"");
-	            
 	            MainActivity.this.startActivity(activityChangeIntent);
 		    }
     };
@@ -164,19 +147,18 @@ public class MainActivity extends Activity {
 		    public void onClick(View v) {
 		    	//Acción al hacer click   
 	            Intent activityChangeIntent = new Intent(MainActivity.this, VentanaT.class);
-	            
 	            activityChangeIntent.putExtra("textBufferT", texto.getText()+"");
-	            
 	            MainActivity.this.startActivity(activityChangeIntent);
 		    }
 	};
 	
 	View.OnClickListener controladorEspacio = new View.OnClickListener() {
-		public void onClick(View v) {
-			//Acción al hacer click   
-		    // Tomamos el buffer, le concatenamos ' ' y se lo "enlazamos" al mainBuffer
-	         mainBuffer += ' ';
-		}
+			public void onClick(View v) {
+				//Acción al hacer click
+				mainBuffer = (String) texto.getText();
+				mainBuffer += ' ';
+				texto.setText(mainBuffer);
+			}
 	};
 	  
 

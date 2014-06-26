@@ -35,7 +35,7 @@ public class VentanaT extends Activity {
         bttnSeY.setOnClickListener(controladorY);
         bttnPrSpace = (Button) findViewById(R.id.bttnPrSpace);
         bttnPrSpace.setOnClickListener(controladorEspacio);
-        
+        //Enlazamos el textView        
         texto = (TextView) findViewById(R.id.textView);
         texto.setText(MainActivity.texto.getText());
 	}
@@ -57,9 +57,7 @@ public class VentanaT extends Activity {
 	    public void onClick(View v) {
 	    	//Acción al hacer click   
 	        Intent activityChangeIntent = new Intent(VentanaT.this, MainActivity.class);
-	        // TODO: Escribir la letra T en el textField
-	        
-	   	 // Tomamos el buffer T, le concatenamos T y se lo "enlazamos" al mainBuffer	        
+	   	    // Tomamos el buffer T, le concatenamos T y se lo "enlazamos" al mainBuffer	        
 	        String bufferT = getIntent().getStringExtra("textBufferT") ;
 	        bufferT += 'T';
 	        activityChangeIntent.putExtra("mainBuffer", bufferT);
@@ -73,14 +71,10 @@ public class VentanaT extends Activity {
 	    public void onClick(View v) {
 	    	//Acción al hacer click   
 	        Intent activityChangeIntent = new Intent(VentanaT.this, MainActivity.class);
-	        // TODO: Escribir la letra U en el textField
-	        
-	     // Tomamos el buffer T, le concatenamos U y se lo "enlazamos" al mainBuffer	        
+	        // Tomamos el buffer T, le concatenamos U y se lo "enlazamos" al mainBuffer	        
 	        String bufferT = getIntent().getStringExtra("textBufferT") ;
 	        bufferT += 'U';
 	        activityChangeIntent.putExtra("mainBuffer", bufferT);
-	        
-	        
 	        VentanaT.this.startActivity(activityChangeIntent);
 	        finish();
 	    }
@@ -90,13 +84,10 @@ public class VentanaT extends Activity {
 	    public void onClick(View v) {
 	    	//Acción al hacer click   
 	        Intent activityChangeIntent = new Intent(VentanaT.this, MainActivity.class);
-	        // TODO: Escribir la letra V en el textField
-	        
-	     // Tomamos el buffer T, le concatenamos V y se lo "enlazamos" al mainBuffer	        
+	        // Tomamos el buffer T, le concatenamos V y se lo "enlazamos" al mainBuffer	        
 	        String bufferT = getIntent().getStringExtra("textBufferT") ;
 	        bufferT += 'V';
 	        activityChangeIntent.putExtra("mainBuffer", bufferT);
-	        
 	        VentanaT.this.startActivity(activityChangeIntent);
 	        finish();
 	    }
@@ -106,9 +97,7 @@ public class VentanaT extends Activity {
 	    public void onClick(View v) {
 	    	//Acción al hacer click   
 	        Intent activityChangeIntent = new Intent(VentanaT.this, MainActivity.class);
-	        // TODO: Escribir la letra T en el textField
-	        
-	     // Tomamos el buffer T, le concatenamos X y se lo "enlazamos" al mainBuffer	        
+	        // Tomamos el buffer T, le concatenamos X y se lo "enlazamos" al mainBuffer	        
 	        String bufferT = getIntent().getStringExtra("textBufferT") ;
 	        bufferT += 'X';
 	        activityChangeIntent.putExtra("mainBuffer", bufferT);
@@ -122,13 +111,10 @@ public class VentanaT extends Activity {
 	    public void onClick(View v) {
 	    	//Acción al hacer click   
 	        Intent activityChangeIntent = new Intent(VentanaT.this, MainActivity.class);
-	        // TODO: Escribir la letra T en el textField
-	        
-	     // Tomamos el buffer T, le concatenamos Y y se lo "enlazamos" al mainBuffer	        
+	        // Tomamos el buffer T, le concatenamos Y y se lo "enlazamos" al mainBuffer	        
 	        String bufferT = getIntent().getStringExtra("textBufferT") ;
 	        bufferT += 'Y';
 	        activityChangeIntent.putExtra("mainBuffer", bufferT);
-	        
 	        VentanaT.this.startActivity(activityChangeIntent);
 	        finish();
 	    }
@@ -138,14 +124,10 @@ public class VentanaT extends Activity {
 		public void onClick(View v) {
 			//Acción al hacer click   
 		    Intent activityChangeIntent = new Intent(VentanaT.this, MainActivity.class);
-		 // TODO: Escribir la letra E en el textField
-		   
 		    // Tomamos el buffer A, le concatenamos E y se lo "enlazamos" al mainBuffer
 		    String bufferA = getIntent().getStringExtra("textBufferA") ;
 	        bufferA += ' ';
 	        activityChangeIntent.putExtra("mainBuffer", bufferA);
-	        
-	        
 		    VentanaT.this.startActivity(activityChangeIntent);
 		    finish();
 		}

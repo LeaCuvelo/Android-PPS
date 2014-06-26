@@ -33,7 +33,7 @@ public class VentanaO extends Activity {
         bttnSeS.setOnClickListener(controladorS);	
         bttnPrSpace = (Button) findViewById(R.id.bttnPrSpace);
         bttnPrSpace.setOnClickListener(controladorEspacio);
-
+        //Enlazamos el textView
         texto = (TextView) findViewById(R.id.textView);
         texto.setText(MainActivity.texto.getText());
 	}
@@ -55,13 +55,10 @@ public class VentanaO extends Activity {
 		public void onClick(View v) {
 			//Acción al hacer click   
 			Intent activityChangeIntent = new Intent(VentanaO.this, MainActivity.class);
-			// TODO: Escribir la letra O en el textField
-			
 			 // Tomamos el buffer O, le concatenamos O y se lo "enlazamos" al mainBuffer	        
 	        String bufferO = getIntent().getStringExtra("textBufferO") ;
 	        bufferO += 'O';
 	        activityChangeIntent.putExtra("mainBuffer", bufferO);
-	        
 			VentanaO.this.startActivity(activityChangeIntent);
 			finish();        
 	    }
@@ -71,13 +68,10 @@ public class VentanaO extends Activity {
 		public void onClick(View v) {
 			//Acción al hacer click   
 			Intent activityChangeIntent = new Intent(VentanaO.this, MainActivity.class);
-			// TODO: Escribir la letra P en el textField
-			
 			 // Tomamos el buffer O, le concatenamos P y se lo "enlazamos" al mainBuffer	        
 	        String bufferO = getIntent().getStringExtra("textBufferO") ;
 	        bufferO += 'P';
-	        activityChangeIntent.putExtra("mainBuffer", bufferO);	
-	        
+	        activityChangeIntent.putExtra("mainBuffer", bufferO);
 			VentanaO.this.startActivity(activityChangeIntent);
 			finish();        
 	    }
@@ -87,13 +81,10 @@ public class VentanaO extends Activity {
 		public void onClick(View v) {
 			//Acción al hacer click   
 			Intent activityChangeIntent = new Intent(VentanaO.this, MainActivity.class);
-			// TODO: Escribir la letra Q en el textField
-			
 			 // Tomamos el buffer O, le concatenamos Q y se lo "enlazamos" al mainBuffer	        
 	        String bufferO = getIntent().getStringExtra("textBufferO") ;
 	        bufferO += 'Q';
 	        activityChangeIntent.putExtra("mainBuffer", bufferO);
-	        
 			VentanaO.this.startActivity(activityChangeIntent);
 			finish();        
 	    }
@@ -103,13 +94,10 @@ public class VentanaO extends Activity {
 		public void onClick(View v) {
 			//Acción al hacer click   
 			Intent activityChangeIntent = new Intent(VentanaO.this, MainActivity.class);
-			// TODO: Escribir la letra K en el textFiel
-			
 			 // Tomamos el buffer O, le concatenamos R y se lo "enlazamos" al mainBuffer	        
 	        String bufferO = getIntent().getStringExtra("textBufferO") ;
 	        bufferO += 'R';
 	        activityChangeIntent.putExtra("mainBuffer", bufferO);
-	        
 			VentanaO.this.startActivity(activityChangeIntent);
 			finish();        
 	    }
@@ -119,13 +107,10 @@ public class VentanaO extends Activity {
 		public void onClick(View v) {
 			//Acción al hacer click   
 			Intent activityChangeIntent = new Intent(VentanaO.this, MainActivity.class);
-			// TODO: Escribir la letra S en el textField
-			
 			 // Tomamos el buffer O, le concatenamos S y se lo "enlazamos" al mainBuffer	        
 	        String bufferO = getIntent().getStringExtra("textBufferO") ;
 	        bufferO += 'S';
 	        activityChangeIntent.putExtra("mainBuffer", bufferO);
-	        
 			VentanaO.this.startActivity(activityChangeIntent);
 			finish();        
 	    }
@@ -135,14 +120,10 @@ public class VentanaO extends Activity {
 		public void onClick(View v) {
 			//Acción al hacer click   
 		    Intent activityChangeIntent = new Intent(VentanaO.this, MainActivity.class);
-		 // TODO: Escribir la letra E en el textField
-		   
 		    // Tomamos el buffer A, le concatenamos E y se lo "enlazamos" al mainBuffer
 		    String bufferA = getIntent().getStringExtra("textBufferA") ;
 	        bufferA += ' ';
 	        activityChangeIntent.putExtra("mainBuffer", bufferA);
-	        
-	        
 		    VentanaO.this.startActivity(activityChangeIntent);
 		    finish();
 		}
