@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class VentanaO extends Activity {
-	private Button bttnSeO,bttnSeP,bttnSeQ,bttnSeR,bttnSeS;
+	private Button bttnSeO,bttnSeP,bttnSeQ,bttnSeR,bttnSeS,bttnPrSpace;
 	private TextView texto;
 	
 	@Override
@@ -31,7 +31,8 @@ public class VentanaO extends Activity {
         bttnSeR.setOnClickListener(controladorR);
         bttnSeS = (Button) findViewById(R.id.bttnSeS);
         bttnSeS.setOnClickListener(controladorS);	
-        
+        bttnPrSpace = (Button) findViewById(R.id.bttnPrSpace);
+        bttnPrSpace.setOnClickListener(controladorEspacio);
 
         texto = (TextView) findViewById(R.id.textView);
         texto.setText(MainActivity.texto.getText());
@@ -128,5 +129,22 @@ public class VentanaO extends Activity {
 			VentanaO.this.startActivity(activityChangeIntent);
 			finish();        
 	    }
+	};
+	
+	View.OnClickListener controladorEspacio = new View.OnClickListener() {
+		public void onClick(View v) {
+			//Acción al hacer click   
+		    Intent activityChangeIntent = new Intent(VentanaO.this, MainActivity.class);
+		 // TODO: Escribir la letra E en el textField
+		   
+		    // Tomamos el buffer A, le concatenamos E y se lo "enlazamos" al mainBuffer
+		    String bufferA = getIntent().getStringExtra("textBufferA") ;
+	        bufferA += ' ';
+	        activityChangeIntent.putExtra("mainBuffer", bufferA);
+	        
+	        
+		    VentanaO.this.startActivity(activityChangeIntent);
+		    finish();
+		}
 	};
 }

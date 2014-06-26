@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class VentanaA extends Activity {
-	private Button bttnSeA,bttnSeB,bttnSeC,bttnSeD,bttnSeE;
+	private Button bttnSeA,bttnSeB,bttnSeC,bttnSeD,bttnSeE,bttnPrSpace;
 	private TextView texto;
 	
 	@Override
@@ -31,6 +31,8 @@ public class VentanaA extends Activity {
         bttnSeD.setOnClickListener(controladorD);
         bttnSeE = (Button) findViewById(R.id.bttnSeE);
         bttnSeE.setOnClickListener(controladorE);
+        bttnPrSpace = (Button) findViewById(R.id.bttnPrSpace);
+        bttnPrSpace.setOnClickListener(controladorEspacio);
        //Enlazamos el textView
         texto = (TextView) findViewById(R.id.textView);
         texto.setText(MainActivity.texto.getText());
@@ -131,6 +133,23 @@ public class VentanaA extends Activity {
 		    // Tomamos el buffer A, le concatenamos E y se lo "enlazamos" al mainBuffer
 		    String bufferA = getIntent().getStringExtra("textBufferA") ;
 	        bufferA += 'E';
+	        activityChangeIntent.putExtra("mainBuffer", bufferA);
+	        
+	        
+		    VentanaA.this.startActivity(activityChangeIntent);
+		    finish();
+		}
+	};
+	
+	View.OnClickListener controladorEspacio = new View.OnClickListener() {
+		public void onClick(View v) {
+			//Acción al hacer click   
+		    Intent activityChangeIntent = new Intent(VentanaA.this, MainActivity.class);
+		 // TODO: Escribir la letra E en el textField
+		   
+		    // Tomamos el buffer A, le concatenamos E y se lo "enlazamos" al mainBuffer
+		    String bufferA = getIntent().getStringExtra("textBufferA") ;
+	        bufferA += ' ';
 	        activityChangeIntent.putExtra("mainBuffer", bufferA);
 	        
 	        

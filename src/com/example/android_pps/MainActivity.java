@@ -13,9 +13,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
-	private Button bttnPrA,bttnPrF,bttnPrK,bttnPrO,bttnPrT;
+	private Button bttnPrA,bttnPrF,bttnPrK,bttnPrO,bttnPrT,bttnPrSpace;
 	public static TextView texto;
 	private static MainActivity instance = null;
+	public String mainBuffer;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +43,15 @@ public class MainActivity extends Activity {
         bttnPrO.setOnClickListener(controladorO);
         bttnPrT = (Button) findViewById(R.id.bttnPrT);
         bttnPrT.setOnClickListener(controladorT);
+        bttnPrSpace = (Button) findViewById(R.id.bttnPrSpace);
+        bttnPrSpace.setOnClickListener(controladorEspacio);
         //Enlazamos el textView
         texto = (TextView) findViewById(R.id.textView);
         
         
         
         // Tomamos el valor del buffer
-         String mainBuffer = getIntent().getStringExtra("mainBuffer");
+         mainBuffer = getIntent().getStringExtra("mainBuffer");
          texto.setText(mainBuffer);
          //texto.setText("AAAAAAAAAAAAAAAAAAAAAAAAAF FFSDGSDFDG                             DGSDGSGSDGSDGSDGSDGSDGSDGSDGSGSDGSDJFGJGHJGH11 dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
   
@@ -166,6 +169,14 @@ public class MainActivity extends Activity {
 	            
 	            MainActivity.this.startActivity(activityChangeIntent);
 		    }
+	};
+	
+	View.OnClickListener controladorEspacio = new View.OnClickListener() {
+		public void onClick(View v) {
+			//Acción al hacer click   
+		    // Tomamos el buffer, le concatenamos ' ' y se lo "enlazamos" al mainBuffer
+	         mainBuffer += ' ';
+		}
 	};
 	  
 
