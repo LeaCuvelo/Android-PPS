@@ -121,7 +121,7 @@ public class VentanaO extends Activity {
 			//Acción al hacer click   
 		    Intent activityChangeIntent = new Intent(VentanaO.this, MainActivity.class);
 		    // Tomamos el buffer A, le concatenamos E y se lo "enlazamos" al mainBuffer
-		    String bufferA = getIntent().getStringExtra("textBufferA") ;
+		    String bufferA = getIntent().getStringExtra("textBufferO") ;
 	        bufferA += ' ';
 	        activityChangeIntent.putExtra("mainBuffer", bufferA);
 		    VentanaO.this.startActivity(activityChangeIntent);
