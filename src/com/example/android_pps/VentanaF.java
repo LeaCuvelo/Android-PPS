@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class VentanaF extends Activity {
-	private Button bttnSeF,bttnSeG,bttnSeH,bttnSeI,bttnSeJ,bttnPrSpace;
+	private Button bttnSeF,bttnSeG,bttnSeH,bttnSeI,bttnSeJ,bttnPrSpace,bttnPrDelete;
 	private TextView texto;
 
 	@Override
@@ -33,9 +33,11 @@ public class VentanaF extends Activity {
         bttnSeJ.setOnClickListener(controladorJ);
         bttnPrSpace = (Button) findViewById(R.id.bttnPrSpace);
         bttnPrSpace.setOnClickListener(controladorEspacio);
+        bttnPrDelete = (Button) findViewById(R.id.bttnPrDelete);
+        bttnPrDelete.setOnClickListener(controladorBorrar);
         //Enlazamos el textView
         texto = (TextView) findViewById(R.id.textView);
-        texto.setText(MainActivity.texto.getText());
+        texto.setText(MainActivity.getInstance().texto.getText());
 	}
 
 	@Override
@@ -126,6 +128,15 @@ public class VentanaF extends Activity {
 		        activityChangeIntent.putExtra("mainBuffer", bufferA);
 			    VentanaF.this.startActivity(activityChangeIntent);
 			    finish();
+			}
+		};
+		
+		View.OnClickListener controladorBorrar = new View.OnClickListener() {
+			public void onClick(View v) {
+				//Acción al hacer click
+				String bufferAux = (String) texto.getText();
+				bufferAux = bufferAux.substring(0, bufferAux.length()-1);
+				MainActivity.getInstance().texto.setText(bufferAux);
 			}
 		};
 }
