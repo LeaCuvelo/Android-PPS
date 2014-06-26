@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
-	private Button bttnPrA,bttnPrF,bttnPrK,bttnPrO,bttnPrT,bttnPrSpace, bttnPrDelete;
+	private Button bttnPrA,bttnPrF,bttnPrK,bttnPrO,bttnPrT,bttnPrSpace,bttnPrDelete,bttnPrPoint;
 	public TextView texto;
 	private static MainActivity instance = null;
 	public String mainBuffer;
@@ -47,6 +47,8 @@ public class MainActivity extends Activity {
         bttnPrSpace.setOnClickListener(controladorEspacio);
         bttnPrDelete = (Button) findViewById(R.id.bttnPrDelete);
         bttnPrDelete.setOnClickListener(controladorBorrar);
+        bttnPrPoint = (Button) findViewById(R.id.bttnPrPoint);
+        bttnPrPoint.setOnClickListener(controladorPunto);
         //Enlazamos el textView
         texto = (TextView) findViewById(R.id.textView);
         
@@ -171,6 +173,14 @@ public class MainActivity extends Activity {
 			texto.setText(mainBuffer);
 		}
 	};
-	  
+	
+	View.OnClickListener controladorPunto = new View.OnClickListener() {
+		public void onClick(View v) {
+			//Acción al hacer click
+			mainBuffer = (String) texto.getText();
+			mainBuffer +='.';
+			texto.setText(mainBuffer);
+		}
+	};
 
 }

@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class VentanaT extends Activity {
-	private Button bttnSeT,bttnSeU,bttnSeV,bttnSeX,bttnSeY,bttnPrSpace,bttnPrDelete;
+	private Button bttnSeT,bttnSeU,bttnSeV,bttnSeX,bttnSeY,bttnPrSpace,bttnPrDelete,bttnPrPoint;
 	private TextView texto;
 
 	@Override
@@ -37,6 +37,8 @@ public class VentanaT extends Activity {
         bttnPrSpace.setOnClickListener(controladorEspacio);
         bttnPrDelete = (Button) findViewById(R.id.bttnPrDelete);
         bttnPrDelete.setOnClickListener(controladorBorrar);
+        bttnPrPoint = (Button) findViewById(R.id.bttnPrPoint);
+        bttnPrPoint.setOnClickListener(controladorPunto);
         //Enlazamos el textView        
         texto = (TextView) findViewById(R.id.textView);
         texto.setText(MainActivity.getInstance().texto.getText());
@@ -140,6 +142,15 @@ public class VentanaT extends Activity {
 			//Acción al hacer click
 			String bufferAux = (String) texto.getText();
 			bufferAux = bufferAux.substring(0, bufferAux.length()-1);
+			MainActivity.getInstance().texto.setText(bufferAux);
+		}
+	};
+	
+	View.OnClickListener controladorPunto = new View.OnClickListener() {
+		public void onClick(View v) {
+			//Acción al hacer click
+			String bufferAux = (String) texto.getText();
+			bufferAux +='.';
 			MainActivity.getInstance().texto.setText(bufferAux);
 		}
 	};
