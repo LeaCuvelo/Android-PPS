@@ -81,6 +81,7 @@ public final class R {
         public static final int my_name=0x7f050004;
     }
     public static final class style {
+        public static final int AparienciaTextoNormal=0x7f060002;
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
