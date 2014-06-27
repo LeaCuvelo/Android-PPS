@@ -53,13 +53,13 @@ public class MainActivity extends Activity {
         texto = (TextView) findViewById(R.id.textView);
         
         
-        
-        // Tomamos el valor del buffer
-         mainBuffer = getIntent().getStringExtra("mainBuffer");
-         texto.setText(mainBuffer);
+        //Tomamos el valor del buffer
+        mainBuffer = getIntent().getStringExtra("mainBuffer");
+        texto.setText(mainBuffer);
          
-         //AL DESCOMENTAR LA LÍNEA DE ABAJO, PODEMOS PROBAR SI EL TEXTVIEW SE VE COMPLETO, SCROLLEA, ETC.
-         //texto.setText("AAAAAAAAAAAAAAAAAAAAAAAAAF FFSDGSDFDG                             DGSDGSGSDGSDGSDGSDGSDGSDGSDGSGSDGSDJFGJGHJGH11 dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
+         
+        //AL DESCOMENTAR LA LÍNEA DE ABAJO, PODEMOS PROBAR SI EL TEXTVIEW SE VE COMPLETO, SCROLLEA, ETC.
+        //texto.setText("AAAAAAAAAAAAAAAAAAAAAAAAAF FFSDGSDFDG                             DGSDGSGSDGSDGSDGSDGSDGSDGSDGSGSDGSDJFGJGHJGH11 dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
 	}
 	
 	public static MainActivity getInstance(){

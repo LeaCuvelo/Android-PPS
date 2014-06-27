@@ -161,13 +161,14 @@
         android:minWidth="1dp"
         android:text="SI"
         android:width="116dp" />
-
+	
     <TextView
         style="@style/AparienciaTextoNormal"
         android:id="@+id/textView"
         android:layout_alignBottom="@+id/bttnSeX"
         android:layout_alignLeft="@+id/bttnPrSI"
         android:layout_alignRight="@+id/bttnPrNO"
-        android:layout_below="@+id/bttnPrNO"/>
+        android:layout_below="@+id/bttnPrNO"
+        android:scrollbars="vertical" />
 
 </RelativeLayout>
