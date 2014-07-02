@@ -10,8 +10,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class VentanaO extends Activity {
-	private Button bttnSeO,bttnSeP,bttnSeQ,bttnSeR,bttnSeS,bttnPrSpace;
+	private Button bttnSeO,bttnSeP,bttnSeQ,bttnSeR,bttnSeS,bttnPrSpace,bttnPrDelete,bttnPrPoint;
 	private TextView texto;
+	private String bufferO;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +34,15 @@ public class VentanaO extends Activity {
         bttnSeS.setOnClickListener(controladorS);	
         bttnPrSpace = (Button) findViewById(R.id.bttnPrSpace);
         bttnPrSpace.setOnClickListener(controladorEspacio);
+        bttnPrPoint = (Button) findViewById(R.id.bttnPrPoint);
+        bttnPrPoint.setOnClickListener(controladorBorrar);
         //Enlazamos el textView
         texto = (TextView) findViewById(R.id.textView);
         texto.setText(MainActivity.texto.getText());
+        bttnPrDelete = (Button) findViewById(R.id.bttnPrDelete);
+        bttnPrDelete.setOnClickListener(controladorBorrar);
+        //Tomamos el texto del mainBuffer 
+        bufferO = getIntent().getStringExtra("textBufferO") ;
 	}
 
 	@Override
@@ -56,7 +63,6 @@ public class VentanaO extends Activity {
 			//Acción al hacer click   
 			Intent activityChangeIntent = new Intent(VentanaO.this, MainActivity.class);
 			 // Tomamos el buffer O, le concatenamos O y se lo "enlazamos" al mainBuffer	        
-	        String bufferO = getIntent().getStringExtra("textBufferO") ;
 	        bufferO += 'O';
 	        activityChangeIntent.putExtra("mainBuffer", bufferO);
 			VentanaO.this.startActivity(activityChangeIntent);
@@ -69,7 +75,6 @@ public class VentanaO extends Activity {
 			//Acción al hacer click   
 			Intent activityChangeIntent = new Intent(VentanaO.this, MainActivity.class);
 			 // Tomamos el buffer O, le concatenamos P y se lo "enlazamos" al mainBuffer	        
-	        String bufferO = getIntent().getStringExtra("textBufferO") ;
 	        bufferO += 'P';
 	        activityChangeIntent.putExtra("mainBuffer", bufferO);
 			VentanaO.this.startActivity(activityChangeIntent);
@@ -82,7 +87,6 @@ public class VentanaO extends Activity {
 			//Acción al hacer click   
 			Intent activityChangeIntent = new Intent(VentanaO.this, MainActivity.class);
 			 // Tomamos el buffer O, le concatenamos Q y se lo "enlazamos" al mainBuffer	        
-	        String bufferO = getIntent().getStringExtra("textBufferO") ;
 	        bufferO += 'Q';
 	        activityChangeIntent.putExtra("mainBuffer", bufferO);
 			VentanaO.this.startActivity(activityChangeIntent);
@@ -95,7 +99,6 @@ public class VentanaO extends Activity {
 			//Acción al hacer click   
 			Intent activityChangeIntent = new Intent(VentanaO.this, MainActivity.class);
 			 // Tomamos el buffer O, le concatenamos R y se lo "enlazamos" al mainBuffer	        
-	        String bufferO = getIntent().getStringExtra("textBufferO") ;
 	        bufferO += 'R';
 	        activityChangeIntent.putExtra("mainBuffer", bufferO);
 			VentanaO.this.startActivity(activityChangeIntent);
@@ -108,7 +111,6 @@ public class VentanaO extends Activity {
 			//Acción al hacer click   
 			Intent activityChangeIntent = new Intent(VentanaO.this, MainActivity.class);
 			 // Tomamos el buffer O, le concatenamos S y se lo "enlazamos" al mainBuffer	        
-	        String bufferO = getIntent().getStringExtra("textBufferO") ;
 	        bufferO += 'S';
 	        activityChangeIntent.putExtra("mainBuffer", bufferO);
 			VentanaO.this.startActivity(activityChangeIntent);
@@ -121,11 +123,26 @@ public class VentanaO extends Activity {
 			//Acción al hacer click   
 		    Intent activityChangeIntent = new Intent(VentanaO.this, MainActivity.class);
 		    // Tomamos el buffer A, le concatenamos E y se lo "enlazamos" al mainBuffer
-		    String bufferA = getIntent().getStringExtra("textBufferO") ;
-	        bufferA += ' ';
-	        activityChangeIntent.putExtra("mainBuffer", bufferA);
+	        activityChangeIntent.putExtra("mainBuffer", bufferO);
 		    VentanaO.this.startActivity(activityChangeIntent);
 		    finish();
+		}
+	};
+	
+	View.OnClickListener controladorBorrar = new View.OnClickListener() {
+		public void onClick(View v) {
+			    // Tomamos el buffer A, le borramos lo ultimo y se lo "enlazamos" al mainBuffer
+			    bufferO = bufferO.substring(0,bufferO.length()-1);
+			    texto.setText(bufferO);
+			    finish();
+		}
+	};
+	
+	View.OnClickListener controladorPunto = new View.OnClickListener() {
+		public void onClick(View v) {
+			//Acción al hacer click   
+			bufferO += '.';
+		    texto.setText(bufferO);
 		}
 	};
 }
