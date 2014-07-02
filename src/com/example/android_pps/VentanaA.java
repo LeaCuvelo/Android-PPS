@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class VentanaA extends Activity {
-	private Button bttnSeA,bttnSeB,bttnSeC,bttnSeD,bttnSeE,bttnPrSpace,bttnPrDelete,bttnPrPoint;
+	private Button bttnSeA,bttnSeB,bttnSeC,bttnSeD,bttnSeE,bttnPrSpace;
 	private TextView texto;
 	
 	@Override
@@ -33,13 +33,9 @@ public class VentanaA extends Activity {
         bttnSeE.setOnClickListener(controladorE);
         bttnPrSpace = (Button) findViewById(R.id.bttnPrSpace);
         bttnPrSpace.setOnClickListener(controladorEspacio);
-        bttnPrDelete = (Button) findViewById(R.id.bttnPrDelete);
-        bttnPrDelete.setOnClickListener(controladorBorrar);
-        bttnPrPoint = (Button) findViewById(R.id.bttnPrPoint);
-        bttnPrPoint.setOnClickListener(controladorPunto);
        //Enlazamos el textView
         texto = (TextView) findViewById(R.id.textView);
-        texto.setText(MainActivity.getInstance().texto.getText());
+        texto.setText(MainActivity.texto.getText());
         
        
         
@@ -133,24 +129,6 @@ public class VentanaA extends Activity {
 	        activityChangeIntent.putExtra("mainBuffer", bufferA);
 		    VentanaA.this.startActivity(activityChangeIntent);
 		    finish();
-		}
-	};
-	
-	View.OnClickListener controladorBorrar = new View.OnClickListener() {
-		public void onClick(View v) {
-			//Acción al hacer click
-			String bufferAux = (String) texto.getText();
-			bufferAux = bufferAux.substring(0, bufferAux.length()-1);
-			MainActivity.getInstance().texto.setText(bufferAux);
-		}
-	};
-	
-	View.OnClickListener controladorPunto = new View.OnClickListener() {
-		public void onClick(View v) {
-			//Acción al hacer click
-			String bufferAux = (String) texto.getText();
-			bufferAux +='.';
-			MainActivity.getInstance().texto.setText(bufferAux);
 		}
 	};
 }
