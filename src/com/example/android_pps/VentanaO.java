@@ -34,13 +34,13 @@ public class VentanaO extends Activity {
         bttnSeS.setOnClickListener(controladorS);	
         bttnPrSpace = (Button) findViewById(R.id.bttnPrSpace);
         bttnPrSpace.setOnClickListener(controladorEspacio);
+        bttnPrDelete = (Button) findViewById(R.id.bttnPrDelete);
+        bttnPrDelete.setOnClickListener(controladorBorrar);
         bttnPrPoint = (Button) findViewById(R.id.bttnPrPoint);
-        bttnPrPoint.setOnClickListener(controladorBorrar);
+        bttnPrPoint.setOnClickListener(controladorPunto);
         //Enlazamos el textView
         texto = (TextView) findViewById(R.id.textView);
         texto.setText(MainActivity.texto.getText());
-        bttnPrDelete = (Button) findViewById(R.id.bttnPrDelete);
-        bttnPrDelete.setOnClickListener(controladorBorrar);
         //Tomamos el texto del mainBuffer 
         bufferO = getIntent().getStringExtra("textBufferO") ;
 	}
@@ -134,7 +134,6 @@ public class VentanaO extends Activity {
 			    // Tomamos el buffer A, le borramos lo ultimo y se lo "enlazamos" al mainBuffer
 			    bufferO = bufferO.substring(0,bufferO.length()-1);
 			    texto.setText(bufferO);
-			    finish();
 		}
 	};
 	

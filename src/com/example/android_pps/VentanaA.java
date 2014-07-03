@@ -125,7 +125,6 @@ public class VentanaA extends Activity {
 			//Acción al hacer click   
 		    Intent activityChangeIntent = new Intent(VentanaA.this, MainActivity.class);
 		    // Tomamos el buffer A, le concatenamos E y se lo "enlazamos" al mainBuffer
-		    bufferA = getIntent().getStringExtra("texto") ;
 	        activityChangeIntent.putExtra("mainBuffer", bufferA);
 		    VentanaA.this.startActivity(activityChangeIntent);
 		    finish();
@@ -137,7 +136,6 @@ public class VentanaA extends Activity {
 			    // Tomamos el buffer A, le borramos lo ultimo y se lo "enlazamos" al mainBuffer
 			    bufferA = bufferA.substring(0,bufferA.length()-1);
 			    texto.setText(bufferA);
-			    finish();
 		}
 	};
 	
