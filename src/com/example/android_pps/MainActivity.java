@@ -169,8 +169,10 @@ public class MainActivity extends Activity {
 		public void onClick(View v) {
 			//Acción al hacer click
 			mainBuffer = (String) texto.getText();
-			mainBuffer = mainBuffer.substring(0,mainBuffer.length()-1);
-			texto.setText(mainBuffer);
+			if (mainBuffer.length() > 0){
+				mainBuffer = mainBuffer.substring(0,mainBuffer.length()-1);
+				texto.setText(mainBuffer);
+			}
 		}
 	};
 	View.OnClickListener controladorPunto = new View.OnClickListener() {

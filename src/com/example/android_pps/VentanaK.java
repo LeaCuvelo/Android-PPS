@@ -37,7 +37,6 @@ public class VentanaK extends Activity {
         bttnPrDelete = (Button) findViewById(R.id.bttnPrDelete);
         bttnPrDelete.setOnClickListener(controladorBorrar);
         bttnPrPoint = (Button) findViewById(R.id.bttnPrPoint);
-        bttnPrPoint.setOnClickListener(controladorPunto);
         //Enlazamos el textView        
         texto = (TextView) findViewById(R.id.textView);
         texto.setText(MainActivity.texto.getText());
@@ -111,7 +110,7 @@ public class VentanaK extends Activity {
 			//Acción al hacer click   
 			Intent activityChangeIntent = new Intent(VentanaK.this, MainActivity.class);
 			 // Tomamos el buffer K, le concatenamos enie y se lo "enlazamos" al mainBuffer	        
-	        bufferK += 'ñ';
+	        bufferK += 'Ñ';
 	        activityChangeIntent.putExtra("mainBuffer", bufferK);
 			VentanaK.this.startActivity(activityChangeIntent);
 			finish();        
@@ -134,14 +133,6 @@ public class VentanaK extends Activity {
 			    // Tomamos el buffer A, le borramos lo ultimo y se lo "enlazamos" al mainBuffer
 			    bufferK = bufferK.substring(0,bufferK.length()-1);
 			    texto.setText(bufferK);
-		}
-	};
-	
-	View.OnClickListener controladorPunto = new View.OnClickListener() {
-		public void onClick(View v) {
-			//Acción al hacer click   
-			bufferK += '.';
-		    texto.setText(bufferK);
 		}
 	};
 }
