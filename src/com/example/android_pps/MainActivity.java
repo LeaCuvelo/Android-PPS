@@ -169,9 +169,16 @@ public class MainActivity extends Activity {
 		public void onClick(View v) {
 			//Acción al hacer click
 			mainBuffer = (String) texto.getText();
-			if (mainBuffer.length() > 0){
-				mainBuffer = mainBuffer.substring(0,mainBuffer.length()-1);
-				texto.setText(mainBuffer);
+			int longitudBuffer = mainBuffer.length();
+			if (longitudBuffer > 0){
+				if ( mainBuffer.charAt(longitudBuffer) == 'U' && mainBuffer.charAt(longitudBuffer-1) == 'Q'){
+					mainBuffer = mainBuffer.substring(0,longitudBuffer-2);
+					texto.setText(mainBuffer);
+				}
+				else{
+					mainBuffer = mainBuffer.substring(0,longitudBuffer-1);
+					texto.setText(mainBuffer);
+				}
 			}
 		}
 	};

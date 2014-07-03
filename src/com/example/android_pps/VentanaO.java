@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class VentanaO extends Activity {
-	private Button bttnSeO,bttnSeP,bttnSeQ,bttnSeR,bttnSeS,bttnPrSpace,bttnPrDelete,bttnPrPoint;
+	private Button bttnSeO,bttnSeP,bttnSeQ,bttnSeR,bttnSeS,bttnPrSpace,bttnPrDelete;
 	private TextView texto;
 	private String bufferO;
 	
@@ -36,7 +36,6 @@ public class VentanaO extends Activity {
         bttnPrSpace.setOnClickListener(controladorEspacio);
         bttnPrDelete = (Button) findViewById(R.id.bttnPrDelete);
         bttnPrDelete.setOnClickListener(controladorBorrar);
-        bttnPrPoint = (Button) findViewById(R.id.bttnPrPoint);
         //Enlazamos el textView
         texto = (TextView) findViewById(R.id.textView);
         texto.setText(MainActivity.texto.getText());
@@ -131,8 +130,17 @@ public class VentanaO extends Activity {
 	View.OnClickListener controladorBorrar = new View.OnClickListener() {
 		public void onClick(View v) {
 			    // Tomamos el buffer A, le borramos lo ultimo y se lo "enlazamos" al mainBuffer
-			    bufferO = bufferO.substring(0,bufferO.length()-1);
-			    texto.setText(bufferO);
+			int longitudBuffer = bufferO.length();
+			if (longitudBuffer > 0){
+				if ( bufferO.charAt(longitudBuffer-1) == 'U' && bufferO.charAt(longitudBuffer-2) == 'Q'){
+					bufferO = bufferO.substring(0,longitudBuffer-2);
+					texto.setText(bufferO);
+				}
+				else{
+					bufferO = bufferO.substring(0,longitudBuffer-1);
+					texto.setText(bufferO);
+				}
+			}
 		}
 	};
 }
