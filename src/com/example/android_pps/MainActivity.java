@@ -46,7 +46,8 @@ public class MainActivity extends Activity {
         bttnPrSpace = (Button) findViewById(R.id.bttnPrSpace);
         bttnPrSpace.setOnClickListener(controladorEspacio);
         bttnPrDelete = (Button) findViewById(R.id.bttnPrDelete);
-        bttnPrDelete.setOnClickListener(controladorBorrar);
+        bttnPrDelete.setOnClickListener(controladorBorrar1);
+        bttnPrDelete.setOnLongClickListener(controladorBorrar2);
         bttnPrPoint = (Button) findViewById(R.id.bttnPrPoint);
         bttnPrPoint.setOnClickListener(controladorPunto);
         //Enlazamos el textView
@@ -165,7 +166,7 @@ public class MainActivity extends Activity {
 			}
 	};
 	
-	View.OnClickListener controladorBorrar = new View.OnClickListener() {
+	View.OnClickListener controladorBorrar1 = new View.OnClickListener() {
 		public void onClick(View v) {
 			//Acción al hacer click
 			mainBuffer = (String) texto.getText();
@@ -182,6 +183,16 @@ public class MainActivity extends Activity {
 			}
 		}
 	};
+	
+	View.OnLongClickListener controladorBorrar2 = new View.OnLongClickListener() {
+		public boolean onLongClick(View v){
+			//Acción al mantener presionado
+			mainBuffer = "";
+			texto.setText(mainBuffer);
+			return true;
+		}
+	};
+	
 	View.OnClickListener controladorPunto = new View.OnClickListener() {
 		public void onClick(View v) {
 			//Acción al hacer click
@@ -190,8 +201,4 @@ public class MainActivity extends Activity {
 			texto.setText(mainBuffer);
 		}
 	};
-	
-	
-	  
-
 }
