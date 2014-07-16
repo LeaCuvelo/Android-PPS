@@ -65,8 +65,9 @@ public class VentanaA extends Activity {
 	        // Tomamos el buffer A, le concatenamos A y se lo "enlazamos" al mainBuffer	        
 	        bufferA += 'A';
 	        activityChangeIntent.putExtra("mainBuffer", bufferA);
-	        VentanaA.this.startActivity(activityChangeIntent);
 	        finish();
+	        VentanaA.this.startActivity(activityChangeIntent);
+	        
 	    }
 	};
 		  
@@ -77,8 +78,9 @@ public class VentanaA extends Activity {
 		    // Tomamos el buffer A, le concatenamos B y se lo "enlazamos" al mainBuffer
 	        bufferA += 'B';
 	        activityChangeIntent.putExtra("mainBuffer", bufferA);
+	        finish();
 		    VentanaA.this.startActivity(activityChangeIntent);
-		    finish();
+		   
 		}
 	};
 		  
@@ -89,8 +91,9 @@ public class VentanaA extends Activity {
 		    // Tomamos el buffer A, le concatenamos C y se lo "enlazamos" al mainBuffer
 	        bufferA += 'C';
 	        activityChangeIntent.putExtra("mainBuffer", bufferA);
+	        finish();
 		    VentanaA.this.startActivity(activityChangeIntent);
-		    finish();
+		    
 		}
 	};
 		  
@@ -101,8 +104,9 @@ public class VentanaA extends Activity {
 		    // Tomamos el buffer A, le concatenamos D y se lo "enlazamos" al mainBuffer
 	        bufferA += 'D';
 	        activityChangeIntent.putExtra("mainBuffer", bufferA);
+	        finish();
 		    VentanaA.this.startActivity(activityChangeIntent);
-		    finish();
+		   
 		}
 	};
 		  
@@ -113,8 +117,9 @@ public class VentanaA extends Activity {
 		    // Tomamos el buffer A, le concatenamos E y se lo "enlazamos" al mainBuffer
 	        bufferA += 'E';
 	        activityChangeIntent.putExtra("mainBuffer", bufferA);
+	        finish();;
 		    VentanaA.this.startActivity(activityChangeIntent);
-		    finish();
+		   
 		}
 	};
 	
@@ -124,8 +129,9 @@ public class VentanaA extends Activity {
 		    Intent activityChangeIntent = new Intent(VentanaA.this, MainActivity.class);
 		    // Tomamos el buffer A, le concatenamos E y se lo "enlazamos" al mainBuffer
 	        activityChangeIntent.putExtra("mainBuffer", bufferA);
+	        finish();
 		    VentanaA.this.startActivity(activityChangeIntent);
-		    finish();
+		   
 		}
 	};
 	

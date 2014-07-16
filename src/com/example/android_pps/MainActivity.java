@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
         bttnPrSpace.setOnClickListener(controladorEspacio);
         bttnPrDelete = (Button) findViewById(R.id.bttnPrDelete);
         bttnPrDelete.setOnClickListener(controladorBorrar1);
-       // bttnPrDelete.setOnLongClickListener(controladorBorrar2);
+       bttnPrDelete.setOnLongClickListener(controladorBorrar2);
         bttnPrPoint = (Button) findViewById(R.id.bttnPrPoint);
         bttnPrPoint.setOnClickListener(controladorPunto);
         //Enlazamos el textView
@@ -59,8 +59,6 @@ public class MainActivity extends Activity {
          mainBuffer = getIntent().getStringExtra("mainBuffer");
          texto.setText(mainBuffer);
          
-         //AL DESCOMENTAR LA LÍNEA DE ABAJO, PODEMOS PROBAR SI EL TEXTVIEW SE VE COMPLETO, SCROLLEA, ETC.
-         //texto.setText("AAAAAAAAAAAAAAAAAAAAAAAAAF FFSDGSDFDG                             DGSDGSGSDGSDGSDGSDGSDGSDGSDGSGSDGSDJFGJGHJGH11 dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
 	}
 	
 	public static MainActivity getInstance(){
@@ -181,23 +179,18 @@ public class MainActivity extends Activity {
 						texto.setText(mainBuffer);
 					}
 				}
-			/*if (longitudBuffer > 0){
-					mainBuffer = mainBuffer.substring(0,longitudBuffer-1);
-					texto.setText(mainBuffer);
-					}
-			}*/
 		}
 		
 	};
 	
-	/*View.OnLongClickListener controladorBorrar2 = new View.OnLongClickListener() {
+	View.OnLongClickListener controladorBorrar2 = new View.OnLongClickListener() {
 		public boolean onLongClick(View v){
 			//Acción al mantener presionado
 			mainBuffer = "";
 			texto.setText(mainBuffer);
 			return true;
 		}
-	};*/
+	};
 	
 	View.OnClickListener controladorPunto = new View.OnClickListener() {
 		public void onClick(View v) {

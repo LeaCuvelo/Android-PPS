@@ -63,8 +63,8 @@ public class VentanaK extends Activity {
 			 // Tomamos el buffer K, le concatenamos K y se lo "enlazamos" al mainBuffer	        
 	        bufferK += 'K';
 	        activityChangeIntent.putExtra("mainBuffer", bufferK);
-			VentanaK.this.startActivity(activityChangeIntent);
-			finish();        
+	        finish(); 
+			VentanaK.this.startActivity(activityChangeIntent);       
 	    }
 	};
 	
@@ -75,8 +75,8 @@ public class VentanaK extends Activity {
 			 // Tomamos el buffer K, le concatenamos L y se lo "enlazamos" al mainBuffer	        
 	        bufferK += 'L';
 	        activityChangeIntent.putExtra("mainBuffer", bufferK);
-			VentanaK.this.startActivity(activityChangeIntent);
-			finish();        
+	        finish(); 
+			VentanaK.this.startActivity(activityChangeIntent);     
 	    }
 	};
 	
@@ -87,8 +87,8 @@ public class VentanaK extends Activity {
 			 // Tomamos el buffer K, le concatenamos M y se lo "enlazamos" al mainBuffer	        
 	        bufferK += 'M';
 	        activityChangeIntent.putExtra("mainBuffer", bufferK);
-			VentanaK.this.startActivity(activityChangeIntent);
-			finish();        
+	        finish(); 
+			VentanaK.this.startActivity(activityChangeIntent);    
 	    }
 	};
 	
@@ -99,8 +99,8 @@ public class VentanaK extends Activity {
 			 // Tomamos el buffer K, le concatenamos N y se lo "enlazamos" al mainBuffer	        
 	        bufferK += 'N';
 	        activityChangeIntent.putExtra("mainBuffer", bufferK);
-			VentanaK.this.startActivity(activityChangeIntent);
-			finish();        
+	        finish(); 
+			VentanaK.this.startActivity(activityChangeIntent);       
 	    }
 	};
 	
@@ -111,8 +111,8 @@ public class VentanaK extends Activity {
 			 // Tomamos el buffer K, le concatenamos enie y se lo "enlazamos" al mainBuffer	        
 	        bufferK += 'Ñ';
 	        activityChangeIntent.putExtra("mainBuffer", bufferK);
-			VentanaK.this.startActivity(activityChangeIntent);
-			finish();        
+	        finish(); 
+			VentanaK.this.startActivity(activityChangeIntent);       
 	    }
 	};
 	
@@ -122,8 +122,8 @@ public class VentanaK extends Activity {
 		    Intent activityChangeIntent = new Intent(VentanaK.this, MainActivity.class);
 		    // Tomamos el buffer A, le concatenamos E y se lo "enlazamos" al mainBuffer
 	        activityChangeIntent.putExtra("mainBuffer", bufferK);
+	        finish(); 
 		    VentanaK.this.startActivity(activityChangeIntent);
-		    finish();
 		}
 	};
 	

@@ -65,9 +65,8 @@ public class VentanaT extends Activity {
 	   	    // Tomamos el buffer T, le concatenamos T y se lo "enlazamos" al mainBuffer	        
 	        bufferT += 'T';
 	        activityChangeIntent.putExtra("mainBuffer", bufferT);
-	        
+	        finish(); 
 	        VentanaT.this.startActivity(activityChangeIntent);
-	        finish();
 	    }
 	};
 	
@@ -78,8 +77,8 @@ public class VentanaT extends Activity {
 	        // Tomamos el buffer T, le concatenamos U y se lo "enlazamos" al mainBuffer	        
 	        bufferT += 'U';
 	        activityChangeIntent.putExtra("mainBuffer", bufferT);
+	        finish(); 
 	        VentanaT.this.startActivity(activityChangeIntent);
-	        finish();
 	    }
 	};
 	
@@ -90,8 +89,8 @@ public class VentanaT extends Activity {
 	        // Tomamos el buffer T, le concatenamos V y se lo "enlazamos" al mainBuffer	        
 	        bufferT += 'V';
 	        activityChangeIntent.putExtra("mainBuffer", bufferT);
+	        finish(); 
 	        VentanaT.this.startActivity(activityChangeIntent);
-	        finish();
 	    }
 	};
 	
@@ -102,9 +101,8 @@ public class VentanaT extends Activity {
 	        // Tomamos el buffer T, le concatenamos X y se lo "enlazamos" al mainBuffer	        
 	        bufferT += 'X';
 	        activityChangeIntent.putExtra("mainBuffer", bufferT);
-	        
+	        finish(); 
 	        VentanaT.this.startActivity(activityChangeIntent);
-	        finish();
 	    }
 	};
 	
@@ -115,8 +113,8 @@ public class VentanaT extends Activity {
 	        // Tomamos el buffer T, le concatenamos Y y se lo "enlazamos" al mainBuffer	        
 	        bufferT += 'Y';
 	        activityChangeIntent.putExtra("mainBuffer", bufferT);
+	        finish(); 
 	        VentanaT.this.startActivity(activityChangeIntent);
-	        finish();
 	    }
 	};
 	
