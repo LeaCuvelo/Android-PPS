@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
         bttnPrSpace.setOnClickListener(controladorEspacio);
         bttnPrDelete = (Button) findViewById(R.id.bttnPrDelete);
         bttnPrDelete.setOnClickListener(controladorBorrar1);
-        bttnPrDelete.setOnLongClickListener(controladorBorrar2);
+       // bttnPrDelete.setOnLongClickListener(controladorBorrar2);
         bttnPrPoint = (Button) findViewById(R.id.bttnPrPoint);
         bttnPrPoint.setOnClickListener(controladorPunto);
         //Enlazamos el textView
@@ -171,27 +171,33 @@ public class MainActivity extends Activity {
 			//Acción al hacer click
 			mainBuffer = (String) texto.getText();
 			int longitudBuffer = mainBuffer.length();
-			if (longitudBuffer > 0){
-				if ( mainBuffer.charAt(longitudBuffer) == 'U' && mainBuffer.charAt(longitudBuffer-1) == 'Q'){
-					mainBuffer = mainBuffer.substring(0,longitudBuffer-2);
-					texto.setText(mainBuffer);
+			if (longitudBuffer > 0 ){
+					if ( (longitudBuffer > 1) && (mainBuffer.charAt(longitudBuffer-1) == 'U') && (mainBuffer.charAt(longitudBuffer-2) == 'Q')){
+						mainBuffer = mainBuffer.substring(0,longitudBuffer-2);
+						texto.setText(mainBuffer);
+					}
+					else{
+						mainBuffer = mainBuffer.substring(0,longitudBuffer-1);
+						texto.setText(mainBuffer);
+					}
 				}
-				else{
+			/*if (longitudBuffer > 0){
 					mainBuffer = mainBuffer.substring(0,longitudBuffer-1);
 					texto.setText(mainBuffer);
-				}
-			}
+					}
+			}*/
 		}
+		
 	};
 	
-	View.OnLongClickListener controladorBorrar2 = new View.OnLongClickListener() {
+	/*View.OnLongClickListener controladorBorrar2 = new View.OnLongClickListener() {
 		public boolean onLongClick(View v){
 			//Acción al mantener presionado
 			mainBuffer = "";
 			texto.setText(mainBuffer);
 			return true;
 		}
-	};
+	};*/
 	
 	View.OnClickListener controladorPunto = new View.OnClickListener() {
 		public void onClick(View v) {
