@@ -37,7 +37,8 @@ public class VentanaT extends Activity {
         bttnPrSpace = (Button) findViewById(R.id.bttnPrSpace);
         bttnPrSpace.setOnClickListener(controladorEspacio);
         bttnPrDelete = (Button) findViewById(R.id.bttnPrDelete);
-        bttnPrDelete.setOnClickListener(controladorBorrar);
+        bttnPrDelete.setOnClickListener(controladorBorrarCaracter);
+        bttnPrDelete.setOnLongClickListener(controladorBorrarTodo);
         //Enlazamos el textView        
         texto = (TextView) findViewById(R.id.textView);
         texto.setText(MainActivity.texto.getText());
@@ -124,25 +125,35 @@ public class VentanaT extends Activity {
 		    Intent activityChangeIntent = new Intent(VentanaT.this, MainActivity.class);
 		    // Tomamos el buffer A, le concatenamos E y se lo "enlazamos" al mainBuffer
 	        activityChangeIntent.putExtra("mainBuffer", bufferT);
+	        finish();
 		    VentanaT.this.startActivity(activityChangeIntent);
-		    finish();
 		}
 	};
 	
-	View.OnClickListener controladorBorrar = new View.OnClickListener() {
+	View.OnClickListener controladorBorrarCaracter = new View.OnClickListener() {
 		public void onClick(View v) {
-			    // Tomamos el buffer A, le borramos lo ultimo y se lo "enlazamos" al mainBuffer
+			//Acción al hacer click
 			int longitudBuffer = bufferT.length();
-			if (longitudBuffer > 0){
-				if ( bufferT.charAt(longitudBuffer-1) == 'U' && bufferT.charAt(longitudBuffer-2) == 'Q'){
-					bufferT = bufferT.substring(0,longitudBuffer-2);
-					texto.setText(bufferT);
+			if (longitudBuffer > 0 ){
+					if ( (longitudBuffer > 1) && (bufferT.charAt(longitudBuffer-1) == 'U') && (bufferT.charAt(longitudBuffer-2) == 'Q')){
+						bufferT = bufferT.substring(0,longitudBuffer-2);
+						texto.setText(bufferT);
+					}
+					else{
+						bufferT = bufferT.substring(0,longitudBuffer-1);
+						texto.setText(bufferT);
+					}
 				}
-				else{
-					bufferT = bufferT.substring(0,longitudBuffer-1);
-					texto.setText(bufferT);
-				}
-			}
+		}
+		
+	};
+	
+	View.OnLongClickListener controladorBorrarTodo = new View.OnLongClickListener() {
+		public boolean onLongClick(View v){
+			//Acción al mantener presionado
+			bufferT = "";
+			texto.setText(bufferT);
+			return true;
 		}
 	};
 }

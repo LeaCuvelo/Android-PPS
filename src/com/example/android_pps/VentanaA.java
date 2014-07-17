@@ -35,7 +35,8 @@ public class VentanaA extends Activity {
         bttnPrSpace = (Button) findViewById(R.id.bttnPrSpace);
         bttnPrSpace.setOnClickListener(controladorEspacio);
         bttnPrDelete = (Button) findViewById(R.id.bttnPrDelete);
-        bttnPrDelete.setOnClickListener(controladorBorrar);
+        bttnPrDelete.setOnClickListener(controladorBorrarCaracter);
+        bttnPrDelete.setOnLongClickListener(controladorBorrarTodo);
        //Enlazamos el textView
         texto = (TextView) findViewById(R.id.textView);
         texto.setText(MainActivity.texto.getText());
@@ -135,20 +136,30 @@ public class VentanaA extends Activity {
 		}
 	};
 	
-	View.OnClickListener controladorBorrar = new View.OnClickListener() {
+	View.OnClickListener controladorBorrarCaracter = new View.OnClickListener() {
 		public void onClick(View v) {
-			    // Tomamos el buffer A, le borramos lo ultimo y se lo "enlazamos" al mainBuffer
+			//Acción al hacer click
 			int longitudBuffer = bufferA.length();
-			if (longitudBuffer > 0){
-				if ( bufferA.charAt(longitudBuffer-1) == 'U' && bufferA.charAt(longitudBuffer-2) == 'Q'){
-					bufferA = bufferA.substring(0,longitudBuffer-2);
-					texto.setText(bufferA);
+			if (longitudBuffer > 0 ){
+					if ( (longitudBuffer > 1) && (bufferA.charAt(longitudBuffer-1) == 'U') && (bufferA.charAt(longitudBuffer-2) == 'Q')){
+						bufferA = bufferA.substring(0,longitudBuffer-2);
+						texto.setText(bufferA);
+					}
+					else{
+						bufferA = bufferA.substring(0,longitudBuffer-1);
+						texto.setText(bufferA);
+					}
 				}
-				else{
-					bufferA = bufferA.substring(0,longitudBuffer-1);
-					texto.setText(bufferA);
-				}
-			}
+		}
+		
+	};
+	
+	View.OnLongClickListener controladorBorrarTodo = new View.OnLongClickListener() {
+		public boolean onLongClick(View v){
+			//Acción al mantener presionado
+			bufferA = "";
+			texto.setText(bufferA);
+			return true;
 		}
 	};
 }
