@@ -23,7 +23,6 @@
         android:maxWidth="213dp"
         android:minHeight="1dp"
         android:minWidth="1dp"
-        android:text="A"
         android:width="213dp" />
 
     <Button
@@ -39,7 +38,6 @@
         android:maxWidth="213dp"
         android:minHeight="1dp"
         android:minWidth="1dp"
-        android:text="O"
         android:width="213dp" />
 
     <Button
@@ -55,7 +53,6 @@
         android:maxWidth="213dp"
         android:minHeight="1dp"
         android:minWidth="1dp"
-        android:text="T"
         android:width="213dp" />
 
     <Button
@@ -115,7 +112,6 @@
         android:maxWidth="213dp"
         android:minHeight="1dp"
         android:minWidth="1dp"
-        android:text="K"
         android:width="213dp" />
 
     <Button
@@ -145,7 +141,6 @@
         android:maxWidth="213dp"
         android:minHeight="1dp"
         android:minWidth="1dp"
-        android:text="F"
         android:width="213dp" />
 
     <Button

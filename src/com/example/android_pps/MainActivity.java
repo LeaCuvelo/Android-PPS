@@ -2,7 +2,6 @@ package com.example.android_pps;
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -14,9 +13,10 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity {
 	private Button bttnPrA,bttnPrF,bttnPrK,bttnPrO,bttnPrT,bttnPrSpace,bttnPrDelete,bttnPrPoint;
-	public static TextView texto;
 	private static MainActivity instance = null;
+	private int nroVentana = 1; //1=Principal;2=ventanaA;3=ventanaF;4=ventanaK;5=ventanaO;6=ventanaT;
 	public String mainBuffer;
+	public static TextView texto;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,14 +34,19 @@ public class MainActivity extends Activity {
         
         //Enlazamos botones con sus respectivas acciones
         bttnPrA = (Button) findViewById(R.id.bttnPrA);
+        bttnPrA.setText('A');
         bttnPrA.setOnClickListener(controladorA);
         bttnPrF = (Button) findViewById(R.id.bttnPrF);
+        bttnPrF.setText('F');
         bttnPrF.setOnClickListener(controladorF);
         bttnPrK = (Button) findViewById(R.id.bttnPrK);
+        bttnPrK.setText('K');
         bttnPrK.setOnClickListener(controladorK);
         bttnPrO = (Button) findViewById(R.id.bttnPrO);
+        bttnPrO.setText('O');
         bttnPrO.setOnClickListener(controladorO);
         bttnPrT = (Button) findViewById(R.id.bttnPrT);
+        bttnPrT.setText('T');
         bttnPrT.setOnClickListener(controladorT);
         bttnPrSpace = (Button) findViewById(R.id.bttnPrSpace);
         bttnPrSpace.setOnClickListener(controladorEspacio);
@@ -113,54 +118,338 @@ public class MainActivity extends Activity {
 	View.OnClickListener controladorA = new View.OnClickListener() {
 	    public void onClick(View v) {
 	    	//Acción al hacer click   
-            Intent activityChangeIntent = new Intent(MainActivity.this, VentanaA.class);
-            activityChangeIntent.putExtra("textBufferA", texto.getText()+"");
-            MainActivity.this.startActivity(activityChangeIntent);  
+            switch (nroVentana){
+            	case 1: bttnPrA.setText('A');
+            			bttnPrF.setText('B');
+            			bttnPrK.setText('C');
+            			bttnPrO.setText('D');
+            			bttnPrT.setText('E');
+            			nroVentana = 2;
+            			break;
+            	case 2:	texto.setText(texto.getText()+"A");
+            			bttnPrA.setText('A');
+    				   	bttnPrF.setText('F');
+    				   	bttnPrK.setText('K');
+    				   	bttnPrO.setText('O');
+    				   	bttnPrT.setText('T');
+    				   	nroVentana = 1;
+    				   	break;
+            	case 3:	texto.setText(texto.getText()+"F");
+            			bttnPrA.setText('A');
+			   			bttnPrF.setText('F');
+			   			bttnPrK.setText('K');
+			   			bttnPrO.setText('O');
+			   			bttnPrT.setText('T');
+			   			nroVentana = 1;
+			   			break;
+            	case 4:	texto.setText(texto.getText()+"K");
+            			bttnPrA.setText('A');
+			   			bttnPrF.setText('F');
+			   			bttnPrK.setText('K');
+			   			bttnPrO.setText('O');
+			   			bttnPrT.setText('T');
+			   			nroVentana = 1;
+			   			break;
+            	case 5:	texto.setText(texto.getText()+"O");
+		            	bttnPrA.setText('A');		
+		            	bttnPrF.setText('F');
+			   			bttnPrK.setText('K');
+			   			bttnPrO.setText('O');
+			   			bttnPrT.setText('T');
+			   			nroVentana = 1;
+			   			break;
+            	case 6:	texto.setText(texto.getText()+"T");
+		            	bttnPrA.setText('A');		
+		            	bttnPrF.setText('F');
+			   			bttnPrK.setText('K');
+			   			bttnPrO.setText('O');
+			   			bttnPrT.setText('T');
+			   			nroVentana = 1;
+			   			break;
+			   	default:bttnPrA.setText('A');
+						bttnPrF.setText('F');
+						bttnPrK.setText('K');
+						bttnPrO.setText('O');
+						bttnPrT.setText('T');
+						nroVentana = 1;
+						break;
+            }
 	    }
 	  };
 	  
 	View.OnClickListener controladorF = new View.OnClickListener() {
 		    public void onClick(View v) {
 		    	//Acción al hacer click   
-	            Intent activityChangeIntent = new Intent(MainActivity.this, VentanaF.class);
-	            activityChangeIntent.putExtra("textBufferF", texto.getText()+"");
-	            MainActivity.this.startActivity(activityChangeIntent);
+	            switch (nroVentana){
+            	case 1: bttnPrA.setText('F');
+            			bttnPrF.setText('G');
+            			bttnPrK.setText('H');
+            			bttnPrO.setText('I');
+            			bttnPrT.setText('J');
+            			nroVentana = 3;
+            			break;
+            	case 2:	texto.setText(texto.getText()+"B");
+            			bttnPrA.setText('A');
+    				   	bttnPrF.setText('F');
+    				   	bttnPrK.setText('K');
+    				   	bttnPrO.setText('O');
+    				   	bttnPrT.setText('T');
+    				   	nroVentana = 1;
+    				   	break;
+            	case 3:	texto.setText(texto.getText()+"G");
+            			bttnPrA.setText('A');
+			   			bttnPrF.setText('F');
+			   			bttnPrK.setText('K');
+			   			bttnPrO.setText('O');
+			   			bttnPrT.setText('T');
+			   			nroVentana = 1;
+			   			break;
+            	case 4:	texto.setText(texto.getText()+"L");
+            			bttnPrA.setText('A');
+			   			bttnPrF.setText('F');
+			   			bttnPrK.setText('K');
+			   			bttnPrO.setText('O');
+			   			bttnPrT.setText('T');
+			   			nroVentana = 1;
+			   			break;
+            	case 5:	texto.setText(texto.getText()+"P");
+            			bttnPrA.setText('A');
+			   			bttnPrF.setText('F');
+			   			bttnPrK.setText('K');
+			   			bttnPrO.setText('O');
+			   			bttnPrT.setText('T');
+			   			nroVentana = 1;
+			   			break;
+            	case 6:	texto.setText(texto.getText()+"U");
+            			bttnPrA.setText('A');
+			   			bttnPrF.setText('F');
+			   			bttnPrK.setText('K');
+			   			bttnPrO.setText('O');
+			   			bttnPrT.setText('T');
+			   			nroVentana = 1;
+			   			break;
+			   	default:bttnPrA.setText('A');
+						bttnPrF.setText('F');
+						bttnPrK.setText('K');
+						bttnPrO.setText('O');
+						bttnPrT.setText('T');
+						nroVentana = 1;
+						break;
+            }
 		    }
 	};
 	  
 	View.OnClickListener controladorK = new View.OnClickListener() {
 		    public void onClick(View v) {
 		    	//Acción al hacer click   
-	            Intent activityChangeIntent = new Intent(MainActivity.this, VentanaK.class);
-	            activityChangeIntent.putExtra("textBufferK", texto.getText()+"");
-	            MainActivity.this.startActivity(activityChangeIntent);
+	            switch (nroVentana){
+            	case 1: bttnPrA.setText('K');
+            			bttnPrF.setText('L');
+            			bttnPrK.setText('M');
+            			bttnPrO.setText('N');
+            			bttnPrT.setText('Ñ');
+            			nroVentana = 4;
+            			break;
+            	case 2:	texto.setText(texto.getText()+"C");
+            			bttnPrA.setText('A');
+    				   	bttnPrF.setText('F');
+    				   	bttnPrK.setText('K');
+    				   	bttnPrO.setText('O');
+    				   	bttnPrT.setText('T');
+    				   	nroVentana = 1;
+    				   	break;
+            	case 3:	texto.setText(texto.getText()+"H");
+            			bttnPrA.setText('A');
+			   			bttnPrF.setText('F');
+			   			bttnPrK.setText('K');
+			   			bttnPrO.setText('O');
+			   			bttnPrT.setText('T');
+			   			nroVentana = 1;
+			   			break;
+            	case 4:	texto.setText(texto.getText()+"M");
+            			bttnPrA.setText('A');
+			   			bttnPrF.setText('F');
+			   			bttnPrK.setText('K');
+			   			bttnPrO.setText('O');
+			   			bttnPrT.setText('T');
+			   			nroVentana = 1;
+			   			break;
+            	case 5:	texto.setText(texto.getText()+"Q");
+            			bttnPrA.setText('A');
+			   			bttnPrF.setText('F');
+			   			bttnPrK.setText('K');
+			   			bttnPrO.setText('O');
+			   			bttnPrT.setText('T');
+			   			nroVentana = 1;
+			   			break;
+            	case 6:	texto.setText(texto.getText()+"V");
+            			bttnPrA.setText('A');
+			   			bttnPrF.setText('F');
+			   			bttnPrK.setText('K');
+			   			bttnPrO.setText('O');
+			   			bttnPrT.setText('T');
+			   			nroVentana = 1;
+			   			break;
+			   	default:bttnPrA.setText('A');
+						bttnPrF.setText('F');
+						bttnPrK.setText('K');
+						bttnPrO.setText('O');
+						bttnPrT.setText('T');
+						nroVentana = 1;
+						break;
+            }
 		    }
 	};
 	  
     View.OnClickListener controladorO = new View.OnClickListener() {
 		    public void onClick(View v) {
 		    	//Acción al hacer click   
-	            Intent activityChangeIntent = new Intent(MainActivity.this, VentanaO.class);
-	            activityChangeIntent.putExtra("textBufferO", texto.getText()+"");
-	            MainActivity.this.startActivity(activityChangeIntent);
+	            switch (nroVentana){
+            	case 1: bttnPrA.setText('O');
+            			bttnPrF.setText('P');
+            			bttnPrK.setText('Q');
+            			bttnPrO.setText('R');
+            			bttnPrT.setText('S');
+            			nroVentana = 5;
+            			break;
+            	case 2:	texto.setText(texto.getText()+"D");
+            			bttnPrA.setText('A');
+    				   	bttnPrF.setText('F');
+    				   	bttnPrK.setText('K');
+    				   	bttnPrO.setText('O');
+    				   	bttnPrT.setText('T');
+    				   	nroVentana = 1;
+    				   	break;
+            	case 3:	texto.setText(texto.getText()+"I");
+            			bttnPrA.setText('A');
+			   			bttnPrF.setText('F');
+			   			bttnPrK.setText('K');
+			   			bttnPrO.setText('O');
+			   			bttnPrT.setText('T');
+			   			nroVentana = 1;
+			   			break;
+            	case 4:	texto.setText(texto.getText()+"N");
+            			bttnPrA.setText('A');
+			   			bttnPrF.setText('F');
+			   			bttnPrK.setText('K');
+			   			bttnPrO.setText('O');
+			   			bttnPrT.setText('T');
+			   			nroVentana = 1;
+			   			break;
+            	case 5:	texto.setText(texto.getText()+"R");
+            			bttnPrA.setText('A');
+			   			bttnPrF.setText('F');
+			   			bttnPrK.setText('K');
+			   			bttnPrO.setText('O');
+			   			bttnPrT.setText('T');
+			   			nroVentana = 1;
+			   			break;
+            	case 6:	texto.setText(texto.getText()+"X");
+            			bttnPrA.setText('A');
+			   			bttnPrF.setText('F');
+			   			bttnPrK.setText('K');
+			   			bttnPrO.setText('O');
+			   			bttnPrT.setText('T');
+			   			nroVentana = 1;
+			   			break;
+			   	default:bttnPrA.setText('A');
+						bttnPrF.setText('F');
+						bttnPrK.setText('K');
+						bttnPrO.setText('O');
+						bttnPrT.setText('T');
+						nroVentana = 1;
+						break;
+            }
 		    }
     };
 	  
 	View.OnClickListener controladorT = new View.OnClickListener() {
 		    public void onClick(View v) {
 		    	//Acción al hacer click   
-	            Intent activityChangeIntent = new Intent(MainActivity.this, VentanaT.class);
-	            activityChangeIntent.putExtra("textBufferT", texto.getText()+"");
-	            MainActivity.this.startActivity(activityChangeIntent);
+	            switch (nroVentana){
+            	case 1: bttnPrA.setText('T');
+            			bttnPrF.setText('U');
+            			bttnPrK.setText('V');
+            			bttnPrO.setText('X');
+            			bttnPrT.setText('Y');
+            			nroVentana = 6;
+            			break;
+            	case 2:	texto.setText(texto.getText()+"E");
+            			bttnPrA.setText('A');
+    				   	bttnPrF.setText('F');
+    				   	bttnPrK.setText('K');
+    				   	bttnPrO.setText('O');
+    				   	bttnPrT.setText('T');
+    				   	nroVentana = 1;
+    				   	break;
+            	case 3:	texto.setText(texto.getText()+"J");
+            			bttnPrA.setText('A');
+			   			bttnPrF.setText('F');
+			   			bttnPrK.setText('K');
+			   			bttnPrO.setText('O');
+			   			bttnPrT.setText('T');
+			   			nroVentana = 1;
+			   			break;
+            	case 4:	texto.setText(texto.getText()+"Ñ");
+            			bttnPrA.setText('A');
+			   			bttnPrF.setText('F');
+			   			bttnPrK.setText('K');
+			   			bttnPrO.setText('O');
+			   			bttnPrT.setText('T');
+			   			nroVentana = 1;
+			   			break;
+            	case 5:	texto.setText(texto.getText()+"S");
+            			bttnPrA.setText('A');
+			   			bttnPrF.setText('F');
+			   			bttnPrK.setText('K');
+			   			bttnPrO.setText('O');
+			   			bttnPrT.setText('T');
+			   			nroVentana = 1;
+			   			break;
+            	case 6:	texto.setText(texto.getText()+"Y");
+            			bttnPrA.setText('A');
+			   			bttnPrF.setText('F');
+			   			bttnPrK.setText('K');
+			   			bttnPrO.setText('O');
+			   			bttnPrT.setText('T');
+			   			nroVentana = 1;
+			   			break;
+			   	default:bttnPrA.setText('A');
+						bttnPrF.setText('F');
+						bttnPrK.setText('K');
+						bttnPrO.setText('O');
+						bttnPrT.setText('T');
+						nroVentana = 1;
+						break;
+	            }
 		    }
 	};
 	
 	View.OnClickListener controladorEspacio = new View.OnClickListener() {
 			public void onClick(View v) {
 				//Acción al hacer click
-				mainBuffer = (String) texto.getText();
-				mainBuffer += ' ';
-				texto.setText(mainBuffer);
+	            switch (nroVentana){
+            	case 1: mainBuffer = (String) texto.getText();
+						mainBuffer += ' ';
+						texto.setText(mainBuffer);
+            			nroVentana = 1;
+            			break;
+            	case 2:	case 3:	case 4:case 5:
+            	case 6:	bttnPrA.setText('A');
+			   			bttnPrF.setText('F');
+			   			bttnPrK.setText('K');
+			   			bttnPrO.setText('O');
+			   			bttnPrT.setText('T');
+			   			nroVentana = 1;
+			   			break;
+			   	default: 	bttnPrA.setText('A');
+	   						bttnPrF.setText('F');
+	   						bttnPrK.setText('K');
+	   						bttnPrO.setText('O');
+	   						bttnPrT.setText('T');
+	   						nroVentana = 1;
+	   						break;
+	            }
 			}
 	};
 	
@@ -195,9 +484,16 @@ public class MainActivity extends Activity {
 	View.OnClickListener controladorPunto = new View.OnClickListener() {
 		public void onClick(View v) {
 			//Acción al hacer click
-			mainBuffer = (String) texto.getText();
-			mainBuffer += '.';
-			texto.setText(mainBuffer);
+			
+			switch (nroVentana){
+        	case 1: mainBuffer = (String) texto.getText();
+					mainBuffer += '.';
+					texto.setText(mainBuffer);
+        			nroVentana = 1;
+        			break;
+        	case 2:	case 3:	case 4:case 5:case 6:	
+		   	default:break;
+            }
 		}
 	};
 }
