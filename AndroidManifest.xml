@@ -22,51 +22,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="VentanaA" 
-            android:label="Ventana A"
-            android:screenOrientation="landscape" > //Nombre de la actividad y el label de la actividad
-            <intent-filter>
-                <action android:name="com.example.android_pps.VentanaA" /> //Nombre de la actividad con que otras actividades podrán invocarla
-                <category android:name="android.intent.category.DEFAULT" /> //Permite que otras actividades puedan invocar esta actividad utilizando el método StartActivity()
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="VentanaF" 
-            android:label="Ventana F"
-            android:screenOrientation="landscape" > //Nombre de la actividad y el label de la actividad
-            <intent-filter>
-                <action android:name="com.example.android_pps.VentanaF" /> //Nombre de la actividad con que otras actividades podrán invocarla
-                <category android:name="android.intent.category.DEFAULT" /> //Permite que otras actividades puedan invocar esta actividad utilizando el método StartActivity()
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="VentanaK" 
-            android:label="Ventana K"
-            android:screenOrientation="landscape" > //Nombre de la actividad y el label de la actividad
-            <intent-filter>
-                <action android:name="com.example.android_pps.VentanaK" /> //Nombre de la actividad con que otras actividades podrán invocarla
-                <category android:name="android.intent.category.DEFAULT" /> //Permite que otras actividades puedan invocar esta actividad utilizando el método StartActivity()
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="VentanaO" 
-            android:label="Ventana O"
-            android:screenOrientation="landscape" > //Nombre de la actividad y el label de la actividad
-            <intent-filter>
-                <action android:name="com.example.android_pps.VentanaO" /> //Nombre de la actividad con que otras actividades podrán invocarla
-                <category android:name="android.intent.category.DEFAULT" /> //Permite que otras actividades puedan invocar esta actividad utilizando el método StartActivity()
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="VentanaT" 
-            android:label="Ventana T"
-            android:screenOrientation="landscape" > //Nombre de la actividad y el label de la actividad
-            <intent-filter>
-                <action android:name="com.example.android_pps.VentanaT" /> //Nombre de la actividad con que otras actividades podrán invocarla
-                <category android:name="android.intent.category.DEFAULT" /> //Permite que otras actividades puedan invocar esta actividad utilizando el método StartActivity()
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>
