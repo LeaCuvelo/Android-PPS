@@ -57,7 +57,7 @@ public class MainActivity extends Activity {
         
         //Enlazamos el textView
         texto = (TextView) findViewById(R.id.textView);
-         texto.setText("");
+        texto.setText("");
          
 	}
 	@Override
