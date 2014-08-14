@@ -42,19 +42,14 @@ public class MainActivity extends Activity  implements OnInitListener{
         //Enlazamos botones con sus respectivas acciones
         bttnPrA = (Button) findViewById(R.id.bttnPrA);
         bttnPrA.setOnClickListener(controladorA);
-        bttnPrA.setText("A");
         bttnPrF = (Button) findViewById(R.id.bttnPrF);
         bttnPrF.setOnClickListener(controladorF);
-        bttnPrF.setText("F");
         bttnPrK = (Button) findViewById(R.id.bttnPrK);
         bttnPrK.setOnClickListener(controladorK);
-        bttnPrK.setText("K");
         bttnPrO = (Button) findViewById(R.id.bttnPrO);
         bttnPrO.setOnClickListener(controladorO);
-        bttnPrO.setText("O");
         bttnPrT = (Button) findViewById(R.id.bttnPrT);
         bttnPrT.setOnClickListener(controladorT);
-        bttnPrT.setText("T");
         bttnPrSpace = (Button) findViewById(R.id.bttnPrSpace);
         bttnPrSpace.setOnClickListener(controladorEspacio);
         bttnPrDelete = (Button) findViewById(R.id.bttnPrDelete);
@@ -66,16 +61,23 @@ public class MainActivity extends Activity  implements OnInitListener{
         bttnPrSI.setOnClickListener(controladorSI);
         bttnPrNO = (Button) findViewById(R.id.bttnPrNO);
         bttnPrNO.setOnClickListener(controladorNO);
-        
-        
-        //Enlazamos el textView
+
+        //Enlazamos el textView y lo dejamos en blanco
+        //TODO: Cambiar twxtView por editText tener cuidado en la activity main, y mirar todo bien aqui en el .java
         texto = (TextView) findViewById(R.id.textView);
         texto.setText("");
      
-        //Instanciamos y seteamos lejuange a nuestros TTS
+        //Instanciamos nuestro TTS
         ourTts = new TextToSpeech(this,this);
-         
+        
+        //Cargamos el texto que se presenta inicialmente en los botones
+        bttnPrA.setText("A");
+        bttnPrF.setText("F");
+        bttnPrK.setText("K");
+        bttnPrO.setText("O");
+        bttnPrT.setText("T");
 	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -118,6 +120,18 @@ public class MainActivity extends Activity  implements OnInitListener{
 		return false;
 	}
 	
+	//Verificamos si se puede y seteamos idioma español a ourTts
+	//TODO: Verificar si se puede cambiar ESP por ARG y mejora la voz
+	@Override
+	public void onInit(int status) {
+		if (status==TextToSpeech.SUCCESS) {
+			ourTts.setLanguage(new Locale("spa","ESP"));
+		} else {
+			ourTts = null;
+			Toast.makeText(this, "Failed to initialize TTS engine.", Toast.LENGTH_SHORT).show();
+		}
+	}
+	
 	//CONTROLADOR DE LOS BOTONES, DETERMINAN LA ACCIÓN LUEGO DE PRESIONAR EL BOTÓN.
 	
 	View.OnClickListener controladorA = new View.OnClickListener() {
@@ -129,55 +143,34 @@ public class MainActivity extends Activity  implements OnInitListener{
             			bttnPrK.setText("C");
             			bttnPrO.setText("D");
             			bttnPrT.setText("E");
+            			bttnPrSpace.setText("VOLVER ATRAS");
             			nroVentana = 2;
             			break;
             	case 2:	texto.setText(texto.getText()+"A");
-            			bttnPrA.setText("A");
-    				   	bttnPrF.setText("F");
-    				   	bttnPrK.setText("K");
-    				   	bttnPrO.setText("O");
-    				   	bttnPrT.setText("T");
     				   	nroVentana = 1;
     				   	break;
             	case 3:	texto.setText(texto.getText()+"F");
-            			bttnPrA.setText("A");
-			   			bttnPrF.setText("F");
-			   			bttnPrK.setText("K");
-			   			bttnPrO.setText("O");
-			   			bttnPrT.setText("T");
 			   			nroVentana = 1;
 			   			break;
             	case 4:	texto.setText(texto.getText()+"K");
-            			bttnPrA.setText("A");
-			   			bttnPrF.setText("F");
-			   			bttnPrK.setText("K");
-			   			bttnPrO.setText("O");
-			   			bttnPrT.setText("T");
 			   			nroVentana = 1;
 			   			break;
             	case 5:	texto.setText(texto.getText()+"O");
-		            	bttnPrA.setText("A");		
-		            	bttnPrF.setText("F");
-			   			bttnPrK.setText("K");
-			   			bttnPrO.setText("O");
-			   			bttnPrT.setText("T");
 			   			nroVentana = 1;
 			   			break;
             	case 6:	texto.setText(texto.getText()+"T");
-		            	bttnPrA.setText("A");		
-		            	bttnPrF.setText("F");
-			   			bttnPrK.setText("K");
-			   			bttnPrO.setText("O");
-			   			bttnPrT.setText("T");
 			   			nroVentana = 1;
 			   			break;
-			   	default:bttnPrA.setText("A");
-						bttnPrF.setText("F");
-						bttnPrK.setText("K");
-						bttnPrO.setText("O");
-						bttnPrT.setText("T");
-						nroVentana = 1;
+			   	default:nroVentana = 1;
 						break;
+            }
+            if (nroVentana == 1){
+    			bttnPrA.setText("A");
+			   	bttnPrF.setText("F");
+			   	bttnPrK.setText("K");
+			   	bttnPrO.setText("O");
+			   	bttnPrT.setText("T");
+			   	bttnPrSpace.setText("BARRA ESPACIADORA");
             }
 	    }
 	  };
@@ -191,57 +184,36 @@ public class MainActivity extends Activity  implements OnInitListener{
             			bttnPrK.setText("H");
             			bttnPrO.setText("I");
             			bttnPrT.setText("J");
+            			bttnPrSpace.setText("VOLVER ATRAS");
             			nroVentana = 3;
             			break;
             	case 2:	texto.setText(texto.getText()+"B");
-            			bttnPrA.setText("A");
-    				   	bttnPrF.setText("F");
-    				   	bttnPrK.setText("K");
-    				   	bttnPrO.setText("O");
-    				   	bttnPrT.setText("T");
     				   	nroVentana = 1;
     				   	break;
             	case 3:	texto.setText(texto.getText()+"G");
-            			bttnPrA.setText("A");
-			   			bttnPrF.setText("F");
-			   			bttnPrK.setText("K");
-			   			bttnPrO.setText("O");
-			   			bttnPrT.setText("T");
 			   			nroVentana = 1;
 			   			break;
             	case 4:	texto.setText(texto.getText()+"L");
-            			bttnPrA.setText("A");
-			   			bttnPrF.setText("F");
-			   			bttnPrK.setText("K");
-			   			bttnPrO.setText("O");
-			   			bttnPrT.setText("T");
 			   			nroVentana = 1;
 			   			break;
             	case 5:	texto.setText(texto.getText()+"P");
-            			bttnPrA.setText("A");
-			   			bttnPrF.setText("F");
-			   			bttnPrK.setText("K");
-			   			bttnPrO.setText("O");
-			   			bttnPrT.setText("T");
 			   			nroVentana = 1;
 			   			break;
             	case 6:	texto.setText(texto.getText()+"U");
-            			bttnPrA.setText("A");
-			   			bttnPrF.setText("F");
-			   			bttnPrK.setText("K");
-			   			bttnPrO.setText("O");
-			   			bttnPrT.setText("T");
 			   			nroVentana = 1;
 			   			break;
-			   	default:bttnPrA.setText("A");
-						bttnPrF.setText("F");
-						bttnPrK.setText("K");
-						bttnPrO.setText("O");
-						bttnPrT.setText("T");
-						nroVentana = 1;
+			   	default:nroVentana = 1;
 						break;
             }
-		    }
+	        if (nroVentana == 1){
+	    		bttnPrA.setText("A");
+				bttnPrF.setText("F");
+				bttnPrK.setText("K");
+				bttnPrO.setText("O");
+				bttnPrT.setText("T");
+				bttnPrSpace.setText("BARRA ESPACIADORA");
+	        }
+	  }
 	};
 	  
 	View.OnClickListener controladorK = new View.OnClickListener() {
@@ -253,57 +225,36 @@ public class MainActivity extends Activity  implements OnInitListener{
             			bttnPrK.setText("M");
             			bttnPrO.setText("N");
             			bttnPrT.setText("Ñ");
+            			bttnPrSpace.setText("VOLVER ATRAS");
             			nroVentana = 4;
             			break;
             	case 2:	texto.setText(texto.getText()+"C");
-            			bttnPrA.setText("A");
-    				   	bttnPrF.setText("F");
-    				   	bttnPrK.setText("K");
-    				   	bttnPrO.setText("O");
-    				   	bttnPrT.setText("T");
     				   	nroVentana = 1;
     				   	break;
             	case 3:	texto.setText(texto.getText()+"H");
-            			bttnPrA.setText("A");
-			   			bttnPrF.setText("F");
-			   			bttnPrK.setText("K");
-			   			bttnPrO.setText("O");
-			   			bttnPrT.setText("T");
 			   			nroVentana = 1;
 			   			break;
             	case 4:	texto.setText(texto.getText()+"M");
-            			bttnPrA.setText("A");
-			   			bttnPrF.setText("F");
-			   			bttnPrK.setText("K");
-			   			bttnPrO.setText("O");
-			   			bttnPrT.setText("T");
 			   			nroVentana = 1;
 			   			break;
             	case 5:	texto.setText(texto.getText()+"QU");
-            			bttnPrA.setText("A");
-			   			bttnPrF.setText("F");
-			   			bttnPrK.setText("K");
-			   			bttnPrO.setText("O");
-			   			bttnPrT.setText("T");
 			   			nroVentana = 1;
 			   			break;
             	case 6:	texto.setText(texto.getText()+"V");
-            			bttnPrA.setText("A");
-			   			bttnPrF.setText("F");
-			   			bttnPrK.setText("K");
-			   			bttnPrO.setText("O");
-			   			bttnPrT.setText("T");
 			   			nroVentana = 1;
 			   			break;
-			   	default:bttnPrA.setText("A");
-						bttnPrF.setText("F");
-						bttnPrK.setText("K");
-						bttnPrO.setText("O");
-						bttnPrT.setText("T");
-						nroVentana = 1;
+			   	default:nroVentana = 1;
 						break;
             }
-		    }
+	        if (nroVentana == 1){
+	    		bttnPrA.setText("A");
+				bttnPrF.setText("F");
+				bttnPrK.setText("K");
+				bttnPrO.setText("O");
+				bttnPrT.setText("T");
+				bttnPrSpace.setText("BARRA ESPACIADORA");
+	        }
+		}
 	};
 	  
     View.OnClickListener controladorO = new View.OnClickListener() {
@@ -315,57 +266,36 @@ public class MainActivity extends Activity  implements OnInitListener{
             			bttnPrK.setText("Q");
             			bttnPrO.setText("R");
             			bttnPrT.setText("S");
+            			bttnPrSpace.setText("VOLVER ATRAS");
             			nroVentana = 5;
             			break;
             	case 2:	texto.setText(texto.getText()+"D");
-            			bttnPrA.setText("A");
-    				   	bttnPrF.setText("F");
-    				   	bttnPrK.setText("K");
-    				   	bttnPrO.setText("O");
-    				   	bttnPrT.setText("T");
     				   	nroVentana = 1;
     				   	break;
             	case 3:	texto.setText(texto.getText()+"I");
-            			bttnPrA.setText("A");
-			   			bttnPrF.setText("F");
-			   			bttnPrK.setText("K");
-			   			bttnPrO.setText("O");
-			   			bttnPrT.setText("T");
 			   			nroVentana = 1;
 			   			break;
             	case 4:	texto.setText(texto.getText()+"N");
-            			bttnPrA.setText("A");
-			   			bttnPrF.setText("F");
-			   			bttnPrK.setText("K");
-			   			bttnPrO.setText("O");
-			   			bttnPrT.setText("T");
 			   			nroVentana = 1;
 			   			break;
             	case 5:	texto.setText(texto.getText()+"R");
-            			bttnPrA.setText("A");
-			   			bttnPrF.setText("F");
-			   			bttnPrK.setText("K");
-			   			bttnPrO.setText("O");
-			   			bttnPrT.setText("T");
 			   			nroVentana = 1;
 			   			break;
             	case 6:	texto.setText(texto.getText()+"X");
-            			bttnPrA.setText("A");
-			   			bttnPrF.setText("F");
-			   			bttnPrK.setText("K");
-			   			bttnPrO.setText("O");
-			   			bttnPrT.setText("T");
 			   			nroVentana = 1;
 			   			break;
-			   	default:bttnPrA.setText("A");
-						bttnPrF.setText("F");
-						bttnPrK.setText("K");
-						bttnPrO.setText("O");
-						bttnPrT.setText("T");
-						nroVentana = 1;
+			   	default:nroVentana = 1;
 						break;
             }
-		    }
+	        if (nroVentana == 1){
+	    		bttnPrA.setText("A");
+				bttnPrF.setText("F");
+				bttnPrK.setText("K");
+				bttnPrO.setText("O");
+				bttnPrT.setText("T");
+				bttnPrSpace.setText("BARRA ESPACIADORA");
+	        }
+		}
     };
 	  
 	View.OnClickListener controladorT = new View.OnClickListener() {
@@ -377,55 +307,34 @@ public class MainActivity extends Activity  implements OnInitListener{
             			bttnPrK.setText("V");
             			bttnPrO.setText("X");
             			bttnPrT.setText("Y");
+            			bttnPrSpace.setText("VOLVER ATRAS");
             			nroVentana = 6;
             			break;
             	case 2:	texto.setText(texto.getText()+"E");
-            			bttnPrA.setText("A");
-    				   	bttnPrF.setText("F");
-    				   	bttnPrK.setText("K");
-    				   	bttnPrO.setText("O");
-    				   	bttnPrT.setText("T");
     				   	nroVentana = 1;
     				   	break;
             	case 3:	texto.setText(texto.getText()+"J");
-            			bttnPrA.setText("A");
-			   			bttnPrF.setText("F");
-			   			bttnPrK.setText("K");
-			   			bttnPrO.setText("O");
-			   			bttnPrT.setText("T");
 			   			nroVentana = 1;
 			   			break;
             	case 4:	texto.setText(texto.getText()+"Ñ");
-            			bttnPrA.setText("A");
-			   			bttnPrF.setText("F");
-			   			bttnPrK.setText("K");
-			   			bttnPrO.setText("O");
-			   			bttnPrT.setText("T");
 			   			nroVentana = 1;
 			   			break;
             	case 5:	texto.setText(texto.getText()+"S");
-            			bttnPrA.setText("A");
-			   			bttnPrF.setText("F");
-			   			bttnPrK.setText("K");
-			   			bttnPrO.setText("O");
-			   			bttnPrT.setText("T");
 			   			nroVentana = 1;
 			   			break;
             	case 6:	texto.setText(texto.getText()+"Y");
-            			bttnPrA.setText("A");
-			   			bttnPrF.setText("F");
-			   			bttnPrK.setText("K");
-			   			bttnPrO.setText("O");
-			   			bttnPrT.setText("T");
 			   			nroVentana = 1;
 			   			break;
-			   	default:bttnPrA.setText("A");
-						bttnPrF.setText("F");
-						bttnPrK.setText("K");
-						bttnPrO.setText("O");
-						bttnPrT.setText("T");
-						nroVentana = 1;
+			   	default:nroVentana = 1;
 						break;
+	            }
+	            if (nroVentana == 1){
+	    			bttnPrA.setText("A");
+				   	bttnPrF.setText("F");
+				   	bttnPrK.setText("K");
+				   	bttnPrO.setText("O");
+				   	bttnPrT.setText("T");
+				   	bttnPrSpace.setText("BARRA ESPACIADORA");
 	            }
 		    }
 	};
@@ -445,6 +354,7 @@ public class MainActivity extends Activity  implements OnInitListener{
 			   			bttnPrK.setText("K");
 			   			bttnPrO.setText("O");
 			   			bttnPrT.setText("T");
+			   			bttnPrSpace.setText("BARRA ESPACIADORA");
 			   			nroVentana = 1;
 			   			break;
 			   	default:bttnPrA.setText("A");
@@ -452,15 +362,16 @@ public class MainActivity extends Activity  implements OnInitListener{
 	   					bttnPrK.setText("K");
 	   					bttnPrO.setText("O");
 	   					bttnPrT.setText("T");
+	   					bttnPrSpace.setText("BARRA ESPACIADORA");
 	   					nroVentana = 1;
 	   					break;
 	            }
 			}
 	};
 	
+	//Acción al hacer click en el botón Delete
 	View.OnClickListener controladorBorrarCaracter = new View.OnClickListener() {
 		public void onClick(View v) {
-			//Acción al hacer click
 			mainBuffer = (String) texto.getText();
 			int longitudBuffer = mainBuffer.length();
 			if (longitudBuffer > 0 ){
@@ -477,9 +388,9 @@ public class MainActivity extends Activity  implements OnInitListener{
 		
 	};
 	
+	//Acción al mantener presionado el botón Delete
 	View.OnLongClickListener controladorBorrarTodo = new View.OnLongClickListener() {
 		public boolean onLongClick(View v){
-			//Acción al mantener presionado
 			mainBuffer = "";
 			texto.setText(mainBuffer);
 			return true;
@@ -488,8 +399,6 @@ public class MainActivity extends Activity  implements OnInitListener{
 	
 	View.OnClickListener controladorPunto = new View.OnClickListener() {
 		public void onClick(View v) {
-			//Acción al hacer click
-			
 			switch (nroVentana){
         	case 1: mainBuffer = (String) texto.getText();
 					mainBuffer += '.';
@@ -497,8 +406,7 @@ public class MainActivity extends Activity  implements OnInitListener{
         			nroVentana = 1;
         			break;
         	case 2: case 3:	case 4:case 5:
-        	case 6:
-        		ourTts.speak(mainBuffer, TextToSpeech.QUEUE_FLUSH, null);
+        	case 6:ourTts.speak(mainBuffer, TextToSpeech.QUEUE_FLUSH, null);
 		   	default:break;
             }
 		}
@@ -510,8 +418,7 @@ public class MainActivity extends Activity  implements OnInitListener{
 			final String textoSI = "si";
 			switch (nroVentana){
         	case 1: case 2: case 3:	case 4:case 5:
-        	case 6:
-        		ourTts.speak(textoSI, TextToSpeech.QUEUE_FLUSH, null);
+        	case 6:ourTts.speak(textoSI, TextToSpeech.QUEUE_FLUSH, null);
 		   	default:break;
             }
 		}
@@ -523,21 +430,9 @@ public class MainActivity extends Activity  implements OnInitListener{
 			final String textoNO = "no";
 			switch (nroVentana){
         	case 1: case 2: case 3:	case 4:case 5:
-        	case 6:
-        		ourTts.speak(textoNO, TextToSpeech.QUEUE_FLUSH, null);
+        	case 6:ourTts.speak(textoNO, TextToSpeech.QUEUE_FLUSH, null);
 		   	default:break;
             }
 		}
 	};
-	
-	@Override
-	public void onInit(int status) {
-		// TODO Auto-generated method stub
-		if (status==TextToSpeech.SUCCESS) {
-			ourTts.setLanguage(new Locale("spa","ESP"));
-		} else {
-			ourTts = null;
-			Toast.makeText(this, "Failed to initialize TTS engine.", Toast.LENGTH_SHORT).show();
-		}
-	}
 }
