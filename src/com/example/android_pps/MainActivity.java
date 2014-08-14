@@ -1,8 +1,12 @@
 package com.example.android_pps;
 
+import java.util.Locale;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.res.Configuration;
+import android.speech.tts.TextToSpeech;
+import android.speech.tts.TextToSpeech.OnInitListener;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
@@ -10,12 +14,16 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class MainActivity extends Activity {
-	private Button bttnPrA,bttnPrF,bttnPrK,bttnPrO,bttnPrT,bttnPrSpace,bttnPrDelete,bttnPrPoint;
+
+public class MainActivity extends Activity  implements OnInitListener{
+	private Button bttnPrA,bttnPrF,bttnPrK,bttnPrO,bttnPrT,bttnPrSpace,bttnPrDelete,bttnPrPoint,bttnPrSI,bttnPrNO;
 	private int nroVentana = 1; //1=Principal;2=ventanaA;3=ventanaF;4=ventanaK;5=ventanaO;6=ventanaT;
 	public String mainBuffer;
 	public static TextView texto;
+	private TextToSpeech ourTts;
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +38,7 @@ public class MainActivity extends Activity {
 		
         //Mostramos la actividad
         setContentView(R.layout.activity_main);
-        
+
         //Enlazamos botones con sus respectivas acciones
         bttnPrA = (Button) findViewById(R.id.bttnPrA);
         bttnPrA.setOnClickListener(controladorA);
@@ -54,10 +62,18 @@ public class MainActivity extends Activity {
         bttnPrDelete.setOnLongClickListener(controladorBorrarTodo);
         bttnPrPoint = (Button) findViewById(R.id.bttnPrPoint);
         bttnPrPoint.setOnClickListener(controladorPunto);
+        bttnPrSI = (Button) findViewById(R.id.bttnPrSI);
+        bttnPrSI.setOnClickListener(controladorSI);
+        bttnPrNO = (Button) findViewById(R.id.bttnPrNO);
+        bttnPrNO.setOnClickListener(controladorNO);
+        
         
         //Enlazamos el textView
         texto = (TextView) findViewById(R.id.textView);
         texto.setText("");
+     
+        //Instanciamos y seteamos lejuange a nuestros TTS
+        ourTts = new TextToSpeech(this,this);
          
 	}
 	@Override
@@ -79,6 +95,7 @@ public class MainActivity extends Activity {
 	
 	@Override protected void onDestroy(){
 		super.onDestroy();
+		ourTts.shutdown();
 	}
 	
 	// Cuando hay un cambio de activity
@@ -430,13 +447,13 @@ public class MainActivity extends Activity {
 			   			bttnPrT.setText("T");
 			   			nroVentana = 1;
 			   			break;
-			   	default: 	bttnPrA.setText("A");
-	   						bttnPrF.setText("F");
-	   						bttnPrK.setText("K");
-	   						bttnPrO.setText("O");
-	   						bttnPrT.setText("T");
-	   						nroVentana = 1;
-	   						break;
+			   	default:bttnPrA.setText("A");
+	   					bttnPrF.setText("F");
+	   					bttnPrK.setText("K");
+	   					bttnPrO.setText("O");
+	   					bttnPrT.setText("T");
+	   					nroVentana = 1;
+	   					break;
 	            }
 			}
 	};
@@ -479,9 +496,48 @@ public class MainActivity extends Activity {
 					texto.setText(mainBuffer);
         			nroVentana = 1;
         			break;
-        	case 2:	case 3:	case 4:case 5:case 6:	
+        	case 2: case 3:	case 4:case 5:
+        	case 6:
+        		ourTts.speak(mainBuffer, TextToSpeech.QUEUE_FLUSH, null);
 		   	default:break;
             }
 		}
 	};
+	
+	View.OnClickListener controladorSI = new View.OnClickListener() {
+		public void onClick(View v) {
+			//Acción al hacer click
+			final String textoSI = "si";
+			switch (nroVentana){
+        	case 1: case 2: case 3:	case 4:case 5:
+        	case 6:
+        		ourTts.speak(textoSI, TextToSpeech.QUEUE_FLUSH, null);
+		   	default:break;
+            }
+		}
+	};
+	
+	View.OnClickListener controladorNO = new View.OnClickListener() {
+		public void onClick(View v) {
+			//Acción al hacer click
+			final String textoNO = "no";
+			switch (nroVentana){
+        	case 1: case 2: case 3:	case 4:case 5:
+        	case 6:
+        		ourTts.speak(textoNO, TextToSpeech.QUEUE_FLUSH, null);
+		   	default:break;
+            }
+		}
+	};
+	
+	@Override
+	public void onInit(int status) {
+		// TODO Auto-generated method stub
+		if (status==TextToSpeech.SUCCESS) {
+			ourTts.setLanguage(new Locale("spa","ESP"));
+		} else {
+			ourTts = null;
+			Toast.makeText(this, "Failed to initialize TTS engine.", Toast.LENGTH_SHORT).show();
+		}
+	}
 }
