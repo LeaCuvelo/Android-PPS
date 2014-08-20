@@ -157,12 +157,18 @@
         android:text="SI"
         android:width="91dp" />
 
-    <TextView
-        style="@style/AparienciaTextoNormal"
-        android:id="@+id/textView"
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/bttnPrO"
         android:layout_alignLeft="@+id/bttnPrSI"
         android:layout_alignRight="@+id/bttnPrNO"
-        android:layout_below="@+id/bttnPrNO" />
+        android:ems="10"
+        android:paddingLeft="50dp"
+        android:paddingTop="20dp" >
+
+        <requestFocus />
+    </EditText>
 
 </RelativeLayout>

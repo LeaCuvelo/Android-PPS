@@ -140,14 +140,6 @@
         android:text="SI"
         android:width="145dp" />
 
-    <TextView
-        android:id="@+id/textView"
-        style="@style/AparienciaTextoNormal"
-        android:layout_alignBottom="@+id/bttnPrO"
-        android:layout_alignLeft="@+id/bttnPrSI"
-        android:layout_alignRight="@+id/bttnPrNO"
-        android:layout_below="@+id/bttnPrNO" />
-
     <Button
         android:id="@+id/bttnPrA"
         android:layout_width="wrap_content"
@@ -161,5 +153,18 @@
         android:minHeight="1dp"
         android:minWidth="1dp"
         android:width="267dp" />
+    
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/bttnPrO"
+        android:layout_alignLeft="@+id/bttnPrSI"
+        android:layout_alignRight="@+id/bttnPrNO"
+        android:ems="10" >
 
+        <requestFocus />
+    </EditText>
+
+    
 </RelativeLayout>

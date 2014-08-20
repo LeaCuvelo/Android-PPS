@@ -1,18 +1,27 @@
 package com.example.android_pps;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
 import java.util.Locale;
 
 import android.os.Bundle;
+import android.os.Environment;
 import android.app.Activity;
+import android.content.Context;
 import android.content.res.Configuration;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
+import android.text.InputType;
+import android.text.method.ScrollingMovementMethod;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,8 +30,10 @@ public class MainActivity extends Activity  implements OnInitListener{
 	private Button bttnPrA,bttnPrF,bttnPrK,bttnPrO,bttnPrT,bttnPrSpace,bttnPrDelete,bttnPrPoint,bttnPrSI,bttnPrNO;
 	private int nroVentana = 1; //1=Principal;2=ventanaA;3=ventanaF;4=ventanaK;5=ventanaO;6=ventanaT;
 	public String mainBuffer;
-	public static TextView texto;
+	public static EditText texto;
 	private TextToSpeech ourTts;
+
+
 	
 
 	@Override
@@ -57,16 +68,25 @@ public class MainActivity extends Activity  implements OnInitListener{
         bttnPrDelete.setOnLongClickListener(controladorBorrarTodo);
         bttnPrPoint = (Button) findViewById(R.id.bttnPrPoint);
         bttnPrPoint.setOnClickListener(controladorPunto);
+        bttnPrPoint.setOnLongClickListener(controladorGuardar);
         bttnPrSI = (Button) findViewById(R.id.bttnPrSI);
         bttnPrSI.setOnClickListener(controladorSI);
         bttnPrNO = (Button) findViewById(R.id.bttnPrNO);
         bttnPrNO.setOnClickListener(controladorNO);
 
-        //Enlazamos el textView y lo dejamos en blanco
-        //TODO: Cambiar twxtView por editText tener cuidado en la activity main, y mirar todo bien aqui en el .java
-        texto = (TextView) findViewById(R.id.textView);
-        texto.setText("");
+        //Enlazamos el editText y lo dejamos en blanco
      
+        texto = (EditText) findViewById(R.id.editText);
+        texto.setText("");
+        texto.setMovementMethod(new ScrollingMovementMethod()); // Habilita scrolling
+
+    
+        
+        InputMethodManager imm = (InputMethodManager)getSystemService(
+        Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(texto.getWindowToken(), 0);
+        
+        
         //Instanciamos nuestro TTS
         ourTts = new TextToSpeech(this,this);
         
@@ -76,6 +96,9 @@ public class MainActivity extends Activity  implements OnInitListener{
         bttnPrK.setText("K");
         bttnPrO.setText("O");
         bttnPrT.setText("T");
+        
+        
+        
 	}
 	
 	@Override
@@ -147,19 +170,24 @@ public class MainActivity extends Activity  implements OnInitListener{
             			nroVentana = 2;
             			break;
             	case 2:	texto.setText(texto.getText()+"A");
-    				   	nroVentana = 1;
+            			texto.setSelection(texto.getText().length()); // DEJA PARADO EL CURSOR AL FINAL DE LA CADENA!
+            			nroVentana = 1;
     				   	break;
             	case 3:	texto.setText(texto.getText()+"F");
+            			texto.setSelection(texto.getText().length()); 
 			   			nroVentana = 1;
 			   			break;
             	case 4:	texto.setText(texto.getText()+"K");
+            			texto.setSelection(texto.getText().length());
 			   			nroVentana = 1;
 			   			break;
             	case 5:	texto.setText(texto.getText()+"O");
-			   			nroVentana = 1;
+            			texto.setSelection(texto.getText().length());
+            			nroVentana = 1;
 			   			break;
             	case 6:	texto.setText(texto.getText()+"T");
-			   			nroVentana = 1;
+            			texto.setSelection(texto.getText().length());		
+            			nroVentana = 1;
 			   			break;
 			   	default:nroVentana = 1;
 						break;
@@ -188,19 +216,24 @@ public class MainActivity extends Activity  implements OnInitListener{
             			nroVentana = 3;
             			break;
             	case 2:	texto.setText(texto.getText()+"B");
+            			texto.setSelection(texto.getText().length());
     				   	nroVentana = 1;
     				   	break;
             	case 3:	texto.setText(texto.getText()+"G");
-			   			nroVentana = 1;
+            			texto.setSelection(texto.getText().length());
+            			nroVentana = 1;
 			   			break;
             	case 4:	texto.setText(texto.getText()+"L");
-			   			nroVentana = 1;
+            			texto.setSelection(texto.getText().length());		
+            			nroVentana = 1;
 			   			break;
             	case 5:	texto.setText(texto.getText()+"P");
-			   			nroVentana = 1;
+            			texto.setSelection(texto.getText().length());	
+            			nroVentana = 1;
 			   			break;
             	case 6:	texto.setText(texto.getText()+"U");
-			   			nroVentana = 1;
+            			texto.setSelection(texto.getText().length());		
+            			nroVentana = 1;
 			   			break;
 			   	default:nroVentana = 1;
 						break;
@@ -229,19 +262,24 @@ public class MainActivity extends Activity  implements OnInitListener{
             			nroVentana = 4;
             			break;
             	case 2:	texto.setText(texto.getText()+"C");
-    				   	nroVentana = 1;
+            			texto.setSelection(texto.getText().length());
+            			nroVentana = 1;
     				   	break;
             	case 3:	texto.setText(texto.getText()+"H");
-			   			nroVentana = 1;
+            			texto.setSelection(texto.getText().length());
+            			nroVentana = 1;
 			   			break;
             	case 4:	texto.setText(texto.getText()+"M");
-			   			nroVentana = 1;
+            			texto.setSelection(texto.getText().length());		
+            			nroVentana = 1;
 			   			break;
             	case 5:	texto.setText(texto.getText()+"QU");
-			   			nroVentana = 1;
+            			texto.setSelection(texto.getText().length());		
+            			nroVentana = 1;
 			   			break;
             	case 6:	texto.setText(texto.getText()+"V");
-			   			nroVentana = 1;
+            			texto.setSelection(texto.getText().length());		
+            			nroVentana = 1;
 			   			break;
 			   	default:nroVentana = 1;
 						break;
@@ -270,19 +308,24 @@ public class MainActivity extends Activity  implements OnInitListener{
             			nroVentana = 5;
             			break;
             	case 2:	texto.setText(texto.getText()+"D");
-    				   	nroVentana = 1;
+            			texto.setSelection(texto.getText().length());	   	
+            			nroVentana = 1;
     				   	break;
             	case 3:	texto.setText(texto.getText()+"I");
-			   			nroVentana = 1;
+            			texto.setSelection(texto.getText().length());		
+            			nroVentana = 1;
 			   			break;
             	case 4:	texto.setText(texto.getText()+"N");
-			   			nroVentana = 1;
+            			texto.setSelection(texto.getText().length());		
+            			nroVentana = 1;
 			   			break;
             	case 5:	texto.setText(texto.getText()+"R");
-			   			nroVentana = 1;
+            			texto.setSelection(texto.getText().length());		
+            			nroVentana = 1;
 			   			break;
             	case 6:	texto.setText(texto.getText()+"X");
-			   			nroVentana = 1;
+            			texto.setSelection(texto.getText().length());		
+            			nroVentana = 1;
 			   			break;
 			   	default:nroVentana = 1;
 						break;
@@ -311,19 +354,24 @@ public class MainActivity extends Activity  implements OnInitListener{
             			nroVentana = 6;
             			break;
             	case 2:	texto.setText(texto.getText()+"E");
-    				   	nroVentana = 1;
+            			texto.setSelection(texto.getText().length());	   	
+            			nroVentana = 1;
     				   	break;
             	case 3:	texto.setText(texto.getText()+"J");
-			   			nroVentana = 1;
+            			texto.setSelection(texto.getText().length());		
+            			nroVentana = 1;
 			   			break;
             	case 4:	texto.setText(texto.getText()+"Ñ");
-			   			nroVentana = 1;
+            			texto.setSelection(texto.getText().length());		
+            			nroVentana = 1;
 			   			break;
             	case 5:	texto.setText(texto.getText()+"S");
-			   			nroVentana = 1;
+            			texto.setSelection(texto.getText().length());		
+            			nroVentana = 1;
 			   			break;
             	case 6:	texto.setText(texto.getText()+"Y");
-			   			nroVentana = 1;
+            			texto.setSelection(texto.getText().length());		
+            			nroVentana = 1;
 			   			break;
 			   	default:nroVentana = 1;
 						break;
@@ -343,9 +391,11 @@ public class MainActivity extends Activity  implements OnInitListener{
 			public void onClick(View v) {
 				//Acción al hacer click
 	            switch (nroVentana){
-            	case 1: mainBuffer = (String) texto.getText();
+            	case 1: 
+            			mainBuffer = texto.getText().toString();
 						mainBuffer += ' ';
 						texto.setText(mainBuffer);
+						texto.setSelection(texto.getText().length());
             			nroVentana = 1;
             			break;
             	case 2:	case 3:	case 4:case 5:
@@ -372,16 +422,18 @@ public class MainActivity extends Activity  implements OnInitListener{
 	//Acción al hacer click en el botón Delete
 	View.OnClickListener controladorBorrarCaracter = new View.OnClickListener() {
 		public void onClick(View v) {
-			mainBuffer = (String) texto.getText();
+			mainBuffer = texto.getText().toString();
 			int longitudBuffer = mainBuffer.length();
 			if (longitudBuffer > 0 ){
 					if ( (longitudBuffer > 1) && (mainBuffer.charAt(longitudBuffer-1) == 'U') && (mainBuffer.charAt(longitudBuffer-2) == 'Q')){
 						mainBuffer = mainBuffer.substring(0,longitudBuffer-2);
 						texto.setText(mainBuffer);
+						texto.setSelection(texto.getText().length());
 					}
 					else{
 						mainBuffer = mainBuffer.substring(0,longitudBuffer-1);
 						texto.setText(mainBuffer);
+						texto.setSelection(texto.getText().length());
 					}
 				}
 		}
@@ -393,6 +445,7 @@ public class MainActivity extends Activity  implements OnInitListener{
 		public boolean onLongClick(View v){
 			mainBuffer = "";
 			texto.setText(mainBuffer);
+			texto.setSelection(texto.getText().length());
 			return true;
 		}
 	};
@@ -400,15 +453,74 @@ public class MainActivity extends Activity  implements OnInitListener{
 	View.OnClickListener controladorPunto = new View.OnClickListener() {
 		public void onClick(View v) {
 			switch (nroVentana){
-        	case 1: mainBuffer = (String) texto.getText();
+        	case 1:
+        			mainBuffer = texto.getText().toString(); 
 					mainBuffer += '.';
 					texto.setText(mainBuffer);
+					texto.setSelection(texto.getText().length());
         			nroVentana = 1;
         			break;
         	case 2: case 3:	case 4:case 5:
         	case 6:ourTts.speak(mainBuffer, TextToSpeech.QUEUE_FLUSH, null);
 		   	default:break;
             }
+		}
+	};
+	
+	View.OnLongClickListener controladorGuardar = new View.OnLongClickListener() { // ----- guarda el texto escrito hasta el momento en MEMORIA
+		@Override
+		public boolean onLongClick(View v) {
+			String estadoTarjeta = Environment.getExternalStorageState();
+			boolean tarjetaEscritura = false;
+			
+			
+			if (estadoTarjeta.equals(Environment.MEDIA_MOUNTED))
+			{Toast.makeText(getBaseContext(),"HAY TARJETA!", Toast.LENGTH_LONG).show();
+				tarjetaEscritura = true;}
+			
+			if (tarjetaEscritura) { // HAY SD en el dispositivo, por lo tanto escribimos en ella y no en la memoria interna
+				try {
+					//---- SD storage ----- //
+					File ruta_tarjeta = Environment.getExternalStorageDirectory();
+					File f = new File(ruta_tarjeta.getAbsolutePath(), "Intercom.txt");
+					FileOutputStream fOut = new FileOutputStream(f);
+					OutputStreamWriter fWrite = new OutputStreamWriter (fOut); 
+					//Escribe el contenido del editText al archivo
+					fWrite.write(texto.getText().toString());
+					fWrite.flush();
+					fWrite.close();
+					// ---- Mostramos un mensaje de guardado exitoso ---- //
+					Toast.makeText(getBaseContext(),"Texto guardado en SD Card!", Toast.LENGTH_SHORT).show();
+					// --- BORRAMOS EL CONTENIDO DEL editText ???
+					// texto.setText(""); CONSULTAR A FLAVIO!!!
+
+				}
+				catch (Exception e){
+					
+					Toast.makeText(getBaseContext(),"ERROR al guardar archivo!", Toast.LENGTH_SHORT).show();
+				}
+			}
+			else // ESCRIBIMOS EN LA MEMORIA INTERNA!
+			{ 
+				try {
+					//---- INTERNAL storage ----- //
+					FileOutputStream fOut = openFileOutput("Intercom.txt", MODE_WORLD_READABLE);
+					OutputStreamWriter fWrite = new OutputStreamWriter (fOut); 
+					//Escribe el contenido del editText al archivo
+					fWrite.write(texto.getText().toString());
+					fWrite.flush();
+					fWrite.close();
+					// ---- Mostramos un mensaje de guardado exitoso ---- //
+					Toast.makeText(getBaseContext(),"Texto guardado en memoria interna!", Toast.LENGTH_SHORT).show();
+					// --- BORRAMOS EL CONTENIDO DEL editText ???
+					// texto.setText(""); CONSULTAR A FLAVIO!!!
+				}
+				catch (Exception e){
+					
+					Toast.makeText(getBaseContext(),"ERROR al guardar archivo!", Toast.LENGTH_SHORT).show();
+				}
+			}
+			return false;
 		}
 	};
 	
@@ -435,4 +547,8 @@ public class MainActivity extends Activity  implements OnInitListener{
             }
 		}
 	};
+	
+
+	
+	
 }

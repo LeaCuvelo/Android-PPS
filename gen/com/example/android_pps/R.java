@@ -35,7 +35,7 @@ public final class R {
         public static final int bttnPrSI=0x7f080009;
         public static final int bttnPrSpace=0x7f080004;
         public static final int bttnPrT=0x7f080002;
-        public static final int textView=0x7f08000a;
+        public static final int editText=0x7f08000a;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
