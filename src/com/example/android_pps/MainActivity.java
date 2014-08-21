@@ -31,7 +31,7 @@ public class MainActivity extends Activity  implements OnInitListener{
 	private Button bttnCerrarUno, bttnCerrarDos;
 	private int nroVentana = 1; //1=Principal;2=ventanaA;3=ventanaF;4=ventanaK;5=ventanaO;6=ventanaT;
 	public String mainBuffer;
-	public boolean okClose = false;
+	public boolean okCerrar = false;
 	public static EditText texto;
 	private TextToSpeech ourTts;
 
@@ -567,7 +567,7 @@ public class MainActivity extends Activity  implements OnInitListener{
 			switch (nroVentana){
         	case 1: case 2: case 3:	case 4:case 5:
         	case 6:
-        		okClose=true;
+        		okCerrar=true;
 		   	default:break;
             }
 		}
@@ -579,7 +579,7 @@ public class MainActivity extends Activity  implements OnInitListener{
 			switch (nroVentana){
         	case 1: case 2: case 3:	case 4:case 5:
         	case 6: 
-        		if(okClose==true){
+        		if(okCerrar==true){
         			finish();
         		}
 		   	default:break;

@@ -21,7 +21,10 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int bttnderecha=0x7f020000;
+        public static final int bttnderechaclickeado=0x7f020001;
+        public static final int fondo_boton=0x7f020002;
+        public static final int ic_launcher=0x7f020003;
     }
     public static final class id {
         public static final int Button01=0x7f08000d;
@@ -54,6 +57,8 @@ public final class R {
         public static final int my_name=0x7f050004;
     }
     public static final class style {
+        /**   Apariencia del texto 
+         */
         public static final int AparienciaTextoNormal=0x7f060002;
         /** 
         Base application theme, dependent on API level. This theme is replaced
@@ -75,5 +80,8 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f060001;
+        /**  Apariencia de los botones 
+         */
+        public static final int boton_style=0x7f060003;
     }
 }
