@@ -3,7 +3,7 @@
 	android:constantSize="true"
 	android:variablePadding="false"	>
     
-    <item android:state_pressed="true" android:drawable="@drawable/bttnderechaclickeado" />
-    <item android:state_focused="true" android:drawable="@drawable/bttnderechaclickeado" />
-    <item android:drawable="@drawable/bttnderecha" />
+    <item android:state_pressed="true" android:drawable="@drawable/bttnclickeado" />
+    <item android:state_focused="true" android:drawable="@drawable/bttnclickeado" />
+    <item android:drawable="@drawable/bttn" />
 </selector>
