@@ -166,5 +166,30 @@
         <requestFocus />
     </EditText>
 
+    <Button
+        android:id="@+id/cerrarUno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/bttnPrDelete"
+        android:layout_toRightOf="@+id/bttnPrK"
+        android:height="203dp"
+        android:maxHeight="203dp"
+        android:maxWidth="267dp"
+        android:minHeight="1dp"
+        android:minWidth="1dp"
+        android:width="267dp" />
+
+    <Button
+        android:id="@+id/cerrarDos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/bttnPrPoint"
+        android:layout_toLeftOf="@+id/bttnPrK"
+        android:height="203dp"
+        android:maxHeight="203dp"
+        android:maxWidth="267dp"
+        android:minHeight="1dp"
+        android:minWidth="1dp"
+        android:width="267dp" />
     
 </RelativeLayout>

@@ -28,8 +28,10 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity  implements OnInitListener{
 	private Button bttnPrA,bttnPrF,bttnPrK,bttnPrO,bttnPrT,bttnPrSpace,bttnPrDelete,bttnPrPoint,bttnPrSI,bttnPrNO;
+	private Button bttnCerrarUno, bttnCerrarDos;
 	private int nroVentana = 1; //1=Principal;2=ventanaA;3=ventanaF;4=ventanaK;5=ventanaO;6=ventanaT;
 	public String mainBuffer;
+	public boolean okClose = false;
 	public static EditText texto;
 	private TextToSpeech ourTts;
 
@@ -73,14 +75,20 @@ public class MainActivity extends Activity  implements OnInitListener{
         bttnPrSI.setOnClickListener(controladorSI);
         bttnPrNO = (Button) findViewById(R.id.bttnPrNO);
         bttnPrNO.setOnClickListener(controladorNO);
-
+        bttnCerrarUno = (Button) findViewById(R.id.cerrarUno);
+        //bttnCerrarUno.setVisibility(View.INVISIBLE);
+        bttnCerrarUno.setOnClickListener(controladorCerrarUno);
+        bttnCerrarUno.setBackgroundColor(255); //Ponemos el botón de igual color que el fondo(negro)
+        bttnCerrarDos = (Button) findViewById(R.id.cerrarDos);
+        //bttnCerrarDos.setVisibility(View.INVISIBLE);
+        bttnCerrarDos.setOnClickListener(controladorCerrarDos);
+        bttnCerrarDos.setBackgroundColor(255);//Ponemos el botón de igual color que el fondo(negro)
+        
         //Enlazamos el editText y lo dejamos en blanco
-     
         texto = (EditText) findViewById(R.id.editText);
         texto.setText("");
         texto.setMovementMethod(new ScrollingMovementMethod()); // Habilita scrolling
 
-    
         
         InputMethodManager imm = (InputMethodManager)getSystemService(
         Context.INPUT_METHOD_SERVICE);
@@ -95,10 +103,7 @@ public class MainActivity extends Activity  implements OnInitListener{
         bttnPrF.setText("F");
         bttnPrK.setText("K");
         bttnPrO.setText("O");
-        bttnPrT.setText("T");
-        
-        
-        
+        bttnPrT.setText("T");     
 	}
 	
 	@Override
@@ -470,6 +475,7 @@ public class MainActivity extends Activity  implements OnInitListener{
 	View.OnLongClickListener controladorGuardar = new View.OnLongClickListener() { // ----- guarda el texto escrito hasta el momento en MEMORIA
 		@Override
 		public boolean onLongClick(View v) {
+			//Comprobamos el estado de la memoria externa
 			String estadoTarjeta = Environment.getExternalStorageState();
 			boolean tarjetaEscritura = false;
 			
@@ -482,13 +488,15 @@ public class MainActivity extends Activity  implements OnInitListener{
 				try {
 					//---- SD storage ----- //
 					File ruta_tarjeta = Environment.getExternalStorageDirectory();
-					File f = new File(ruta_tarjeta.getAbsolutePath(), "Intercom.txt");
+					File directory = new File (ruta_tarjeta.getAbsolutePath()+"/IntercomFiles");
+					directory.mkdirs();
+					File f = new File(ruta_tarjeta, "Intercom.txt");
 					FileOutputStream fOut = new FileOutputStream(f);
-					OutputStreamWriter fWrite = new OutputStreamWriter (fOut); 
+					OutputStreamWriter osw = new OutputStreamWriter(fOut);
 					//Escribe el contenido del editText al archivo
-					fWrite.write(texto.getText().toString());
-					fWrite.flush();
-					fWrite.close();
+					osw.write(texto.getText().toString());
+					osw.flush();
+					osw.close();
 					// ---- Mostramos un mensaje de guardado exitoso ---- //
 					Toast.makeText(getBaseContext(),"Texto guardado en SD Card!", Toast.LENGTH_SHORT).show();
 					// --- BORRAMOS EL CONTENIDO DEL editText ???
@@ -548,7 +556,33 @@ public class MainActivity extends Activity  implements OnInitListener{
 		}
 	};
 	
+	View.OnClickListener controladorCerrarUno = new View.OnClickListener() {
+		public void onClick(View v) {
+			//Acción al hacer click
+			switch (nroVentana){
+        	case 1: case 2: case 3:	case 4:case 5:
+        	case 6:
+        		okClose=true;
+		   	default:break;
+            }
+		}
+	};
 
+	View.OnClickListener controladorCerrarDos = new View.OnClickListener() {
+		public void onClick(View v) {
+			//Acción al hacer click
+			switch (nroVentana){
+        	case 1: case 2: case 3:	case 4:case 5:
+        	case 6: 
+        		if(okClose==true){
+        			//finish();
+        			System.exit(0);
+        			//TODO: Probar si con finish() se cierra de mejor manera y no tan abruptamente
+        		}
+		   	default:break;
+            }
+		}
+	};
 	
 	
 }
