@@ -8,7 +8,10 @@ import java.util.Locale;
 import android.os.Bundle;
 import android.os.Environment;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
@@ -144,8 +147,26 @@ public class MainActivity extends Activity  implements OnInitListener{
 	
 	//Para salir de la apliación tocando el botón "Atrás"
 	public boolean onKeyDown(int keyCode, KeyEvent event){
-		finish();
-		return false;
+		 if (keyCode == KeyEvent.KEYCODE_BACK) {
+			 //Si se toca el botón BACK, se solicita confirmación de salida
+			 new AlertDialog.Builder(this)
+	    	      .setIcon(android.R.drawable.ic_dialog_alert)
+	    	      .setTitle("ADVERTENCIA")
+	    	      .setMessage("¿Seguro que desea salir?")
+	    	      .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+	    	        @Override
+	    	        public void onClick(DialogInterface dialog, int which){
+	    	          //Al pulsar si, finaliza aplicación
+	    	        	MainActivity.this.finish();
+	    	        }
+	    	      })
+	    	      .setNegativeButton("No", null)
+	    	      .show();
+	    	    return true;
+	    	  }
+		 else{
+			 return super.onKeyDown(keyCode, event);
+		 }
 	}
 	
 	//Verificamos si se puede y seteamos idioma español a ourTts
