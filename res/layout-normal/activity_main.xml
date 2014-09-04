@@ -179,31 +179,5 @@
         <requestFocus />
    </EditText>
 
-   <Button
-       android:id="@+id/cerrarUno"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_below="@+id/bttnPrF"
-       android:layout_toRightOf="@+id/bttnPrK"
-       android:height="100dp"
-       android:maxHeight="100dp"
-       android:maxWidth="125dp"
-       android:minHeight="1dp"
-       android:minWidth="1dp"
-       android:width="125dp" />
-
-   <Button
-       android:id="@+id/cerrarDos"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_alignBaseline="@+id/cerrarUno"
-       android:layout_alignBottom="@+id/cerrarUno"
-       android:layout_toLeftOf="@+id/bttnPrK"
-       android:height="100dp"
-       android:maxHeight="100dp"
-       android:maxWidth="125dp"
-       android:minHeight="1dp"
-       android:minWidth="1dp"
-       android:width="125dp" />
-
+   
 </RelativeLayout>

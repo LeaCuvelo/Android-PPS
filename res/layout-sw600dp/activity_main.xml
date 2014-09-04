@@ -180,31 +180,6 @@
         <requestFocus />
     </EditText>
 
-    <Button
-        android:id="@+id/cerrarUno"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/bttnPrF"
-        android:layout_toRightOf="@+id/bttnPrK"
-        android:height="152dp"
-        android:maxHeight="152dp"
-        android:maxWidth="213dp"
-        android:minHeight="1dp"
-        android:minWidth="1dp"
-        android:width="213dp" />
 
-    <Button
-        android:id="@+id/cerrarDos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/Button01"
-        android:layout_alignBottom="@+id/Button01"
-        android:layout_toLeftOf="@+id/bttnPrK"
-        android:height="152dp"
-        android:maxHeight="152dp"
-        android:maxWidth="213dp"
-        android:minHeight="1dp"
-        android:minWidth="1dp"
-        android:width="213dp" />
 
 </RelativeLayout>
