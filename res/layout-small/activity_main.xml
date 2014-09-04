@@ -23,7 +23,8 @@
         android:maxWidth="90dp"
         android:minHeight="1dp"
         android:minWidth="1dp"
-        android:width="90dp" />
+        android:width="90dp"
+         />
 
     <Button
         android:id="@+id/bttnPrO"

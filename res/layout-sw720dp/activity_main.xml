@@ -21,7 +21,9 @@
         android:maxWidth="267dp"
         android:minHeight="1dp"
         android:minWidth="1dp"
-        android:width="267dp" />
+        android:width="267dp"
+        style="@style/boton_style"
+         />
 
     <Button
         android:id="@+id/bttnPrT"
@@ -36,7 +38,9 @@
         android:maxWidth="267dp"
         android:minHeight="1dp"
         android:minWidth="1dp"
-        android:width="267dp" />
+        android:width="267dp"
+        style="@style/boton_style"
+         />
 
     <Button
         android:id="@+id/bttnPrSpace"
@@ -95,7 +99,9 @@
         android:maxWidth="267dp"
         android:minHeight="1dp"
         android:minWidth="1dp"
-        android:width="267dp" />
+        android:width="267dp"
+        style="@style/boton_style"
+         />
 
     <Button
         android:id="@+id/bttnPrNO"
@@ -124,7 +130,9 @@
         android:maxWidth="267dp"
         android:minHeight="1dp"
         android:minWidth="1dp"
-        android:width="267dp" />
+        android:width="267dp"
+        style="@style/boton_style"
+         />
 
     <Button
         android:id="@+id/bttnPrSI"
@@ -152,7 +160,9 @@
         android:maxWidth="267dp"
         android:minHeight="1dp"
         android:minWidth="1dp"
-        android:width="267dp" />
+        android:width="267dp"
+        style="@style/boton_style"
+         />
     
     <EditText
         android:id="@+id/editText"
