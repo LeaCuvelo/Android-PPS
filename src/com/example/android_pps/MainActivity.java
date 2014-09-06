@@ -19,6 +19,7 @@ import android.text.InputType;
 import android.text.method.ScrollingMovementMethod;
 import android.view.KeyEvent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -103,9 +104,43 @@ public class MainActivity extends Activity  implements OnInitListener{
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
+		super.onCreateOptionsMenu(menu);
+		CreateMenu(menu);
 		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item){
+		return MenuChoice(item);
+	}
+	
+	//Items que se muestran cuando el usuario quiera acceder a la tecla MENU
+	private void CreateMenu(Menu menu){
+		MenuItem menuAjustes = menu.add(0, 0, 0, "Ajustes");
+		{
+			//method to assign a shortcut key to the menu item so that users can select an item by pressing a key on the keyboard
+			//menuAjustes.setAlphabeticShortcut('a');
+			//method sets an image to be displayed on the menu item.
+			//mnu1.setIcon(R.drawable.icon);
+		}
+		MenuItem menuAcercade = menu.add(0, 1, 1, "Acerca de");
+		{
+			//menuAcercade.setAlphabeticShortcut('b');
+			//mnu2.setIcon(R.drawable.icon);
+		}
+	}
+	
+	//Acciones que suceden cuando usuario selecciona un item del menu
+	private boolean MenuChoice(MenuItem item){
+		switch (item.getItemId()) {
+			case 0:
+					Toast.makeText(this, "-Ajustes- fue seleccionado",Toast.LENGTH_LONG).show();
+					return true;
+			case 1:
+					Toast.makeText(this, "-Acerca de fue- seleccionado",Toast.LENGTH_LONG).show();
+					return true;
+		}
+		return false;
 	}
 	
 	//onPause debe ser llamado justo antes de ir a otra actividad, y guardar todo
