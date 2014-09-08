@@ -176,9 +176,10 @@
         android:layout_alignRight="@+id/bttnPrNO"
         android:ems="10"
         android:paddingLeft="50dp"
-        android:paddingTop="20dp" >
+        android:paddingTop="20dp"
+        android:onClick="metodoClickEnEditText" >
 
-        <requestFocus />
+      
     </EditText>
 
     

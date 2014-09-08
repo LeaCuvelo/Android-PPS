@@ -171,9 +171,8 @@
         android:layout_alignBottom="@+id/bttnPrO"
         android:layout_alignLeft="@+id/bttnPrSI"
         android:layout_alignRight="@+id/bttnPrNO"
-        android:ems="10" >
-
-        <requestFocus />
+        android:ems="10" 
+        android:onClick="metodoClickEnEditText">
     </EditText>
 
 

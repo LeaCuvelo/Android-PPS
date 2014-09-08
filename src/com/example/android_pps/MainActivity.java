@@ -80,15 +80,23 @@ public class MainActivity extends Activity  implements OnInitListener{
         bttnPrNO.setOnClickListener(controladorNO);
         
         
+        
         //Enlazamos el editText y lo dejamos en blanco
         texto = (EditText) findViewById(R.id.editText);
         texto.setText("");
-        texto.setMovementMethod(new ScrollingMovementMethod()); // Habilita scrolling
-
+        texto.setMovementMethod(new ScrollingMovementMethod()); // Hab el Scrolling
         
-        InputMethodManager imm = (InputMethodManager)getSystemService(
+        // PRUEBA DE QUITAR EL TECLADO AL EDITTEXT
+        /*this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        texto.clearFocus();
+        texto.setFocusableInTouchMode(false);
+        texto.setFocusable(false);
+        texto.setFocusableInTouchMode(true);
+        texto.setFocusable(true);*/
+        
+        /*InputMethodManager imm = (InputMethodManager)getSystemService(
         Context.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(texto.getWindowToken(), 0);
+        imm.hideSoftInputFromWindow(texto.getWindowToken(), 0);*/
         
         
         //Instanciamos nuestro TTS
@@ -548,6 +556,7 @@ public class MainActivity extends Activity  implements OnInitListener{
 							osw.close();
 							// ---- Mostramos un mensaje de guardado exitoso ---- //
 							Toast.makeText(getBaseContext(),"Texto guardado en SD Card!", Toast.LENGTH_SHORT).show();
+							
 							// --- BORRAMOS EL CONTENIDO DEL editText ???
 							// texto.setText(""); CONSULTAR A FLAVIO!!!
 		
@@ -608,5 +617,18 @@ public class MainActivity extends Activity  implements OnInitListener{
             }
 		}
 	};
+	
+	public void metodoClickEnEditText(View v) { // Es llamado cuando se presiona el editText
+		esconderTeclado(this); 
+	}
+	
+	public static void esconderTeclado(Activity activity) { // Oculta teclado por soft
+	    InputMethodManager IMM = (InputMethodManager)  activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+	    IMM.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
+	}
+	
+	
+	
+	
 	
 }
