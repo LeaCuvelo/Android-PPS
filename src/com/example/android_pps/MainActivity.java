@@ -79,25 +79,10 @@ public class MainActivity extends Activity  implements OnInitListener{
         bttnPrNO = (Button) findViewById(R.id.bttnPrNO);
         bttnPrNO.setOnClickListener(controladorNO);
         
-        
-        
         //Enlazamos el editText y lo dejamos en blanco
         texto = (EditText) findViewById(R.id.editText);
         texto.setText("");
-        texto.setMovementMethod(new ScrollingMovementMethod()); // Hab el Scrolling
-        
-        // PRUEBA DE QUITAR EL TECLADO AL EDITTEXT
-        /*this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-        texto.clearFocus();
-        texto.setFocusableInTouchMode(false);
-        texto.setFocusable(false);
-        texto.setFocusableInTouchMode(true);
-        texto.setFocusable(true);*/
-        
-        /*InputMethodManager imm = (InputMethodManager)getSystemService(
-        Context.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(texto.getWindowToken(), 0);*/
-        
+        texto.setMovementMethod(new ScrollingMovementMethod()); // Hab el Scrolling   
         
         //Instanciamos nuestro TTS
         ourTts = new TextToSpeech(this,this);
@@ -151,7 +136,6 @@ public class MainActivity extends Activity  implements OnInitListener{
 		return false;
 	}
 	
-	//onPause debe ser llamado justo antes de ir a otra actividad, y guardar todo
 	@Override protected void onPause(){
 		super.onPause();
 	}

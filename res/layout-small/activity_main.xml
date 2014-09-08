@@ -176,6 +176,8 @@
             android:layout_alignRight="@+id/bttnPrNO"
             android:layout_below="@+id/bttnPrNO"
             android:ems="10" 
+            android:maxLines="1"
+        	android:scrollbars="vertical"
             android:onClick="metodoClickEnEditText">
     </EditText>
 
