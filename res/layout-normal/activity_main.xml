@@ -12,6 +12,7 @@
 
     <Button
         android:id="@+id/bttnPrA"
+        style="@style/boton_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -23,9 +24,8 @@
         android:maxWidth="125dp"
         android:minHeight="1dp"
         android:minWidth="1dp"
-        android:width="125dp"
-        style="@style/boton_style"
-         />
+        android:text="A"
+        android:width="125dp" />
 
     <Button
         android:id="@+id/bttnPrO"
