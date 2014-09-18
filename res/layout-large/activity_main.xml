@@ -178,7 +178,8 @@
         android:paddingLeft="50dp"
         android:paddingTop="20dp" 
         android:maxLines="1"
-        android:scrollbars="vertical">
+        android:scrollbars="vertical"
+        >
 
         <requestFocus />
     </EditText>

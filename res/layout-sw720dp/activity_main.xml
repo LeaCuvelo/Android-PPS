@@ -174,7 +174,6 @@
         android:ems="10"
         android:maxLines="1"
         android:scrollbars="vertical" >
-
         <requestFocus />
     </EditText>
 
