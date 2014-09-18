@@ -179,9 +179,9 @@
             android:maxLines="1"
         	android:scrollbars="vertical" >
 
-        <requestFocus />
+
     </EditText>
 
 
-
+        <requestFocus />
 </RelativeLayout>

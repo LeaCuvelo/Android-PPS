@@ -55,6 +55,18 @@ public class MainActivity extends Activity  implements OnInitListener{
 		
         //Mostramos la actividad
         setContentView(R.layout.activity_main);
+           
+        //Enlazamos el editText y lo dejamos en blanco
+        texto = (EditText) findViewById(R.id.editText);
+        texto.setText("");
+        
+        // Anula teclado al hacer click en el edit y scrollbar horizonta obligado
+        texto.setInputType(InputType.TYPE_NULL); 
+        if (android.os.Build.VERSION.SDK_INT >= 11)   
+        {  
+            texto.setRawInputType(InputType.TYPE_CLASS_TEXT);  
+            texto.setTextIsSelectable(true);  
+        }
 
         //Enlazamos botones con sus respectivas acciones
         bttnPrA = (Button) findViewById(R.id.bttnPrA);
@@ -79,21 +91,6 @@ public class MainActivity extends Activity  implements OnInitListener{
         bttnPrSI.setOnClickListener(controladorSI);
         bttnPrNO = (Button) findViewById(R.id.bttnPrNO);
         bttnPrNO.setOnClickListener(controladorNO);
-        
-        
-        //Enlazamos el editText y lo dejamos en blanco
-        texto = (EditText) findViewById(R.id.editText);
-        texto.setText("");
-        
-        // Anula teclado al hacer click en el edit y scrollbar horizonta obligado
-        texto.setInputType(InputType.TYPE_NULL); 
-        if (android.os.Build.VERSION.SDK_INT >= 11)   
-        {  
-            texto.setRawInputType(InputType.TYPE_CLASS_TEXT);  
-            texto.setTextIsSelectable(true);  
-        }
-
-        
         
         //Instanciamos nuestro TTS
         ourTts = new TextToSpeech(this,this);

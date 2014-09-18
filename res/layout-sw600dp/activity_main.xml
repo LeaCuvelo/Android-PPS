@@ -152,7 +152,18 @@
         android:width="213dp"
         style="@style/boton_style"
          />
-
+ <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/bttnPrO"
+        android:layout_alignLeft="@+id/bttnPrSI"
+        android:layout_alignRight="@+id/bttnPrNO"
+        android:ems="10"
+        android:maxLines="1"
+        android:scrollbars="vertical" >
+    </EditText>
+    
     <Button
         android:id="@+id/bttnPrSI"
         android:layout_width="wrap_content"
@@ -167,19 +178,6 @@
         android:text="SI"
         android:width="116dp" />
     
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/bttnPrO"
-        android:layout_alignLeft="@+id/bttnPrSI"
-        android:layout_alignRight="@+id/bttnPrNO"
-        android:ems="10"
-        android:maxLines="1"
-        android:scrollbars="vertical" >
-        <requestFocus />
-    </EditText>
-
-
+   
 
 </RelativeLayout>
