@@ -12,7 +12,6 @@
 
     <Button
         android:id="@+id/bttnPrA"
-        style="@style/boton_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -24,8 +23,9 @@
         android:maxWidth="125dp"
         android:minHeight="1dp"
         android:minWidth="1dp"
-        android:text="A"
-        android:width="125dp" />
+        android:width="125dp"
+        style="@style/boton_style"
+         />
 
     <Button
         android:id="@+id/bttnPrO"
@@ -185,9 +185,8 @@
         android:layout_alignRight="@+id/bttnPrNO"
         android:ems="10"
         android:maxLines="1"
-        android:scrollbars="vertical"
-        android:onClick="metodoClickEnEditText"
-        >
+        android:scrollbars="vertical">
+        <requestFocus />
    </EditText>
 
    

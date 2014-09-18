@@ -5,8 +5,6 @@ import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.Locale;
 
-import android.media.AudioManager;
-import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.Environment;
 import android.app.Activity;
@@ -28,6 +26,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Scroller;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,6 +38,9 @@ public class MainActivity extends Activity  implements OnInitListener{
 	public boolean okCerrar = false;
 	public static EditText texto;
 	private TextToSpeech ourTts;
+
+
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -78,10 +80,20 @@ public class MainActivity extends Activity  implements OnInitListener{
         bttnPrNO = (Button) findViewById(R.id.bttnPrNO);
         bttnPrNO.setOnClickListener(controladorNO);
         
+        
         //Enlazamos el editText y lo dejamos en blanco
         texto = (EditText) findViewById(R.id.editText);
         texto.setText("");
-        texto.setMovementMethod(new ScrollingMovementMethod()); // Hab el Scrolling   
+        
+        // Anula teclado al hacer click en el edit y scrollbar horizonta obligado
+        texto.setInputType(InputType.TYPE_NULL); 
+        if (android.os.Build.VERSION.SDK_INT >= 11)   
+        {  
+            texto.setRawInputType(InputType.TYPE_CLASS_TEXT);  
+            texto.setTextIsSelectable(true);  
+        }
+
+        
         
         //Instanciamos nuestro TTS
         ourTts = new TextToSpeech(this,this);
@@ -91,11 +103,10 @@ public class MainActivity extends Activity  implements OnInitListener{
         bttnPrF.setText("F");
         bttnPrK.setText("K");
         bttnPrO.setText("O");
-        bttnPrT.setText("T"); 
+        bttnPrT.setText("T");
         
-        //Tomamos la instancia para sonido
+        //Tomamos la instancia para sonida
         Effects.getInstance().init(this);
-
 	}
 	
 	@Override
@@ -139,6 +150,7 @@ public class MainActivity extends Activity  implements OnInitListener{
 		return false;
 	}
 	
+	//onPause debe ser llamado justo antes de ir a otra actividad, y guardar todo
 	@Override protected void onPause(){
 		super.onPause();
 	}
@@ -207,7 +219,7 @@ public class MainActivity extends Activity  implements OnInitListener{
 	
 	View.OnClickListener controladorA = new View.OnClickListener() {
 	    public void onClick(View v) {
-	    	//Acción al hacer click  
+	    	//Acción al hacer click 
 	    	//Reproduce sonido
 	    	Effects.getInstance().playSound(Effects.SOUND_1);
             switch (nroVentana){
@@ -448,7 +460,7 @@ public class MainActivity extends Activity  implements OnInitListener{
 	View.OnClickListener controladorEspacio = new View.OnClickListener() {
 			public void onClick(View v) {
 				//Acción al hacer click
-		    	//Reproduce sonido
+				//Reproduce sonido
 		    	Effects.getInstance().playSound(Effects.SOUND_1);
 	            switch (nroVentana){
             	case 1: 
@@ -482,7 +494,7 @@ public class MainActivity extends Activity  implements OnInitListener{
 	//Acción al hacer click en el botón Delete
 	View.OnClickListener controladorBorrarCaracter = new View.OnClickListener() {
 		public void onClick(View v) {
-	    	//Reproduce sonido
+			//Reproduce sonido
 	    	Effects.getInstance().playSound(Effects.SOUND_1);
 			mainBuffer = texto.getText().toString();
 			int longitudBuffer = mainBuffer.length();
@@ -505,7 +517,7 @@ public class MainActivity extends Activity  implements OnInitListener{
 	//Acción al mantener presionado el botón Delete
 	View.OnLongClickListener controladorBorrarTodo = new View.OnLongClickListener() {
 		public boolean onLongClick(View v){
-	    	//Reproduce sonido
+			//Reproduce sonido
 	    	Effects.getInstance().playSound(Effects.SOUND_1);
 			mainBuffer = "";
 			texto.setText(mainBuffer);
@@ -534,7 +546,7 @@ public class MainActivity extends Activity  implements OnInitListener{
 	View.OnLongClickListener controladorGuardar = new View.OnLongClickListener() { // ----- guarda el texto escrito hasta el momento en MEMORIA
 		@Override
 		public boolean onLongClick(View v) {
-	    	//Reproduce sonido
+			//Reproduce sonido
 	    	Effects.getInstance().playSound(Effects.SOUND_1);
 			switch (nroVentana){
         	case 1:
@@ -549,12 +561,10 @@ public class MainActivity extends Activity  implements OnInitListener{
 					if (tarjetaEscritura) { // HAY SD en el dispositivo, por lo tanto escribimos en ella y no en la memoria interna
 						try {
 							//---- SD storage ----- //
-							File path_SD = Environment.getExternalStorageDirectory();
-							
-							File directory = new File (path_SD.getAbsolutePath() + "/IntercomFiles");
+							File ruta_tarjeta = Environment.getExternalStorageDirectory();
+							File directory = new File (ruta_tarjeta.getAbsolutePath()+"/IntercomFiles");
 							directory.mkdirs();
-							
-							File f = new File(directory, "Intercom.txt");
+							File f = new File(ruta_tarjeta, "Intercom.txt");
 							FileOutputStream fOut = new FileOutputStream(f);
 							OutputStreamWriter osw = new OutputStreamWriter(fOut);
 							//Escribe el contenido del editText al archivo
@@ -563,11 +573,8 @@ public class MainActivity extends Activity  implements OnInitListener{
 							osw.close();
 							// ---- Mostramos un mensaje de guardado exitoso ---- //
 							Toast.makeText(getBaseContext(),"Texto guardado en SD Card!", Toast.LENGTH_SHORT).show();
-							
 							// --- BORRAMOS EL CONTENIDO DEL editText ???
 							// texto.setText(""); CONSULTAR A FLAVIO!!!
-							
-							
 		
 						}
 						catch (Exception e){
@@ -575,7 +582,6 @@ public class MainActivity extends Activity  implements OnInitListener{
 							Toast.makeText(getBaseContext(),"ERROR al guardar archivo!", Toast.LENGTH_SHORT).show();
 						}
 					}
-					
 					else // ESCRIBIMOS EN LA MEMORIA INTERNA!
 					{ 
 						try {
@@ -588,7 +594,6 @@ public class MainActivity extends Activity  implements OnInitListener{
 							fWrite.close();
 							// ---- Mostramos un mensaje de guardado exitoso ---- //
 							Toast.makeText(getBaseContext(),"Texto guardado en memoria interna!", Toast.LENGTH_SHORT).show();
-							
 							// --- BORRAMOS EL CONTENIDO DEL editText ???
 							// texto.setText(""); CONSULTAR A FLAVIO!!!
 						}
@@ -597,7 +602,6 @@ public class MainActivity extends Activity  implements OnInitListener{
 							Toast.makeText(getBaseContext(),"ERROR al guardar archivo!", Toast.LENGTH_SHORT).show();
 						}
 					}
-					
 					break;
         	case 2: case 3:	case 4:case 5:case 6:
         	default:break;
@@ -629,14 +633,5 @@ public class MainActivity extends Activity  implements OnInitListener{
             }
 		}
 	};
-	
-	public void metodoClickEnEditText(View v) { // Es llamado cuando se presiona el editText
-		esconderTeclado(this); 
-	}
-	
-	public static void esconderTeclado(Activity activity) { // Oculta teclado por soft
-	    InputMethodManager IMM = (InputMethodManager)  activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
-	    IMM.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
-	}
 	
 }
