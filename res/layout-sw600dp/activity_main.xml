@@ -176,7 +176,8 @@
         android:minHeight="1dp"
         android:minWidth="1dp"
         android:text="SI"
-        android:width="116dp" />
+        android:width="116dp"
+        />
     
    
 
