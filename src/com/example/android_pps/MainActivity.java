@@ -12,6 +12,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
@@ -20,6 +21,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -120,25 +122,35 @@ public class MainActivity extends Activity  implements OnInitListener{
 	
 	//Items que se muestran cuando el usuario quiera acceder a la tecla MENU
 	private void CreateMenu(Menu menu){
-		MenuItem menuAjustes = menu.add(0, 0, 0, "Ajustes");
+		SubMenu menuAjustes = menu.addSubMenu(0, 0, 0, "Ajustes");
 		{
+			
+			
 			//method to assign a shortcut key to the menu item so that users can select an item by pressing a key on the keyboard
 			//menuAjustes.setAlphabeticShortcut('a');
 			//method sets an image to be displayed on the menu item.
-			//mnu1.setIcon(R.drawable.icon);
+			menuAjustes.setIcon(R.drawable.options);
+			menuAjustes.add(0,1,0,"Velocidad de Voz");
+			menuAjustes.add(0,2,1,"Genero de Voz");
 		}
-		MenuItem menuAcercade = menu.add(0, 1, 1, "Acerca de");
+		
+		MenuItem menuAcercaDe = menu.add(1, 0, 1, "Acerca de");
 		{
-			//menuAcercade.setAlphabeticShortcut('b');
-			//mnu2.setIcon(R.drawable.icon);
+			//menuAcercaDe.setAlphabeticShortcut('b');
+			menuAcercaDe.setIcon(R.drawable.acerca);
+			
 		}
+		
 	}
 	
 	//Acciones que suceden cuando usuario selecciona un item del menu
 	private boolean MenuChoice(MenuItem item){
-		switch (item.getItemId()) {
-			case 0:
-					Toast.makeText(this, "-Ajustes- fue seleccionado",Toast.LENGTH_LONG).show();
+		switch (item.getGroupId()) {
+			case 0: 
+					switch (item.getItemId()) {
+						case 1:Toast.makeText(this, "-Velocidad fue- seleccionado",Toast.LENGTH_LONG).show(); break; 
+						case 2:Toast.makeText(this, "-Genero fue- seleccionado",Toast.LENGTH_LONG).show(); break;
+					}
 					return true;
 			case 1:
 					Toast.makeText(this, "-Acerca de fue- seleccionado",Toast.LENGTH_LONG).show();
@@ -146,6 +158,8 @@ public class MainActivity extends Activity  implements OnInitListener{
 		}
 		return false;
 	}
+	
+	
 	
 	//onPause debe ser llamado justo antes de ir a otra actividad, y guardar todo
 	@Override protected void onPause(){
