@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.Locale;
 
+import android.R.menu;
 import android.os.Bundle;
 import android.os.Environment;
 import android.app.Activity;
@@ -124,8 +125,6 @@ public class MainActivity extends Activity  implements OnInitListener{
 	private void CreateMenu(Menu menu){
 		SubMenu menuAjustes = menu.addSubMenu(0, 0, 0, "Ajustes");
 		{
-			
-			
 			//method to assign a shortcut key to the menu item so that users can select an item by pressing a key on the keyboard
 			//menuAjustes.setAlphabeticShortcut('a');
 			//method sets an image to be displayed on the menu item.
@@ -148,8 +147,10 @@ public class MainActivity extends Activity  implements OnInitListener{
 		switch (item.getGroupId()) {
 			case 0: 
 					switch (item.getItemId()) {
-						case 1:Toast.makeText(this, "-Velocidad fue- seleccionado",Toast.LENGTH_LONG).show(); break; 
-						case 2:Toast.makeText(this, "-Genero fue- seleccionado",Toast.LENGTH_LONG).show(); break;
+						case 1:Toast.makeText(this, "-Velocidad fue- seleccionado",Toast.LENGTH_LONG).show(); 
+						break; 
+						case 2:Toast.makeText(this, "-Genero fue- seleccionado",Toast.LENGTH_LONG).show(); 
+						break;
 					}
 					return true;
 			case 1:
