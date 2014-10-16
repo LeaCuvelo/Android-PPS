@@ -21,6 +21,7 @@ import android.text.InputType;
 import android.text.method.ScrollingMovementMethod;
 import android.view.KeyEvent;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
@@ -111,16 +112,26 @@ public class MainActivity extends Activity  implements OnInitListener{
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		super.onCreateOptionsMenu(menu);
-		CreateMenu(menu);
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.layout.settings_activity, menu);
 		return true;
+		/*super.onCreateOptionsMenu(menu);
+		CreateMenu(menu);
+		return true;*/
 	}
+	
 	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item){
-		return MenuChoice(item);
+		switch (item.getItemId()) {
+        case R.id.high:
+        	Toast.makeText(this, "-Acerca de fue- seleccionado",Toast.LENGTH_LONG).show();
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
+    	}
 	}
-	
+	/*
 	//Items que se muestran cuando el usuario quiera acceder a la tecla MENU
 	private void CreateMenu(Menu menu){
 		SubMenu menuAjustes = menu.addSubMenu(0, 0, 0, "Ajustes");
@@ -158,7 +169,7 @@ public class MainActivity extends Activity  implements OnInitListener{
 					return true;
 		}
 		return false;
-	}
+	}*/
 	
 	
 	
