@@ -15,6 +15,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
 import android.text.InputType;
@@ -100,12 +101,18 @@ public class MainActivity extends Activity  implements OnInitListener{
         ourTts = new TextToSpeech(this,this);
         
         //Cargamos el texto que se presenta inicialmente en los botones
+        //Y sus respectivos colores
         bttnPrA.setText("A");
+        bttnPrA.setTextColor(Color.rgb(0,0,255)); //Azul
         bttnPrF.setText("F");
+        bttnPrF.setTextColor(Color.rgb(255,0,0)); //Rojo
         bttnPrK.setText("K");
+        bttnPrK.setTextColor(Color.rgb(0,255,0)); //Verde
         bttnPrO.setText("O");
+        bttnPrO.setTextColor(Color.rgb(0,0,0)); //Negro
         bttnPrT.setText("T");
-        
+        bttnPrT.setTextColor(Color.rgb(255,174,0)); //Naranja personalizado
+
         //Tomamos la instancia para sonida
         Effects.getInstance().init(this);
 	}
@@ -124,10 +131,17 @@ public class MainActivity extends Activity  implements OnInitListener{
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item){
 		switch (item.getItemId()) {
+		case R.id.low: 
+        	Toast.makeText(this, "-LENTO- seleccionado",Toast.LENGTH_LONG).show();
+            return true;
+		case R.id.medium:
+        	Toast.makeText(this, "-MEDIO- seleccionado",Toast.LENGTH_LONG).show();
+            return true;
         case R.id.high:
-        	Toast.makeText(this, "-Acerca de fue- seleccionado",Toast.LENGTH_LONG).show();
+        	Toast.makeText(this, "-RAPIDO- seleccionado",Toast.LENGTH_LONG).show();
             return true;
         default:
+        	Toast.makeText(this, "EN DESARROLLO... (Programando...)",Toast.LENGTH_LONG).show();
             return super.onOptionsItemSelected(item);
     	}
 	}
@@ -246,7 +260,12 @@ public class MainActivity extends Activity  implements OnInitListener{
 	    	//Reproduce sonido
 	    	Effects.getInstance().playSound(Effects.SOUND_1);
             switch (nroVentana){
-            	case 1: bttnPrA.setText("A");
+            	case 1: bttnPrA.setTextColor(Color.rgb(0,0,255)); //Seteamos todos los botones a azul
+            			bttnPrF.setTextColor(Color.rgb(0,0,255));
+            			bttnPrK.setTextColor(Color.rgb(0,0,255));
+            			bttnPrO.setTextColor(Color.rgb(0,0,255));
+            			bttnPrT.setTextColor(Color.rgb(0,0,255));
+            			bttnPrA.setText("A");
             			bttnPrF.setText("B");
             			bttnPrK.setText("C");
             			bttnPrO.setText("D");
@@ -278,6 +297,11 @@ public class MainActivity extends Activity  implements OnInitListener{
 						break;
             }
             if (nroVentana == 1){
+                bttnPrA.setTextColor(Color.rgb(0,0,255)); //Azul
+                bttnPrF.setTextColor(Color.rgb(255,0,0)); //Rojo
+                bttnPrK.setTextColor(Color.rgb(0,255,0)); //Verde
+                bttnPrO.setTextColor(Color.rgb(0,0,0)); //Negro
+                bttnPrT.setTextColor(Color.rgb(255,174,0)); //Naranja personalizado
     			bttnPrA.setText("A");
 			   	bttnPrF.setText("F");
 			   	bttnPrK.setText("K");
@@ -294,7 +318,12 @@ public class MainActivity extends Activity  implements OnInitListener{
 		    	//Reproduce sonido
 		    	Effects.getInstance().playSound(Effects.SOUND_1);
 	            switch (nroVentana){
-            	case 1: bttnPrA.setText("F");
+            	case 1: bttnPrA.setTextColor(Color.rgb(255,0,0)); //Seteamos todos los botones a rojo
+    					bttnPrF.setTextColor(Color.rgb(255,0,0));
+    					bttnPrK.setTextColor(Color.rgb(255,0,0));
+    					bttnPrO.setTextColor(Color.rgb(255,0,0));
+    					bttnPrT.setTextColor(Color.rgb(255,0,0));
+            			bttnPrA.setText("F");
             			bttnPrF.setText("G");
             			bttnPrK.setText("H");
             			bttnPrO.setText("I");
@@ -326,6 +355,11 @@ public class MainActivity extends Activity  implements OnInitListener{
 						break;
             }
 	        if (nroVentana == 1){
+	            bttnPrA.setTextColor(Color.rgb(0,0,255)); //Azul
+	            bttnPrF.setTextColor(Color.rgb(255,0,0)); //Rojo
+	            bttnPrK.setTextColor(Color.rgb(0,255,0)); //Verde
+	            bttnPrO.setTextColor(Color.rgb(0,0,0)); //Negro
+	            bttnPrT.setTextColor(Color.rgb(255,174,0)); //Naranja personalizado
 	    		bttnPrA.setText("A");
 				bttnPrF.setText("F");
 				bttnPrK.setText("K");
@@ -342,7 +376,12 @@ public class MainActivity extends Activity  implements OnInitListener{
 		    	//Reproduce sonido
 		    	Effects.getInstance().playSound(Effects.SOUND_1);
 	            switch (nroVentana){
-            	case 1: bttnPrA.setText("K");
+            	case 1: bttnPrA.setTextColor(Color.rgb(0,255,0)); //Seteamos todos los botones a verde
+						bttnPrF.setTextColor(Color.rgb(0,255,0));
+						bttnPrK.setTextColor(Color.rgb(0,255,0));
+						bttnPrO.setTextColor(Color.rgb(0,255,0));
+						bttnPrT.setTextColor(Color.rgb(0,255,0));
+            			bttnPrA.setText("K");
             			bttnPrF.setText("L");
             			bttnPrK.setText("M");
             			bttnPrO.setText("N");
@@ -374,6 +413,11 @@ public class MainActivity extends Activity  implements OnInitListener{
 						break;
             }
 	        if (nroVentana == 1){
+	            bttnPrA.setTextColor(Color.rgb(0,0,255)); //Azul
+	            bttnPrF.setTextColor(Color.rgb(255,0,0)); //Rojo
+	            bttnPrK.setTextColor(Color.rgb(0,255,0)); //Verde
+	            bttnPrO.setTextColor(Color.rgb(0,0,0)); //Negro
+	            bttnPrT.setTextColor(Color.rgb(255,174,0)); //Naranja personalizado
 	    		bttnPrA.setText("A");
 				bttnPrF.setText("F");
 				bttnPrK.setText("K");
@@ -390,7 +434,12 @@ public class MainActivity extends Activity  implements OnInitListener{
 		    	//Reproduce sonido
 		    	Effects.getInstance().playSound(Effects.SOUND_1);
 	            switch (nroVentana){
-            	case 1: bttnPrA.setText("O");
+            	case 1: bttnPrA.setTextColor(Color.rgb(0,0,0)); //Seteamos todos los botones a negro
+						bttnPrF.setTextColor(Color.rgb(0,0,0));
+						bttnPrK.setTextColor(Color.rgb(0,0,0));
+						bttnPrO.setTextColor(Color.rgb(0,0,0));
+						bttnPrT.setTextColor(Color.rgb(0,0,0));
+            			bttnPrA.setText("O");
             			bttnPrF.setText("P");
             			bttnPrK.setText("Q");
             			bttnPrO.setText("R");
@@ -421,7 +470,12 @@ public class MainActivity extends Activity  implements OnInitListener{
 			   	default:nroVentana = 1;
 						break;
             }
-	        if (nroVentana == 1){
+	        if (nroVentana == 1){        
+	            bttnPrA.setTextColor(Color.rgb(0,0,255)); //Azul
+	            bttnPrF.setTextColor(Color.rgb(255,0,0)); //Rojo
+	            bttnPrK.setTextColor(Color.rgb(0,255,0)); //Verde
+	            bttnPrO.setTextColor(Color.rgb(0,0,0)); //Negro
+	            bttnPrT.setTextColor(Color.rgb(255,174,0)); //Naranja personalizado
 	    		bttnPrA.setText("A");
 				bttnPrF.setText("F");
 				bttnPrK.setText("K");
@@ -438,7 +492,12 @@ public class MainActivity extends Activity  implements OnInitListener{
 		    	//Reproduce sonido
 		    	Effects.getInstance().playSound(Effects.SOUND_1);
 	            switch (nroVentana){
-            	case 1: bttnPrA.setText("T");
+            	case 1: bttnPrA.setTextColor(Color.rgb(255,174,0)); //Seteamos todos los botones a naranaja personalizado
+						bttnPrF.setTextColor(Color.rgb(255,174,0));
+						bttnPrK.setTextColor(Color.rgb(255,174,0));
+						bttnPrO.setTextColor(Color.rgb(255,174,0));
+						bttnPrT.setTextColor(Color.rgb(255,174,0));
+            			bttnPrA.setText("T");
             			bttnPrF.setText("U");
             			bttnPrK.setText("V");
             			bttnPrO.setText("X");
@@ -469,7 +528,12 @@ public class MainActivity extends Activity  implements OnInitListener{
 			   	default:nroVentana = 1;
 						break;
 	            }
-	            if (nroVentana == 1){
+	            if (nroVentana == 1){        
+	                bttnPrA.setTextColor(Color.rgb(0,0,255)); //Azul
+	                bttnPrF.setTextColor(Color.rgb(255,0,0)); //Rojo
+	                bttnPrK.setTextColor(Color.rgb(0,255,0)); //Verde
+	                bttnPrO.setTextColor(Color.rgb(0,0,0)); //Negro
+	                bttnPrT.setTextColor(Color.rgb(255,174,0)); //Naranja personalizado
 	    			bttnPrA.setText("A");
 				   	bttnPrF.setText("F");
 				   	bttnPrK.setText("K");
@@ -486,8 +550,7 @@ public class MainActivity extends Activity  implements OnInitListener{
 				//Reproduce sonido
 		    	Effects.getInstance().playSound(Effects.SOUND_1);
 	            switch (nroVentana){
-            	case 1: 
-            			mainBuffer = texto.getText().toString();
+            	case 1: mainBuffer = texto.getText().toString();
 						mainBuffer += ' ';
 						texto.setText(mainBuffer);
 						texto.setSelection(texto.getText().length());
