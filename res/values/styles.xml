@@ -37,5 +37,19 @@
         <item name="android:layout_width">wrap_content</item>
     </style>
     
+    <!-- Apariencia de la barra espacioadora -->
+    <style name="espacio_style" parent="@android:style/Widget.Button">
+        <item name="android:background">@drawable/boton_espacio</item>
+    </style>
+    
+    <!-- Apariencia del boton SI -->
+    <style name="si_style" parent="@android:style/Widget.Button">
+        <item name="android:background">@drawable/boton_si</item>
+    </style>
+    
+    <!-- Apariencia del boton NO -->
+    <style name="no_style" parent="@android:style/Widget.Button">
+        <item name="android:background">@drawable/boton_no</item>
+    </style>
 
 </resources>

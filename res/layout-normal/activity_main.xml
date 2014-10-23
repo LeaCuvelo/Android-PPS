@@ -8,7 +8,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity"
+    android:background="#ffffff" >
 
     <Button
         android:id="@+id/bttnPrA"
@@ -72,9 +73,9 @@
         android:maxWidth="230dp"
         android:minHeight="1dp"
         android:minWidth="1dp"
-        android:text="BARRA ESPACIADORA"
         android:textSize="10sp"
-        android:width="230dp" />
+        android:width="230dp"
+        style="@style/espacio_style" />
 
     <Button
         android:id="@+id/bttnPrPoint"
@@ -126,7 +127,8 @@
         android:minWidth="1dp"
         android:text="NO"
         android:textSize="10sp"
-        android:width="70dp" />
+        android:width="70dp"
+        style="@style/no_style" />
 
     <Button
         android:id="@+id/bttnPrF"
@@ -157,7 +159,8 @@
         android:minWidth="1dp"
         android:text="SI"
         android:textSize="10sp"
-        android:width="70dp" />
+        android:width="70dp"
+        style="@style/si_style" />
 
       <EditText
         android:id="@+id/editText"

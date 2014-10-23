@@ -10,6 +10,16 @@ package com.example.android_pps;
 public final class R {
     public static final class attr {
     }
+    public static final class color {
+        public static final int black=0x7f050007;
+        public static final int celestepersonalizado=0x7f050004;
+        public static final int celestepersonalizadopresionado=0x7f050005;
+        public static final int naranjapersonalizado2=0x7f050002;
+        public static final int naranjapersonalizado2presionado=0x7f050003;
+        public static final int violetapersonalizado=0x7f050000;
+        public static final int violetapersonalizadopresionado=0x7f050001;
+        public static final int white=0x7f050006;
+    }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
 
@@ -17,38 +27,41 @@ public final class R {
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f050000;
-        public static final int activity_vertical_margin=0x7f050001;
+        public static final int activity_horizontal_margin=0x7f060000;
+        public static final int activity_vertical_margin=0x7f060001;
     }
     public static final class drawable {
         public static final int acerca=0x7f020000;
-        public static final int bttn=0x7f020001;
-        public static final int bttnclickeado=0x7f020002;
-        public static final int fondo_boton=0x7f020003;
-        public static final int ic_launcher=0x7f020004;
-        public static final int intercomfabrizio=0x7f020005;
-        public static final int options=0x7f020006;
-        public static final int splash_screen=0x7f020007;
+        public static final int boton_espacio=0x7f020001;
+        public static final int boton_no=0x7f020002;
+        public static final int boton_si=0x7f020003;
+        public static final int bttn=0x7f020004;
+        public static final int bttnclickeado=0x7f020005;
+        public static final int fondo_boton=0x7f020006;
+        public static final int ic_launcher=0x7f020007;
+        public static final int intercomfabrizio=0x7f020008;
+        public static final int options=0x7f020009;
+        public static final int splash_screen=0x7f02000a;
     }
     public static final class id {
-        public static final int action_settings=0x7f090011;
-        public static final int bttnPrA=0x7f090000;
-        public static final int bttnPrDelete=0x7f090006;
-        public static final int bttnPrF=0x7f090003;
-        public static final int bttnPrK=0x7f090007;
-        public static final int bttnPrNO=0x7f090008;
-        public static final int bttnPrO=0x7f090001;
-        public static final int bttnPrPoint=0x7f090005;
-        public static final int bttnPrSI=0x7f090009;
-        public static final int bttnPrSpace=0x7f090004;
-        public static final int bttnPrT=0x7f090002;
-        public static final int create_new=0x7f09000c;
-        public static final int editText=0x7f09000a;
-        public static final int file=0x7f09000b;
-        public static final int high=0x7f09000f;
-        public static final int low=0x7f09000d;
-        public static final int medium=0x7f09000e;
-        public static final int open=0x7f090010;
+        public static final int action_settings=0x7f0a0011;
+        public static final int bttnPrA=0x7f0a0000;
+        public static final int bttnPrDelete=0x7f0a0006;
+        public static final int bttnPrF=0x7f0a0003;
+        public static final int bttnPrK=0x7f0a0007;
+        public static final int bttnPrNO=0x7f0a0008;
+        public static final int bttnPrO=0x7f0a0001;
+        public static final int bttnPrPoint=0x7f0a0005;
+        public static final int bttnPrSI=0x7f0a0009;
+        public static final int bttnPrSpace=0x7f0a0004;
+        public static final int bttnPrT=0x7f0a0002;
+        public static final int create_new=0x7f0a000c;
+        public static final int editText=0x7f0a000a;
+        public static final int file=0x7f0a000b;
+        public static final int high=0x7f0a000f;
+        public static final int low=0x7f0a000d;
+        public static final int medium=0x7f0a000e;
+        public static final int open=0x7f0a0010;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -56,22 +69,22 @@ public final class R {
         public static final int splash_screen=0x7f030002;
     }
     public static final class menu {
-        public static final int main=0x7f080000;
+        public static final int main=0x7f090000;
     }
     public static final class raw {
         public static final int sound_1=0x7f040000;
     }
     public static final class string {
-        public static final int a=0x7f060003;
-        public static final int action_settings=0x7f060001;
-        public static final int app_name=0x7f060000;
-        public static final int hello_world=0x7f060002;
-        public static final int my_name=0x7f060004;
+        public static final int a=0x7f070003;
+        public static final int action_settings=0x7f070001;
+        public static final int app_name=0x7f070000;
+        public static final int hello_world=0x7f070002;
+        public static final int my_name=0x7f070004;
     }
     public static final class style {
         /**   Apariencia del texto 
          */
-        public static final int AparienciaTextoNormal=0x7f070002;
+        public static final int AparienciaTextoNormal=0x7f080002;
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
@@ -87,13 +100,22 @@ public final class R {
     
  API 11 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f070000;
+        public static final int AppBaseTheme=0x7f080000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f070001;
+        public static final int AppTheme=0x7f080001;
         /**  Apariencia de los botones 
          */
-        public static final int boton_style=0x7f070003;
+        public static final int boton_style=0x7f080003;
+        /**  Apariencia de la barra espacioadora 
+         */
+        public static final int espacio_style=0x7f080004;
+        /**  Apariencia del boton NO 
+         */
+        public static final int no_style=0x7f080006;
+        /**  Apariencia del boton SI 
+         */
+        public static final int si_style=0x7f080005;
     }
 }

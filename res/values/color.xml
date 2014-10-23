@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="violetapersonalizado">#6d1be2</color>
+    <color name="violetapersonalizadopresionado">#641bff</color>
+    <color name="naranjapersonalizado2">#ff7e20</color>
+    <color name="naranjapersonalizado2presionado">#ff640a</color>
+    <color name="celestepersonalizado">#46a4ff</color>
+    <color name="celestepersonalizadopresionado">#3c6eff</color>
+    <color name="white">#ffffffff</color>
+    <color name="black">#ff000000</color>
+</resources>

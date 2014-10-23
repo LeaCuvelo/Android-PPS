@@ -40,7 +40,6 @@ public class MainActivity extends Activity  implements OnInitListener{
 	private Button bttnPrA,bttnPrF,bttnPrK,bttnPrO,bttnPrT,bttnPrSpace,bttnPrDelete,bttnPrPoint,bttnPrSI,bttnPrNO;
 	private int nroVentana = 1; //1=Principal;2=ventanaA;3=ventanaF;4=ventanaK;5=ventanaO;6=ventanaT;
 	public String mainBuffer;
-	public boolean okCerrar = false;
 	public static EditText texto;
 	private TextToSpeech ourTts;
 
@@ -60,7 +59,7 @@ public class MainActivity extends Activity  implements OnInitListener{
 		
         //Mostramos la actividad
         setContentView(R.layout.activity_main);
-           
+         
         //Enlazamos el editText y lo dejamos en blanco
         texto = (EditText) findViewById(R.id.editText);
         texto.setText("");
@@ -86,6 +85,7 @@ public class MainActivity extends Activity  implements OnInitListener{
         bttnPrT.setOnClickListener(controladorT);
         bttnPrSpace = (Button) findViewById(R.id.bttnPrSpace);
         bttnPrSpace.setOnClickListener(controladorEspacio);
+        //bttnPrSpace.setBackgroundColor(Color.rgb(109, 27, 226));  //Violeta personalizado
         bttnPrDelete = (Button) findViewById(R.id.bttnPrDelete);
         bttnPrDelete.setOnClickListener(controladorBorrarCaracter);
         bttnPrDelete.setOnLongClickListener(controladorBorrarTodo);
@@ -94,8 +94,10 @@ public class MainActivity extends Activity  implements OnInitListener{
         bttnPrPoint.setOnLongClickListener(controladorGuardar);
         bttnPrSI = (Button) findViewById(R.id.bttnPrSI);
         bttnPrSI.setOnClickListener(controladorSI);
+        //bttnPrSI.setBackgroundColor(Color.rgb(255, 126, 32)); //Naranja personalizado 2
         bttnPrNO = (Button) findViewById(R.id.bttnPrNO);
         bttnPrNO.setOnClickListener(controladorNO);
+        //bttnPrNO.setBackgroundColor(Color.rgb(70, 164, 255)); //Celeste personalizado
         
         //Instanciamos nuestro TTS
         ourTts = new TextToSpeech(this,this);
@@ -107,11 +109,11 @@ public class MainActivity extends Activity  implements OnInitListener{
         bttnPrF.setText("F");
         bttnPrF.setTextColor(Color.rgb(255,0,0)); //Rojo
         bttnPrK.setText("K");
-        bttnPrK.setTextColor(Color.rgb(0,255,0)); //Verde
+        bttnPrK.setTextColor(Color.rgb(0,159,1)); //Verde personalizado
         bttnPrO.setText("O");
         bttnPrO.setTextColor(Color.rgb(0,0,0)); //Negro
         bttnPrT.setText("T");
-        bttnPrT.setTextColor(Color.rgb(255,174,0)); //Naranja personalizado
+        bttnPrT.setTextColor(Color.rgb(255,147,0)); //Naranja personalizado
 
         //Tomamos la instancia para sonida
         Effects.getInstance().init(this);
@@ -299,15 +301,15 @@ public class MainActivity extends Activity  implements OnInitListener{
             if (nroVentana == 1){
                 bttnPrA.setTextColor(Color.rgb(0,0,255)); //Azul
                 bttnPrF.setTextColor(Color.rgb(255,0,0)); //Rojo
-                bttnPrK.setTextColor(Color.rgb(0,255,0)); //Verde
+                bttnPrK.setTextColor(Color.rgb(0,159,1)); //Verde personalizado
                 bttnPrO.setTextColor(Color.rgb(0,0,0)); //Negro
-                bttnPrT.setTextColor(Color.rgb(255,174,0)); //Naranja personalizado
+                bttnPrT.setTextColor(Color.rgb(255,147,0)); //Naranja personalizado
     			bttnPrA.setText("A");
 			   	bttnPrF.setText("F");
 			   	bttnPrK.setText("K");
 			   	bttnPrO.setText("O");
 			   	bttnPrT.setText("T");
-			   	bttnPrSpace.setText("BARRA ESPACIADORA");
+			   	bttnPrSpace.setText("");
             }
 	    }
 	  };
@@ -357,15 +359,15 @@ public class MainActivity extends Activity  implements OnInitListener{
 	        if (nroVentana == 1){
 	            bttnPrA.setTextColor(Color.rgb(0,0,255)); //Azul
 	            bttnPrF.setTextColor(Color.rgb(255,0,0)); //Rojo
-	            bttnPrK.setTextColor(Color.rgb(0,255,0)); //Verde
+	            bttnPrK.setTextColor(Color.rgb(0,159,1)); //Verde personalizado
 	            bttnPrO.setTextColor(Color.rgb(0,0,0)); //Negro
-	            bttnPrT.setTextColor(Color.rgb(255,174,0)); //Naranja personalizado
+	            bttnPrT.setTextColor(Color.rgb(255,147,0)); //Naranja personalizado
 	    		bttnPrA.setText("A");
 				bttnPrF.setText("F");
 				bttnPrK.setText("K");
 				bttnPrO.setText("O");
 				bttnPrT.setText("T");
-				bttnPrSpace.setText("BARRA ESPACIADORA");
+				bttnPrSpace.setText("");
 	        }
 	  }
 	};
@@ -376,11 +378,11 @@ public class MainActivity extends Activity  implements OnInitListener{
 		    	//Reproduce sonido
 		    	Effects.getInstance().playSound(Effects.SOUND_1);
 	            switch (nroVentana){
-            	case 1: bttnPrA.setTextColor(Color.rgb(0,255,0)); //Seteamos todos los botones a verde
-						bttnPrF.setTextColor(Color.rgb(0,255,0));
-						bttnPrK.setTextColor(Color.rgb(0,255,0));
-						bttnPrO.setTextColor(Color.rgb(0,255,0));
-						bttnPrT.setTextColor(Color.rgb(0,255,0));
+            	case 1: bttnPrA.setTextColor(Color.rgb(0,159,1)); //Seteamos todos los botones a verde
+						bttnPrF.setTextColor(Color.rgb(0,159,1));
+						bttnPrK.setTextColor(Color.rgb(0,159,1));
+						bttnPrO.setTextColor(Color.rgb(0,159,1));
+						bttnPrT.setTextColor(Color.rgb(0,159,1));
             			bttnPrA.setText("K");
             			bttnPrF.setText("L");
             			bttnPrK.setText("M");
@@ -415,15 +417,15 @@ public class MainActivity extends Activity  implements OnInitListener{
 	        if (nroVentana == 1){
 	            bttnPrA.setTextColor(Color.rgb(0,0,255)); //Azul
 	            bttnPrF.setTextColor(Color.rgb(255,0,0)); //Rojo
-	            bttnPrK.setTextColor(Color.rgb(0,255,0)); //Verde
+	            bttnPrK.setTextColor(Color.rgb(0,159,1)); //Verde personalizado
 	            bttnPrO.setTextColor(Color.rgb(0,0,0)); //Negro
-	            bttnPrT.setTextColor(Color.rgb(255,174,0)); //Naranja personalizado
+	            bttnPrT.setTextColor(Color.rgb(255,147,0)); //Naranja personalizado
 	    		bttnPrA.setText("A");
 				bttnPrF.setText("F");
 				bttnPrK.setText("K");
 				bttnPrO.setText("O");
 				bttnPrT.setText("T");
-				bttnPrSpace.setText("BARRA ESPACIADORA");
+				bttnPrSpace.setText("");
 	        }
 		}
 	};
@@ -473,15 +475,15 @@ public class MainActivity extends Activity  implements OnInitListener{
 	        if (nroVentana == 1){        
 	            bttnPrA.setTextColor(Color.rgb(0,0,255)); //Azul
 	            bttnPrF.setTextColor(Color.rgb(255,0,0)); //Rojo
-	            bttnPrK.setTextColor(Color.rgb(0,255,0)); //Verde
+	            bttnPrK.setTextColor(Color.rgb(0,159,1)); //Verde personalizado
 	            bttnPrO.setTextColor(Color.rgb(0,0,0)); //Negro
-	            bttnPrT.setTextColor(Color.rgb(255,174,0)); //Naranja personalizado
+	            bttnPrT.setTextColor(Color.rgb(255,147,0)); //Naranja personalizado
 	    		bttnPrA.setText("A");
 				bttnPrF.setText("F");
 				bttnPrK.setText("K");
 				bttnPrO.setText("O");
 				bttnPrT.setText("T");
-				bttnPrSpace.setText("BARRA ESPACIADORA");
+				bttnPrSpace.setText("");
 	        }
 		}
     };
@@ -492,11 +494,11 @@ public class MainActivity extends Activity  implements OnInitListener{
 		    	//Reproduce sonido
 		    	Effects.getInstance().playSound(Effects.SOUND_1);
 	            switch (nroVentana){
-            	case 1: bttnPrA.setTextColor(Color.rgb(255,174,0)); //Seteamos todos los botones a naranaja personalizado
-						bttnPrF.setTextColor(Color.rgb(255,174,0));
-						bttnPrK.setTextColor(Color.rgb(255,174,0));
-						bttnPrO.setTextColor(Color.rgb(255,174,0));
-						bttnPrT.setTextColor(Color.rgb(255,174,0));
+            	case 1: bttnPrA.setTextColor(Color.rgb(255,147,0)); //Seteamos todos los botones a naranaja personalizado
+						bttnPrF.setTextColor(Color.rgb(255,147,0));
+						bttnPrK.setTextColor(Color.rgb(255,147,0));
+						bttnPrO.setTextColor(Color.rgb(255,147,0));
+						bttnPrT.setTextColor(Color.rgb(255,147,0));
             			bttnPrA.setText("T");
             			bttnPrF.setText("U");
             			bttnPrK.setText("V");
@@ -531,15 +533,15 @@ public class MainActivity extends Activity  implements OnInitListener{
 	            if (nroVentana == 1){        
 	                bttnPrA.setTextColor(Color.rgb(0,0,255)); //Azul
 	                bttnPrF.setTextColor(Color.rgb(255,0,0)); //Rojo
-	                bttnPrK.setTextColor(Color.rgb(0,255,0)); //Verde
+	                bttnPrK.setTextColor(Color.rgb(0,159,1)); //Verde personalizado
 	                bttnPrO.setTextColor(Color.rgb(0,0,0)); //Negro
-	                bttnPrT.setTextColor(Color.rgb(255,174,0)); //Naranja personalizado
+	                bttnPrT.setTextColor(Color.rgb(255,147,0)); //Naranja personalizado
 	    			bttnPrA.setText("A");
 				   	bttnPrF.setText("F");
 				   	bttnPrK.setText("K");
 				   	bttnPrO.setText("O");
 				   	bttnPrT.setText("T");
-				   	bttnPrSpace.setText("BARRA ESPACIADORA");
+				   	bttnPrSpace.setText("");
 	            }
 		    }
 	};
@@ -557,20 +559,29 @@ public class MainActivity extends Activity  implements OnInitListener{
             			nroVentana = 1;
             			break;
             	case 2:	case 3:	case 4:case 5:
-            	case 6:	bttnPrA.setText("A");
+            	case 6:	bttnPrA.setTextColor(Color.rgb(0,0,255)); //Azul
+                		bttnPrF.setTextColor(Color.rgb(255,0,0)); //Rojo
+                		bttnPrK.setTextColor(Color.rgb(0,159,1)); //Verde personalizado
+                		bttnPrO.setTextColor(Color.rgb(0,0,0)); //Negro
+                		bttnPrT.setTextColor(Color.rgb(255,147,0)); //Naranja personalizado
+            			bttnPrA.setText("A");
 			   			bttnPrF.setText("F");
 			   			bttnPrK.setText("K");
 			   			bttnPrO.setText("O");
 			   			bttnPrT.setText("T");
-			   			bttnPrSpace.setText("BARRA ESPACIADORA");
+			   			bttnPrSpace.setText("");
 			   			nroVentana = 1;
 			   			break;
-			   	default:bttnPrA.setText("A");
+			   	default:bttnPrA.setTextColor(Color.rgb(0,0,255)); //Azul
+			   			bttnPrF.setTextColor(Color.rgb(255,0,0)); //Rojo
+			   			bttnPrK.setTextColor(Color.rgb(0,159,1)); //Verde personalizado
+			   			bttnPrO.setTextColor(Color.rgb(0,0,0)); //Negro
+			   			bttnPrT.setTextColor(Color.rgb(255,147,0)); //Naranja personalizadobttnPrA.setText("A");
 	   					bttnPrF.setText("F");
 	   					bttnPrK.setText("K");
 	   					bttnPrO.setText("O");
 	   					bttnPrT.setText("T");
-	   					bttnPrSpace.setText("BARRA ESPACIADORA");
+	   					bttnPrSpace.setText("");
 	   					nroVentana = 1;
 	   					break;
 	            }
