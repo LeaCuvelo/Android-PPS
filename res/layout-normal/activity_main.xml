@@ -19,13 +19,14 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="1dp"
         android:layout_marginTop="0dp"
+        
         android:height="100dp"
         android:maxHeight="100dp"
         android:maxWidth="125dp"
         android:minHeight="1dp"
         android:minWidth="1dp"
         android:width="125dp"
-        style="@style/boton_style"
+        style="@style/boton_style_A"
          />
 
     <Button
@@ -42,7 +43,7 @@
         android:minHeight="1dp"
         android:minWidth="1dp"
         android:width="125dp"
-        style="@style/boton_style"
+        style="@style/boton_style_O"
          />
 
     <Button
@@ -59,23 +60,23 @@
         android:minHeight="1dp"
         android:minWidth="1dp"
         android:width="125dp"
-        style="@style/boton_style"
+        style="@style/boton_style_T"
          />
 
     <Button
         android:id="@+id/bttnPrSpace"
+        style="@style/espacio_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:height="10dp"
+        android:height="40dp"
         android:maxHeight="10dp"
         android:maxWidth="230dp"
         android:minHeight="1dp"
         android:minWidth="1dp"
         android:textSize="10sp"
-        android:width="230dp"
-        style="@style/espacio_style" />
+        android:width="230dp" />
 
     <Button
         android:id="@+id/bttnPrPoint"
@@ -114,23 +115,6 @@
         android:width="70dp" />
 
     <Button
-        android:id="@+id/bttnPrNO"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/bttnPrSI"
-        android:layout_alignBottom="@+id/bttnPrSI"
-        android:layout_alignRight="@+id/bttnPrSpace"
-        android:height="5dp"
-        android:maxHeight="5dp"
-        android:maxWidth="70dp"
-        android:minHeight="1dp"
-        android:minWidth="1dp"
-        android:text="NO"
-        android:textSize="10sp"
-        android:width="70dp"
-        style="@style/no_style" />
-
-    <Button
         android:id="@+id/bttnPrF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -143,35 +127,35 @@
         android:minHeight="1dp"
         android:minWidth="1dp"
         android:width="125dp"
-        style="@style/boton_style"
+        style="@style/boton_style_F"
          />
 
     <Button
         android:id="@+id/bttnPrSI"
+        style="@style/si_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/bttnPrSpace"
         android:layout_alignTop="@+id/bttnPrO"
-        android:height="5dp"
+        android:height="40dp"
         android:maxHeight="5dp"
         android:maxWidth="70dp"
         android:minHeight="1dp"
         android:minWidth="1dp"
         android:text="SI"
         android:textSize="10sp"
-        android:width="70dp"
-        style="@style/si_style" />
+        android:width="70dp" />
 
       <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/bttnPrO"
-        android:layout_alignLeft="@+id/bttnPrSI"
-        android:layout_alignRight="@+id/bttnPrNO"
-        android:ems="10"
-        android:maxLines="1"
-        android:scrollbars="vertical">
+          android:id="@+id/editText"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignBottom="@+id/bttnPrO"
+          android:layout_alignLeft="@+id/bttnPrSI"
+          android:layout_alignRight="@+id/bttnPrNO"
+          android:ems="10"
+          android:maxLines="1"
+          android:scrollbars="vertical" >
 
    </EditText>
 
@@ -187,10 +171,27 @@
         android:minHeight="1dp"
         android:minWidth="1dp"
         android:width="125dp"
-        style="@style/boton_style"
+        style="@style/boton_style_K"
          />
     
  
 
            <requestFocus />
+
+           <Button
+               android:id="@+id/bttnPrNO"
+               style="@style/no_style"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_alignRight="@+id/bttnPrSpace"
+               android:layout_alignTop="@+id/bttnPrT"
+               android:height="40dp"
+               android:maxHeight="5dp"
+               android:maxWidth="70dp"
+               android:minHeight="1dp"
+               android:minWidth="1dp"
+               android:text="NO"
+               android:textSize="10sp"
+               android:width="70dp" />
+
 </RelativeLayout>

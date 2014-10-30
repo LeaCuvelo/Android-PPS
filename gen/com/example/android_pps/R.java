@@ -32,16 +32,31 @@ public final class R {
     }
     public static final class drawable {
         public static final int acerca=0x7f020000;
-        public static final int boton_espacio=0x7f020001;
-        public static final int boton_no=0x7f020002;
-        public static final int boton_si=0x7f020003;
-        public static final int bttn=0x7f020004;
-        public static final int bttnclickeado=0x7f020005;
-        public static final int fondo_boton=0x7f020006;
-        public static final int ic_launcher=0x7f020007;
-        public static final int intercomfabrizio=0x7f020008;
-        public static final int options=0x7f020009;
-        public static final int splash_screen=0x7f02000a;
+        public static final int boton_a=0x7f020001;
+        public static final int boton_espacio=0x7f020002;
+        public static final int boton_f=0x7f020003;
+        public static final int boton_k=0x7f020004;
+        public static final int boton_no=0x7f020005;
+        public static final int boton_o=0x7f020006;
+        public static final int boton_secundaria=0x7f020007;
+        public static final int boton_si=0x7f020008;
+        public static final int boton_t=0x7f020009;
+        public static final int bttn=0x7f02000a;
+        public static final int bttnclickeado=0x7f02000b;
+        public static final int ic_launcher=0x7f02000c;
+        public static final int intercomfabrizio=0x7f02000d;
+        public static final int main_1=0x7f02000e;
+        public static final int main_1_press=0x7f02000f;
+        public static final int main_2=0x7f020010;
+        public static final int main_2_press=0x7f020011;
+        public static final int main_3=0x7f020012;
+        public static final int main_3_press=0x7f020013;
+        public static final int main_4=0x7f020014;
+        public static final int main_4_press=0x7f020015;
+        public static final int main_5=0x7f020016;
+        public static final int main_5_press=0x7f020017;
+        public static final int options=0x7f020018;
+        public static final int splash_screen=0x7f020019;
     }
     public static final class id {
         public static final int action_settings=0x7f0a0011;
@@ -105,17 +120,29 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f080001;
-        /**  Apariencia de los botones 
+        /**  Apariencia del boton A 
          */
-        public static final int boton_style=0x7f080003;
+        public static final int boton_style_A=0x7f080003;
+        /**  Apariencia del boton F 
+         */
+        public static final int boton_style_F=0x7f080004;
+        /**  Apariencia del boton K 
+         */
+        public static final int boton_style_K=0x7f080005;
+        /**  Apariencia del boton O 
+         */
+        public static final int boton_style_O=0x7f080006;
+        /**  Apariencia del boton T 
+         */
+        public static final int boton_style_T=0x7f080007;
         /**  Apariencia de la barra espacioadora 
          */
-        public static final int espacio_style=0x7f080004;
+        public static final int espacio_style=0x7f080008;
         /**  Apariencia del boton NO 
          */
-        public static final int no_style=0x7f080006;
+        public static final int no_style=0x7f08000a;
         /**  Apariencia del boton SI 
          */
-        public static final int si_style=0x7f080005;
+        public static final int si_style=0x7f080009;
     }
 }

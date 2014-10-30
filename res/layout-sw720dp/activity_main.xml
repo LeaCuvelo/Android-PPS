@@ -11,20 +11,17 @@
 
     <Button
         android:id="@+id/bttnPrO"
+        style="@style/boton_style_O"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
         android:layout_marginBottom="2dp"
-        android:layout_marginLeft="4dp"
         android:height="203dp"
         android:maxHeight="203dp"
         android:maxWidth="267dp"
         android:minHeight="1dp"
         android:minWidth="1dp"
-        android:width="267dp"
-        style="@style/boton_style"
-         />
+        android:width="267dp" />
 
     <Button
         android:id="@+id/bttnPrT"
@@ -40,7 +37,7 @@
         android:minHeight="1dp"
         android:minWidth="1dp"
         android:width="267dp"
-        style="@style/boton_style"
+        style="@style/boton_style_T"
          />
 
     <Button
@@ -101,7 +98,7 @@
         android:minHeight="1dp"
         android:minWidth="1dp"
         android:width="267dp"
-        style="@style/boton_style"
+        style="@style/boton_style_K"
          />
 
     <Button
@@ -133,7 +130,7 @@
         android:minHeight="1dp"
         android:minWidth="1dp"
         android:width="267dp"
-        style="@style/boton_style"
+        style="@style/boton_style_F"
          />
 
     <Button
@@ -164,7 +161,7 @@
         android:minHeight="1dp"
         android:minWidth="1dp"
         android:width="267dp"
-        style="@style/boton_style"
+        style="@style/boton_style_A"
          />
     
     <EditText

@@ -25,7 +25,7 @@
         android:minHeight="1dp"
         android:minWidth="1dp"
         android:width="167dp"
-        style="@style/boton_style"
+        style="@style/boton_style_A"
          />
 
     <Button
@@ -42,7 +42,7 @@
         android:minHeight="1dp"
         android:minWidth="1dp"
         android:width="167dp"
-        style="@style/boton_style"
+        style="@style/boton_style_O"
          />
 
     <Button
@@ -59,7 +59,7 @@
         android:minHeight="1dp"
         android:minWidth="1dp"
         android:width="167dp"
-        style="@style/boton_style"
+        style="@style/boton_style_T"
          />
 
     <Button
@@ -120,7 +120,7 @@
         android:minHeight="1dp"
         android:minWidth="1dp"
         android:width="167dp"
-        style="@style/boton_style"
+        style="@style/boton_style_K"
          />
 
     <Button
@@ -152,7 +152,7 @@
         android:minHeight="1dp"
         android:minWidth="1dp"
         android:width="167dp"
-        style="@style/boton_style"
+        style="@style/boton_style_F"
          />
 
     <Button

@@ -43,9 +43,6 @@ public class MainActivity extends Activity  implements OnInitListener{
 	public static EditText texto;
 	private TextToSpeech ourTts;
 
-
-	
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -85,7 +82,6 @@ public class MainActivity extends Activity  implements OnInitListener{
         bttnPrT.setOnClickListener(controladorT);
         bttnPrSpace = (Button) findViewById(R.id.bttnPrSpace);
         bttnPrSpace.setOnClickListener(controladorEspacio);
-        //bttnPrSpace.setBackgroundColor(Color.rgb(109, 27, 226));  //Violeta personalizado
         bttnPrDelete = (Button) findViewById(R.id.bttnPrDelete);
         bttnPrDelete.setOnClickListener(controladorBorrarCaracter);
         bttnPrDelete.setOnLongClickListener(controladorBorrarTodo);
@@ -94,28 +90,13 @@ public class MainActivity extends Activity  implements OnInitListener{
         bttnPrPoint.setOnLongClickListener(controladorGuardar);
         bttnPrSI = (Button) findViewById(R.id.bttnPrSI);
         bttnPrSI.setOnClickListener(controladorSI);
-        //bttnPrSI.setBackgroundColor(Color.rgb(255, 126, 32)); //Naranja personalizado 2
         bttnPrNO = (Button) findViewById(R.id.bttnPrNO);
         bttnPrNO.setOnClickListener(controladorNO);
-        //bttnPrNO.setBackgroundColor(Color.rgb(70, 164, 255)); //Celeste personalizado
         
         //Instanciamos nuestro TTS
         ourTts = new TextToSpeech(this,this);
         
-        //Cargamos el texto que se presenta inicialmente en los botones
-        //Y sus respectivos colores
-        bttnPrA.setText("A");
-        bttnPrA.setTextColor(Color.rgb(0,0,255)); //Azul
-        bttnPrF.setText("F");
-        bttnPrF.setTextColor(Color.rgb(255,0,0)); //Rojo
-        bttnPrK.setText("K");
-        bttnPrK.setTextColor(Color.rgb(0,159,1)); //Verde personalizado
-        bttnPrO.setText("O");
-        bttnPrO.setTextColor(Color.rgb(0,0,0)); //Negro
-        bttnPrT.setText("T");
-        bttnPrT.setTextColor(Color.rgb(255,147,0)); //Naranja personalizado
-
-        //Tomamos la instancia para sonida
+        //Tomamos la instancia para los sonidos
         Effects.getInstance().init(this);
 	}
 	
@@ -124,11 +105,7 @@ public class MainActivity extends Activity  implements OnInitListener{
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.layout.settings_activity, menu);
 		return true;
-		/*super.onCreateOptionsMenu(menu);
-		CreateMenu(menu);
-		return true;*/
 	}
-	
 	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item){
@@ -147,6 +124,10 @@ public class MainActivity extends Activity  implements OnInitListener{
             return super.onOptionsItemSelected(item);
     	}
 	}
+
+	// ---------- TRABAJAR ACA! EN EL MENU! ---------- //
+	
+	
 	/*
 	//Items que se muestran cuando el usuario quiera acceder a la tecla MENU
 	private void CreateMenu(Menu menu){
@@ -187,9 +168,8 @@ public class MainActivity extends Activity  implements OnInitListener{
 		return false;
 	}*/
 	
+	// ---------- TRABAJAR ACA! EN EL MENU! (ARRIBA)---------- //
 	
-	
-	//onPause debe ser llamado justo antes de ir a otra actividad, y guardar todo
 	@Override protected void onPause(){
 		super.onPause();
 	}
@@ -198,13 +178,11 @@ public class MainActivity extends Activity  implements OnInitListener{
 		super.onRestart();
 	}
 	
-	
 	@Override protected void onDestroy(){
 		super.onDestroy();
 		ourTts.shutdown();
 	}
 	
-	// Cuando hay un cambio de activity
 	@Override protected void onStop(){
 		super.onStop();
 	}
@@ -254,7 +232,7 @@ public class MainActivity extends Activity  implements OnInitListener{
 		}
 	}
 	
-	//CONTROLADOR DE LOS BOTONES, DETERMINAN LA ACCIÓN LUEGO DE PRESIONAR EL BOTÓN.
+	// ----- CONTROLADOR DE LOS BOTONES, DETERMINAN LA ACCIÓN LUEGO DE PRESIONAR EL BOTÓN . ----- //
 	
 	View.OnClickListener controladorA = new View.OnClickListener() {
 	    public void onClick(View v) {
@@ -262,7 +240,15 @@ public class MainActivity extends Activity  implements OnInitListener{
 	    	//Reproduce sonido
 	    	Effects.getInstance().playSound(Effects.SOUND_1);
             switch (nroVentana){
-            	case 1: bttnPrA.setTextColor(Color.rgb(0,0,255)); //Seteamos todos los botones a azul
+            	case 1: 
+            			//Sacamos los Style boton_a y ponemos el Style boton_secundaria a todos los botones
+            			bttnPrA.setBackgroundResource(R.drawable.boton_secundaria); 
+            			bttnPrF.setBackgroundResource(R.drawable.boton_secundaria); 
+            			bttnPrK.setBackgroundResource(R.drawable.boton_secundaria); 
+            			bttnPrO.setBackgroundResource(R.drawable.boton_secundaria); 
+            			bttnPrT.setBackgroundResource(R.drawable.boton_secundaria);
+            			//Seteamos todos los botones a azul
+            			bttnPrA.setTextColor(Color.rgb(0,0,255)); 
             			bttnPrF.setTextColor(Color.rgb(0,0,255));
             			bttnPrK.setTextColor(Color.rgb(0,0,255));
             			bttnPrO.setTextColor(Color.rgb(0,0,255));
@@ -299,16 +285,19 @@ public class MainActivity extends Activity  implements OnInitListener{
 						break;
             }
             if (nroVentana == 1){
-                bttnPrA.setTextColor(Color.rgb(0,0,255)); //Azul
-                bttnPrF.setTextColor(Color.rgb(255,0,0)); //Rojo
-                bttnPrK.setTextColor(Color.rgb(0,159,1)); //Verde personalizado
-                bttnPrO.setTextColor(Color.rgb(0,0,0)); //Negro
-                bttnPrT.setTextColor(Color.rgb(255,147,0)); //Naranja personalizado
-    			bttnPrA.setText("A");
-			   	bttnPrF.setText("F");
-			   	bttnPrK.setText("K");
-			   	bttnPrO.setText("O");
-			   	bttnPrT.setText("T");
+            	//Volvemos a ponerle los Style correspondientes a los botones
+            	bttnPrA.setBackgroundResource(R.drawable.boton_a); 
+            	bttnPrF.setBackgroundResource(R.drawable.boton_f);
+            	bttnPrK.setBackgroundResource(R.drawable.boton_k);
+            	bttnPrO.setBackgroundResource(R.drawable.boton_o);
+            	bttnPrT.setBackgroundResource(R.drawable.boton_t);
+            	//Ponemos el texto en blanco para que no se pise con la imagen
+            	bttnPrA.setText("");
+				bttnPrF.setText("");
+				bttnPrK.setText("");
+				bttnPrO.setText("");
+				bttnPrT.setText("");
+				bttnPrSpace.setText("");
 			   	bttnPrSpace.setText("");
             }
 	    }
@@ -320,7 +309,15 @@ public class MainActivity extends Activity  implements OnInitListener{
 		    	//Reproduce sonido
 		    	Effects.getInstance().playSound(Effects.SOUND_1);
 	            switch (nroVentana){
-            	case 1: bttnPrA.setTextColor(Color.rgb(255,0,0)); //Seteamos todos los botones a rojo
+            	case 1:
+            			//Sacamos los Style boton_a y ponemos el Style boton_secundaria a todos los botones
+        				bttnPrA.setBackgroundResource(R.drawable.boton_secundaria); 
+        				bttnPrF.setBackgroundResource(R.drawable.boton_secundaria); 
+        				bttnPrK.setBackgroundResource(R.drawable.boton_secundaria); 
+        				bttnPrO.setBackgroundResource(R.drawable.boton_secundaria); 
+        				bttnPrT.setBackgroundResource(R.drawable.boton_secundaria);
+        				//Seteamos todos los botones a rojo
+            			bttnPrA.setTextColor(Color.rgb(255,0,0)); 
     					bttnPrF.setTextColor(Color.rgb(255,0,0));
     					bttnPrK.setTextColor(Color.rgb(255,0,0));
     					bttnPrO.setTextColor(Color.rgb(255,0,0));
@@ -357,18 +354,21 @@ public class MainActivity extends Activity  implements OnInitListener{
 						break;
             }
 	        if (nroVentana == 1){
-	            bttnPrA.setTextColor(Color.rgb(0,0,255)); //Azul
-	            bttnPrF.setTextColor(Color.rgb(255,0,0)); //Rojo
-	            bttnPrK.setTextColor(Color.rgb(0,159,1)); //Verde personalizado
-	            bttnPrO.setTextColor(Color.rgb(0,0,0)); //Negro
-	            bttnPrT.setTextColor(Color.rgb(255,147,0)); //Naranja personalizado
-	    		bttnPrA.setText("A");
-				bttnPrF.setText("F");
-				bttnPrK.setText("K");
-				bttnPrO.setText("O");
-				bttnPrT.setText("T");
+	        	//Volvemos a ponerle los Style correspondientes a los botones
+            	bttnPrA.setBackgroundResource(R.drawable.boton_a); 
+            	bttnPrF.setBackgroundResource(R.drawable.boton_f);
+            	bttnPrK.setBackgroundResource(R.drawable.boton_k);
+            	bttnPrO.setBackgroundResource(R.drawable.boton_o);
+            	bttnPrT.setBackgroundResource(R.drawable.boton_t);
+            	//Ponemos el texto en blanco para que no se pise con la imagen
+            	bttnPrA.setText("");
+				bttnPrF.setText("");
+				bttnPrK.setText("");
+				bttnPrO.setText("");
+				bttnPrT.setText("");
 				bttnPrSpace.setText("");
-	        }
+			   	bttnPrSpace.setText("");
+            }
 	  }
 	};
 	  
@@ -378,7 +378,15 @@ public class MainActivity extends Activity  implements OnInitListener{
 		    	//Reproduce sonido
 		    	Effects.getInstance().playSound(Effects.SOUND_1);
 	            switch (nroVentana){
-            	case 1: bttnPrA.setTextColor(Color.rgb(0,159,1)); //Seteamos todos los botones a verde
+            	case 1: 
+            			//Sacamos los Style boton_a y ponemos el Style boton_secundaria a todos los botones
+    					bttnPrA.setBackgroundResource(R.drawable.boton_secundaria); 
+    					bttnPrF.setBackgroundResource(R.drawable.boton_secundaria); 
+    					bttnPrK.setBackgroundResource(R.drawable.boton_secundaria); 
+    					bttnPrO.setBackgroundResource(R.drawable.boton_secundaria); 
+    					bttnPrT.setBackgroundResource(R.drawable.boton_secundaria);
+    					//Seteamos todos los botones a verde
+            			bttnPrA.setTextColor(Color.rgb(0,159,1)); 
 						bttnPrF.setTextColor(Color.rgb(0,159,1));
 						bttnPrK.setTextColor(Color.rgb(0,159,1));
 						bttnPrO.setTextColor(Color.rgb(0,159,1));
@@ -415,18 +423,21 @@ public class MainActivity extends Activity  implements OnInitListener{
 						break;
             }
 	        if (nroVentana == 1){
-	            bttnPrA.setTextColor(Color.rgb(0,0,255)); //Azul
-	            bttnPrF.setTextColor(Color.rgb(255,0,0)); //Rojo
-	            bttnPrK.setTextColor(Color.rgb(0,159,1)); //Verde personalizado
-	            bttnPrO.setTextColor(Color.rgb(0,0,0)); //Negro
-	            bttnPrT.setTextColor(Color.rgb(255,147,0)); //Naranja personalizado
-	    		bttnPrA.setText("A");
-				bttnPrF.setText("F");
-				bttnPrK.setText("K");
-				bttnPrO.setText("O");
-				bttnPrT.setText("T");
+	        	//Volvemos a ponerle los Style correspondientes a los botones
+            	bttnPrA.setBackgroundResource(R.drawable.boton_a); 
+            	bttnPrF.setBackgroundResource(R.drawable.boton_f);
+            	bttnPrK.setBackgroundResource(R.drawable.boton_k);
+            	bttnPrO.setBackgroundResource(R.drawable.boton_o);
+            	bttnPrT.setBackgroundResource(R.drawable.boton_t);
+            	//Ponemos el texto en blanco para que no se pise con la imagen
+            	bttnPrA.setText("");
+				bttnPrF.setText("");
+				bttnPrK.setText("");
+				bttnPrO.setText("");
+				bttnPrT.setText("");
 				bttnPrSpace.setText("");
-	        }
+			   	bttnPrSpace.setText("");
+            }
 		}
 	};
 	  
@@ -436,7 +447,15 @@ public class MainActivity extends Activity  implements OnInitListener{
 		    	//Reproduce sonido
 		    	Effects.getInstance().playSound(Effects.SOUND_1);
 	            switch (nroVentana){
-            	case 1: bttnPrA.setTextColor(Color.rgb(0,0,0)); //Seteamos todos los botones a negro
+            	case 1: 
+            			//Sacamos los Style boton_a y ponemos el Style boton_secundaria a todos los botones
+						bttnPrA.setBackgroundResource(R.drawable.boton_secundaria); 
+						bttnPrF.setBackgroundResource(R.drawable.boton_secundaria); 
+						bttnPrK.setBackgroundResource(R.drawable.boton_secundaria); 
+						bttnPrO.setBackgroundResource(R.drawable.boton_secundaria); 
+						bttnPrT.setBackgroundResource(R.drawable.boton_secundaria);
+						//Seteamos todos los botones a negro
+            			bttnPrA.setTextColor(Color.rgb(0,0,0)); 
 						bttnPrF.setTextColor(Color.rgb(0,0,0));
 						bttnPrK.setTextColor(Color.rgb(0,0,0));
 						bttnPrO.setTextColor(Color.rgb(0,0,0));
@@ -472,19 +491,22 @@ public class MainActivity extends Activity  implements OnInitListener{
 			   	default:nroVentana = 1;
 						break;
             }
-	        if (nroVentana == 1){        
-	            bttnPrA.setTextColor(Color.rgb(0,0,255)); //Azul
-	            bttnPrF.setTextColor(Color.rgb(255,0,0)); //Rojo
-	            bttnPrK.setTextColor(Color.rgb(0,159,1)); //Verde personalizado
-	            bttnPrO.setTextColor(Color.rgb(0,0,0)); //Negro
-	            bttnPrT.setTextColor(Color.rgb(255,147,0)); //Naranja personalizado
-	    		bttnPrA.setText("A");
-				bttnPrF.setText("F");
-				bttnPrK.setText("K");
-				bttnPrO.setText("O");
-				bttnPrT.setText("T");
+	        if (nroVentana == 1){  
+	        	//Volvemos a ponerle los Style correspondientes a los botones
+            	bttnPrA.setBackgroundResource(R.drawable.boton_a); 
+            	bttnPrF.setBackgroundResource(R.drawable.boton_f);
+            	bttnPrK.setBackgroundResource(R.drawable.boton_k);
+            	bttnPrO.setBackgroundResource(R.drawable.boton_o);
+            	bttnPrT.setBackgroundResource(R.drawable.boton_t);
+            	//Ponemos el texto en blanco para que no se pise con la imagen
+            	bttnPrA.setText("");
+				bttnPrF.setText("");
+				bttnPrK.setText("");
+				bttnPrO.setText("");
+				bttnPrT.setText("");
 				bttnPrSpace.setText("");
-	        }
+			   	bttnPrSpace.setText("");
+            }
 		}
     };
 	  
@@ -494,7 +516,15 @@ public class MainActivity extends Activity  implements OnInitListener{
 		    	//Reproduce sonido
 		    	Effects.getInstance().playSound(Effects.SOUND_1);
 	            switch (nroVentana){
-            	case 1: bttnPrA.setTextColor(Color.rgb(255,147,0)); //Seteamos todos los botones a naranaja personalizado
+            	case 1:
+            			//Sacamos los Style boton_a y ponemos el Style boton_secundaria a todos los botones
+						bttnPrA.setBackgroundResource(R.drawable.boton_secundaria); 
+						bttnPrF.setBackgroundResource(R.drawable.boton_secundaria); 
+						bttnPrK.setBackgroundResource(R.drawable.boton_secundaria); 
+						bttnPrO.setBackgroundResource(R.drawable.boton_secundaria); 
+						bttnPrT.setBackgroundResource(R.drawable.boton_secundaria);
+						//Seteamos todos los botones a naranaja personalizado
+            			bttnPrA.setTextColor(Color.rgb(255,147,0)); 
 						bttnPrF.setTextColor(Color.rgb(255,147,0));
 						bttnPrK.setTextColor(Color.rgb(255,147,0));
 						bttnPrO.setTextColor(Color.rgb(255,147,0));
@@ -530,19 +560,22 @@ public class MainActivity extends Activity  implements OnInitListener{
 			   	default:nroVentana = 1;
 						break;
 	            }
-	            if (nroVentana == 1){        
-	                bttnPrA.setTextColor(Color.rgb(0,0,255)); //Azul
-	                bttnPrF.setTextColor(Color.rgb(255,0,0)); //Rojo
-	                bttnPrK.setTextColor(Color.rgb(0,159,1)); //Verde personalizado
-	                bttnPrO.setTextColor(Color.rgb(0,0,0)); //Negro
-	                bttnPrT.setTextColor(Color.rgb(255,147,0)); //Naranja personalizado
-	    			bttnPrA.setText("A");
-				   	bttnPrF.setText("F");
-				   	bttnPrK.setText("K");
-				   	bttnPrO.setText("O");
-				   	bttnPrT.setText("T");
+	            if (nroVentana == 1){ 
+	            	//Volvemos a ponerle los Style correspondientes a los botones
+	            	bttnPrA.setBackgroundResource(R.drawable.boton_a); 
+	            	bttnPrF.setBackgroundResource(R.drawable.boton_f);
+	            	bttnPrK.setBackgroundResource(R.drawable.boton_k);
+	            	bttnPrO.setBackgroundResource(R.drawable.boton_o);
+	            	bttnPrT.setBackgroundResource(R.drawable.boton_t);
+	            	//Ponemos el texto en blanco para que no se pise con la imagen
+	            	bttnPrA.setText("");
+					bttnPrF.setText("");
+					bttnPrK.setText("");
+					bttnPrO.setText("");
+					bttnPrT.setText("");
+					bttnPrSpace.setText("");
 				   	bttnPrSpace.setText("");
-	            }
+	                }
 		    }
 	};
 	
@@ -559,32 +592,36 @@ public class MainActivity extends Activity  implements OnInitListener{
             			nroVentana = 1;
             			break;
             	case 2:	case 3:	case 4:case 5:
-            	case 6:	bttnPrA.setTextColor(Color.rgb(0,0,255)); //Azul
-                		bttnPrF.setTextColor(Color.rgb(255,0,0)); //Rojo
-                		bttnPrK.setTextColor(Color.rgb(0,159,1)); //Verde personalizado
-                		bttnPrO.setTextColor(Color.rgb(0,0,0)); //Negro
-                		bttnPrT.setTextColor(Color.rgb(255,147,0)); //Naranja personalizado
-            			bttnPrA.setText("A");
-			   			bttnPrF.setText("F");
-			   			bttnPrK.setText("K");
-			   			bttnPrO.setText("O");
-			   			bttnPrT.setText("T");
-			   			bttnPrSpace.setText("");
+            	case 6: bttnPrA.setText("");
+    					bttnPrF.setText("");
+    					bttnPrK.setText("");
+    					bttnPrO.setText("");
+    					bttnPrT.setText("");
+    					bttnPrSpace.setText("");
+    					//Volvemos a ponerle los Style correspondientes a los botones
+    	            	bttnPrA.setBackgroundResource(R.drawable.boton_a); 
+    	            	bttnPrF.setBackgroundResource(R.drawable.boton_f);
+    	            	bttnPrK.setBackgroundResource(R.drawable.boton_k);
+    	            	bttnPrO.setBackgroundResource(R.drawable.boton_o);
+    	            	bttnPrT.setBackgroundResource(R.drawable.boton_t);
 			   			nroVentana = 1;
 			   			break;
-			   	default:bttnPrA.setTextColor(Color.rgb(0,0,255)); //Azul
-			   			bttnPrF.setTextColor(Color.rgb(255,0,0)); //Rojo
-			   			bttnPrK.setTextColor(Color.rgb(0,159,1)); //Verde personalizado
-			   			bttnPrO.setTextColor(Color.rgb(0,0,0)); //Negro
-			   			bttnPrT.setTextColor(Color.rgb(255,147,0)); //Naranja personalizadobttnPrA.setText("A");
-	   					bttnPrF.setText("F");
-	   					bttnPrK.setText("K");
-	   					bttnPrO.setText("O");
-	   					bttnPrT.setText("T");
-	   					bttnPrSpace.setText("");
-	   					nroVentana = 1;
-	   					break;
-	            }
+			   	default:
+			   			bttnPrA.setText("");
+			   			bttnPrF.setText("");
+			   			bttnPrK.setText("");
+			   			bttnPrO.setText("");
+			   			bttnPrT.setText("");
+			   			bttnPrSpace.setText("");
+			   			//Volvemos a ponerle los Style correspondientes a los botones
+			   			bttnPrA.setBackgroundResource(R.drawable.boton_a); 
+			   			bttnPrF.setBackgroundResource(R.drawable.boton_f);
+			   			bttnPrK.setBackgroundResource(R.drawable.boton_k);
+			   			bttnPrO.setBackgroundResource(R.drawable.boton_o);
+			   			bttnPrT.setBackgroundResource(R.drawable.boton_t);
+			   			nroVentana = 1;
+			   			break;
+	            	}
 			}
 	};
 	
@@ -731,4 +768,5 @@ public class MainActivity extends Activity  implements OnInitListener{
 		}
 	};
 	
+	// ----- FIN CONTROLADOR DE LOS BOTONES, DETERMINAN LA ACCIÓN LUEGO DE PRESIONAR EL BOTÓN . ----- //
 }

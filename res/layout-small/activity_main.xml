@@ -25,6 +25,7 @@
         android:minHeight="1dp"
         android:minWidth="1dp"
         android:width="90dp"
+        style="@style/boton_style_A"
          />
 
     <Button
@@ -40,7 +41,8 @@
         android:maxWidth="90dp"
         android:minHeight="1dp"
         android:minWidth="1dp"
-        android:width="90dp" />
+        android:width="90dp" 
+        style="@style/boton_style_O"/>
 
     <Button
         android:id="@+id/bttnPrT"
@@ -55,7 +57,8 @@
         android:maxWidth="90dp"
         android:minHeight="1dp"
         android:minWidth="1dp"
-        android:width="90dp" />
+        android:width="90dp" 
+        style="@style/boton_style_T"/>
 
     <Button
         android:id="@+id/bttnPrSpace"
@@ -63,7 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:height="5dp"
+        android:height="32dp"
         android:maxHeight="5dp"
         android:maxWidth="170dp"
         android:minHeight="1dp"
@@ -109,23 +112,6 @@
         android:width="50dp" />
 
     <Button
-        android:id="@+id/bttnPrNO"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/bttnPrSI"
-        android:layout_alignBottom="@+id/bttnPrSI"
-        android:layout_alignRight="@+id/bttnPrSpace"
-        android:height="1dp"
-        android:maxHeight="1dp"
-        android:maxWidth="55dp"
-        android:minHeight="1dp"
-        android:minWidth="1dp"
-        android:text="NO"
-        android:textSize="5sp"
-        android:width="55dp"
-        style="@style/no_style" />
-
-    <Button
         android:id="@+id/bttnPrF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -137,38 +123,8 @@
         android:maxWidth="90dp"
         android:minHeight="1dp"
         android:minWidth="1dp"
-        android:width="90dp" />
-
-    <Button
-        android:id="@+id/bttnPrSI"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/bttnPrSpace"
-        android:layout_alignTop="@+id/bttnPrO"
-        android:height="2dp"
-        android:maxHeight="2dp"
-        android:maxWidth="55dp"
-        android:minHeight="1dp"
-        android:minWidth="1dp"
-        android:text="SI"
-        android:textSize="5sp"
-        android:width="55dp"
-        style="@style/si_style" />
-
-  
-
-    <Button
-        android:id="@+id/bttnPrK"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:height="70dp"
-        android:maxHeight="70dp"
-        android:maxWidth="90dp"
-        android:minHeight="1dp"
-        android:minWidth="1dp"
-        android:width="90dp" />
+        android:width="90dp" 
+        style="@style/boton_style_F"/>
     
         <EditText
             android:id="@+id/editText"
@@ -177,14 +133,60 @@
             android:layout_alignBottom="@+id/bttnPrO"
             android:layout_alignLeft="@+id/bttnPrSI"
             android:layout_alignRight="@+id/bttnPrNO"
-            android:layout_below="@+id/bttnPrNO"
             android:ems="10"
             android:maxLines="1"
-        	android:scrollbars="vertical" >
-
+            android:scrollbars="vertical" >
 
     </EditText>
 
 
         <requestFocus />
+
+        <Button
+            android:id="@+id/bttnPrNO"
+            style="@style/no_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/bttnPrSI"
+            android:layout_alignBottom="@+id/bttnPrSI"
+            android:layout_alignRight="@+id/bttnPrSpace"
+            android:height="25dp"
+            android:maxHeight="1dp"
+            android:maxWidth="55dp"
+            android:minHeight="1dp"
+            android:minWidth="1dp"
+            android:text="NO"
+            android:textSize="5sp"
+            android:width="55dp" />
+
+        <Button
+            android:id="@+id/bttnPrK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/bttnPrDelete"
+            android:layout_centerHorizontal="true"
+            android:height="70dp"
+            android:maxHeight="70dp"
+            android:maxWidth="90dp"
+            android:minHeight="1dp"
+            android:minWidth="1dp"
+            android:width="90dp" 
+            style="@style/boton_style_K"/>
+
+        <Button
+            android:id="@+id/bttnPrSI"
+            style="@style/si_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/bttnPrO"
+            android:layout_alignLeft="@+id/bttnPrSpace"
+            android:height="25dp"
+            android:maxHeight="2dp"
+            android:maxWidth="55dp"
+            android:minHeight="1dp"
+            android:minWidth="1dp"
+            android:text="SI"
+            android:textSize="5sp"
+            android:width="55dp" />
+
 </RelativeLayout>
