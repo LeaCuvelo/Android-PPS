@@ -125,29 +125,23 @@ public class MainActivity extends Activity  implements OnInitListener{
     	}
 	}
 
+	
 	// ---------- TRABAJAR ACA! EN EL MENU! ---------- //
 	
 	
-	/*
 	//Items que se muestran cuando el usuario quiera acceder a la tecla MENU
 	private void CreateMenu(Menu menu){
 		SubMenu menuAjustes = menu.addSubMenu(0, 0, 0, "Ajustes");
 		{
-			//method to assign a shortcut key to the menu item so that users can select an item by pressing a key on the keyboard
-			//menuAjustes.setAlphabeticShortcut('a');
-			//method sets an image to be displayed on the menu item.
 			menuAjustes.setIcon(R.drawable.options);
 			menuAjustes.add(0,1,0,"Velocidad de Voz");
 			menuAjustes.add(0,2,1,"Genero de Voz");
 		}
 		
-		MenuItem menuAcercaDe = menu.add(1, 0, 1, "Acerca de");
+		SubMenu menuAcercaDe = menu.addSubMenu(1, 0, 1, "Acerca de");
 		{
-			//menuAcercaDe.setAlphabeticShortcut('b');
 			menuAcercaDe.setIcon(R.drawable.acerca);
-			
 		}
-		
 	}
 	
 	//Acciones que suceden cuando usuario selecciona un item del menu
@@ -166,7 +160,7 @@ public class MainActivity extends Activity  implements OnInitListener{
 					return true;
 		}
 		return false;
-	}*/
+	}
 	
 	// ---------- TRABAJAR ACA! EN EL MENU! (ARRIBA)---------- //
 	
