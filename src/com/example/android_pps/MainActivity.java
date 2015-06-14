@@ -125,9 +125,7 @@ public class MainActivity extends Activity  implements OnInitListener{
     	}
 	}
 
-	
 	// ---------- TRABAJAR ACA! EN EL MENU! ---------- //
-	
 	
 	//Items que se muestran cuando el usuario quiera acceder a la tecla MENU
 	private void CreateMenu(Menu menu){
@@ -236,23 +234,9 @@ public class MainActivity extends Activity  implements OnInitListener{
             switch (nroVentana){
             	case 1: 
             			//Sacamos los Style boton_a y ponemos el Style boton_secundaria a todos los botones
-            			bttnPrA.setBackgroundResource(R.drawable.boton_secundaria); 
-            			bttnPrF.setBackgroundResource(R.drawable.boton_secundaria); 
-            			bttnPrK.setBackgroundResource(R.drawable.boton_secundaria); 
-            			bttnPrO.setBackgroundResource(R.drawable.boton_secundaria); 
-            			bttnPrT.setBackgroundResource(R.drawable.boton_secundaria);
+            		    setearStylesSecundarios();
             			//Seteamos todos los botones a azul
-            			bttnPrA.setTextColor(Color.rgb(0,0,255)); 
-            			bttnPrF.setTextColor(Color.rgb(0,0,255));
-            			bttnPrK.setTextColor(Color.rgb(0,0,255));
-            			bttnPrO.setTextColor(Color.rgb(0,0,255));
-            			bttnPrT.setTextColor(Color.rgb(0,0,255));
-            			bttnPrA.setText("A");
-            			bttnPrF.setText("B");
-            			bttnPrK.setText("C");
-            			bttnPrO.setText("D");
-            			bttnPrT.setText("E");
-            			bttnPrSpace.setText("VOLVER ATRAS");
+            			setearColorAzul();
             			nroVentana = 2;
             			break;
             	case 2:	texto.setText(texto.getText()+"A");
@@ -280,19 +264,9 @@ public class MainActivity extends Activity  implements OnInitListener{
             }
             if (nroVentana == 1){
             	//Volvemos a ponerle los Style correspondientes a los botones
-            	bttnPrA.setBackgroundResource(R.drawable.boton_a); 
-            	bttnPrF.setBackgroundResource(R.drawable.boton_f);
-            	bttnPrK.setBackgroundResource(R.drawable.boton_k);
-            	bttnPrO.setBackgroundResource(R.drawable.boton_o);
-            	bttnPrT.setBackgroundResource(R.drawable.boton_t);
+            	setearStylesPrimarios();
             	//Ponemos el texto en blanco para que no se pise con la imagen
-            	bttnPrA.setText("");
-				bttnPrF.setText("");
-				bttnPrK.setText("");
-				bttnPrO.setText("");
-				bttnPrT.setText("");
-				bttnPrSpace.setText("");
-			   	bttnPrSpace.setText("");
+            	setTextoPrimario();
             }
 	    }
 	  };
@@ -305,23 +279,9 @@ public class MainActivity extends Activity  implements OnInitListener{
 	            switch (nroVentana){
             	case 1:
             			//Sacamos los Style boton_a y ponemos el Style boton_secundaria a todos los botones
-        				bttnPrA.setBackgroundResource(R.drawable.boton_secundaria); 
-        				bttnPrF.setBackgroundResource(R.drawable.boton_secundaria); 
-        				bttnPrK.setBackgroundResource(R.drawable.boton_secundaria); 
-        				bttnPrO.setBackgroundResource(R.drawable.boton_secundaria); 
-        				bttnPrT.setBackgroundResource(R.drawable.boton_secundaria);
+            			setearStylesSecundarios();
         				//Seteamos todos los botones a rojo
-            			bttnPrA.setTextColor(Color.rgb(255,0,0)); 
-    					bttnPrF.setTextColor(Color.rgb(255,0,0));
-    					bttnPrK.setTextColor(Color.rgb(255,0,0));
-    					bttnPrO.setTextColor(Color.rgb(255,0,0));
-    					bttnPrT.setTextColor(Color.rgb(255,0,0));
-            			bttnPrA.setText("F");
-            			bttnPrF.setText("G");
-            			bttnPrK.setText("H");
-            			bttnPrO.setText("I");
-            			bttnPrT.setText("J");
-            			bttnPrSpace.setText("VOLVER ATRAS");
+            			setearColorRojo();
             			nroVentana = 3;
             			break;
             	case 2:	texto.setText(texto.getText()+"B");
@@ -349,19 +309,9 @@ public class MainActivity extends Activity  implements OnInitListener{
             }
 	        if (nroVentana == 1){
 	        	//Volvemos a ponerle los Style correspondientes a los botones
-            	bttnPrA.setBackgroundResource(R.drawable.boton_a); 
-            	bttnPrF.setBackgroundResource(R.drawable.boton_f);
-            	bttnPrK.setBackgroundResource(R.drawable.boton_k);
-            	bttnPrO.setBackgroundResource(R.drawable.boton_o);
-            	bttnPrT.setBackgroundResource(R.drawable.boton_t);
+	        	setearStylesPrimarios();
             	//Ponemos el texto en blanco para que no se pise con la imagen
-            	bttnPrA.setText("");
-				bttnPrF.setText("");
-				bttnPrK.setText("");
-				bttnPrO.setText("");
-				bttnPrT.setText("");
-				bttnPrSpace.setText("");
-			   	bttnPrSpace.setText("");
+	        	setTextoPrimario();
             }
 	  }
 	};
@@ -374,23 +324,9 @@ public class MainActivity extends Activity  implements OnInitListener{
 	            switch (nroVentana){
             	case 1: 
             			//Sacamos los Style boton_a y ponemos el Style boton_secundaria a todos los botones
-    					bttnPrA.setBackgroundResource(R.drawable.boton_secundaria); 
-    					bttnPrF.setBackgroundResource(R.drawable.boton_secundaria); 
-    					bttnPrK.setBackgroundResource(R.drawable.boton_secundaria); 
-    					bttnPrO.setBackgroundResource(R.drawable.boton_secundaria); 
-    					bttnPrT.setBackgroundResource(R.drawable.boton_secundaria);
+            			setearStylesSecundarios();
     					//Seteamos todos los botones a verde
-            			bttnPrA.setTextColor(Color.rgb(0,159,1)); 
-						bttnPrF.setTextColor(Color.rgb(0,159,1));
-						bttnPrK.setTextColor(Color.rgb(0,159,1));
-						bttnPrO.setTextColor(Color.rgb(0,159,1));
-						bttnPrT.setTextColor(Color.rgb(0,159,1));
-            			bttnPrA.setText("K");
-            			bttnPrF.setText("L");
-            			bttnPrK.setText("M");
-            			bttnPrO.setText("N");
-            			bttnPrT.setText("Ñ");
-            			bttnPrSpace.setText("VOLVER ATRAS");
+            			setearColorVerde();
             			nroVentana = 4;
             			break;
             	case 2:	texto.setText(texto.getText()+"C");
@@ -418,19 +354,9 @@ public class MainActivity extends Activity  implements OnInitListener{
             }
 	        if (nroVentana == 1){
 	        	//Volvemos a ponerle los Style correspondientes a los botones
-            	bttnPrA.setBackgroundResource(R.drawable.boton_a); 
-            	bttnPrF.setBackgroundResource(R.drawable.boton_f);
-            	bttnPrK.setBackgroundResource(R.drawable.boton_k);
-            	bttnPrO.setBackgroundResource(R.drawable.boton_o);
-            	bttnPrT.setBackgroundResource(R.drawable.boton_t);
+	        	setearStylesPrimarios();
             	//Ponemos el texto en blanco para que no se pise con la imagen
-            	bttnPrA.setText("");
-				bttnPrF.setText("");
-				bttnPrK.setText("");
-				bttnPrO.setText("");
-				bttnPrT.setText("");
-				bttnPrSpace.setText("");
-			   	bttnPrSpace.setText("");
+	        	setTextoPrimario();
             }
 		}
 	};
@@ -443,23 +369,9 @@ public class MainActivity extends Activity  implements OnInitListener{
 	            switch (nroVentana){
             	case 1: 
             			//Sacamos los Style boton_a y ponemos el Style boton_secundaria a todos los botones
-						bttnPrA.setBackgroundResource(R.drawable.boton_secundaria); 
-						bttnPrF.setBackgroundResource(R.drawable.boton_secundaria); 
-						bttnPrK.setBackgroundResource(R.drawable.boton_secundaria); 
-						bttnPrO.setBackgroundResource(R.drawable.boton_secundaria); 
-						bttnPrT.setBackgroundResource(R.drawable.boton_secundaria);
+            		 	setearStylesSecundarios();
 						//Seteamos todos los botones a negro
-            			bttnPrA.setTextColor(Color.rgb(0,0,0)); 
-						bttnPrF.setTextColor(Color.rgb(0,0,0));
-						bttnPrK.setTextColor(Color.rgb(0,0,0));
-						bttnPrO.setTextColor(Color.rgb(0,0,0));
-						bttnPrT.setTextColor(Color.rgb(0,0,0));
-            			bttnPrA.setText("O");
-            			bttnPrF.setText("P");
-            			bttnPrK.setText("Q");
-            			bttnPrO.setText("R");
-            			bttnPrT.setText("S");
-            			bttnPrSpace.setText("VOLVER ATRAS");
+            			setearColorNegro();
             			nroVentana = 5;
             			break;
             	case 2:	texto.setText(texto.getText()+"D");
@@ -487,19 +399,9 @@ public class MainActivity extends Activity  implements OnInitListener{
             }
 	        if (nroVentana == 1){  
 	        	//Volvemos a ponerle los Style correspondientes a los botones
-            	bttnPrA.setBackgroundResource(R.drawable.boton_a); 
-            	bttnPrF.setBackgroundResource(R.drawable.boton_f);
-            	bttnPrK.setBackgroundResource(R.drawable.boton_k);
-            	bttnPrO.setBackgroundResource(R.drawable.boton_o);
-            	bttnPrT.setBackgroundResource(R.drawable.boton_t);
+	        	setearStylesPrimarios();
             	//Ponemos el texto en blanco para que no se pise con la imagen
-            	bttnPrA.setText("");
-				bttnPrF.setText("");
-				bttnPrK.setText("");
-				bttnPrO.setText("");
-				bttnPrT.setText("");
-				bttnPrSpace.setText("");
-			   	bttnPrSpace.setText("");
+	        	setTextoPrimario();
             }
 		}
     };
@@ -512,23 +414,9 @@ public class MainActivity extends Activity  implements OnInitListener{
 	            switch (nroVentana){
             	case 1:
             			//Sacamos los Style boton_a y ponemos el Style boton_secundaria a todos los botones
-						bttnPrA.setBackgroundResource(R.drawable.boton_secundaria); 
-						bttnPrF.setBackgroundResource(R.drawable.boton_secundaria); 
-						bttnPrK.setBackgroundResource(R.drawable.boton_secundaria); 
-						bttnPrO.setBackgroundResource(R.drawable.boton_secundaria); 
-						bttnPrT.setBackgroundResource(R.drawable.boton_secundaria);
+            		 	setearStylesSecundarios();
 						//Seteamos todos los botones a naranaja personalizado
-            			bttnPrA.setTextColor(Color.rgb(255,147,0)); 
-						bttnPrF.setTextColor(Color.rgb(255,147,0));
-						bttnPrK.setTextColor(Color.rgb(255,147,0));
-						bttnPrO.setTextColor(Color.rgb(255,147,0));
-						bttnPrT.setTextColor(Color.rgb(255,147,0));
-            			bttnPrA.setText("T");
-            			bttnPrF.setText("U");
-            			bttnPrK.setText("V");
-            			bttnPrO.setText("X");
-            			bttnPrT.setText("Y");
-            			bttnPrSpace.setText("VOLVER ATRAS");
+            		 	setearColorNaranja();
             			nroVentana = 6;
             			break;
             	case 2:	texto.setText(texto.getText()+"E");
@@ -556,19 +444,9 @@ public class MainActivity extends Activity  implements OnInitListener{
 	            }
 	            if (nroVentana == 1){ 
 	            	//Volvemos a ponerle los Style correspondientes a los botones
-	            	bttnPrA.setBackgroundResource(R.drawable.boton_a); 
-	            	bttnPrF.setBackgroundResource(R.drawable.boton_f);
-	            	bttnPrK.setBackgroundResource(R.drawable.boton_k);
-	            	bttnPrO.setBackgroundResource(R.drawable.boton_o);
-	            	bttnPrT.setBackgroundResource(R.drawable.boton_t);
+	            	setearStylesPrimarios();
 	            	//Ponemos el texto en blanco para que no se pise con la imagen
-	            	bttnPrA.setText("");
-					bttnPrF.setText("");
-					bttnPrK.setText("");
-					bttnPrO.setText("");
-					bttnPrT.setText("");
-					bttnPrSpace.setText("");
-				   	bttnPrSpace.setText("");
+	            	setTextoPrimario();
 	                }
 		    }
 	};
@@ -586,33 +464,13 @@ public class MainActivity extends Activity  implements OnInitListener{
             			nroVentana = 1;
             			break;
             	case 2:	case 3:	case 4:case 5:
-            	case 6: bttnPrA.setText("");
-    					bttnPrF.setText("");
-    					bttnPrK.setText("");
-    					bttnPrO.setText("");
-    					bttnPrT.setText("");
-    					bttnPrSpace.setText("");
-    					//Volvemos a ponerle los Style correspondientes a los botones
-    	            	bttnPrA.setBackgroundResource(R.drawable.boton_a); 
-    	            	bttnPrF.setBackgroundResource(R.drawable.boton_f);
-    	            	bttnPrK.setBackgroundResource(R.drawable.boton_k);
-    	            	bttnPrO.setBackgroundResource(R.drawable.boton_o);
-    	            	bttnPrT.setBackgroundResource(R.drawable.boton_t);
+            	case 6: setTextoPrimario();
+    					setearStylesPrimarios();
 			   			nroVentana = 1;
 			   			break;
 			   	default:
-			   			bttnPrA.setText("");
-			   			bttnPrF.setText("");
-			   			bttnPrK.setText("");
-			   			bttnPrO.setText("");
-			   			bttnPrT.setText("");
-			   			bttnPrSpace.setText("");
-			   			//Volvemos a ponerle los Style correspondientes a los botones
-			   			bttnPrA.setBackgroundResource(R.drawable.boton_a); 
-			   			bttnPrF.setBackgroundResource(R.drawable.boton_f);
-			   			bttnPrK.setBackgroundResource(R.drawable.boton_k);
-			   			bttnPrO.setBackgroundResource(R.drawable.boton_o);
-			   			bttnPrT.setBackgroundResource(R.drawable.boton_t);
+			   			setTextoPrimario();
+			   			setearStylesPrimarios();
 			   			nroVentana = 1;
 			   			break;
 	            	}
@@ -671,6 +529,7 @@ public class MainActivity extends Activity  implements OnInitListener{
 		}
 	};
 	
+	
 	View.OnLongClickListener controladorGuardar = new View.OnLongClickListener() { // ----- guarda el texto escrito hasta el momento en MEMORIA
 		@Override
 		public boolean onLongClick(View v) {
@@ -701,7 +560,7 @@ public class MainActivity extends Activity  implements OnInitListener{
 							osw.close();
 							// ---- Mostramos un mensaje de guardado exitoso ---- //
 							Toast.makeText(getBaseContext(),"Texto guardado en SD Card!", Toast.LENGTH_SHORT).show();
-							// --- BORRAMOS EL CONTENIDO DEL editText ???
+							// --- BORRAMOS EL CONTENIDO DEL editText ??? -- SUPUESTAMENTE NO SE TENDRIA Q BORRAR ---
 							// texto.setText(""); CONSULTAR A FLAVIO!!!
 		
 						}
@@ -763,4 +622,133 @@ public class MainActivity extends Activity  implements OnInitListener{
 	};
 	
 	// ----- FIN CONTROLADOR DE LOS BOTONES, DETERMINAN LA ACCIÓN LUEGO DE PRESIONAR EL BOTÓN . ----- //
+
+	// --- FUNCIONES CONTROLADORAS DE LOS SET DE STYLES Y TEXTOS --- //
+	
+	/**
+	 * Setea los styles de los botones al modo pantalla secundaria
+	 */
+	private void setearStylesSecundarios (){
+		bttnPrA.setBackgroundResource(R.drawable.boton_secundaria); 
+		bttnPrF.setBackgroundResource(R.drawable.boton_secundaria); 
+		bttnPrK.setBackgroundResource(R.drawable.boton_secundaria); 
+		bttnPrO.setBackgroundResource(R.drawable.boton_secundaria); 
+		bttnPrT.setBackgroundResource(R.drawable.boton_secundaria);		
+	}
+	
+	/**
+	 * Setea el texto de los botones correspondientes con el primer grupo de letras. 
+	 * En color AZUL
+	 */
+	private void setearColorAzul(){
+		bttnPrA.setTextColor(Color.rgb(0,0,255)); 
+		bttnPrF.setTextColor(Color.rgb(0,0,255));
+		bttnPrK.setTextColor(Color.rgb(0,0,255));
+		bttnPrO.setTextColor(Color.rgb(0,0,255));
+		bttnPrT.setTextColor(Color.rgb(0,0,255));
+		bttnPrA.setText("A");
+		bttnPrF.setText("B");
+		bttnPrK.setText("C");
+		bttnPrO.setText("D");
+		bttnPrT.setText("E");
+		bttnPrSpace.setText("VOLVER ATRAS");
+	}
+
+	/**
+	 * Setea el texto de los botones correspondientes con el segundo grupo de letras. 
+	 * En color ROJO
+	 */
+	private void setearColorRojo(){
+		bttnPrA.setTextColor(Color.rgb(255,0,0)); 
+		bttnPrF.setTextColor(Color.rgb(255,0,0));
+		bttnPrK.setTextColor(Color.rgb(255,0,0));
+		bttnPrO.setTextColor(Color.rgb(255,0,0));
+		bttnPrT.setTextColor(Color.rgb(255,0,0));
+		bttnPrA.setText("F");
+		bttnPrF.setText("G");
+		bttnPrK.setText("H");
+		bttnPrO.setText("I");
+		bttnPrT.setText("J");
+		bttnPrSpace.setText("VOLVER ATRAS");
+	}
+	
+	/**
+	 * Setea el texto de los botones correspondientes con el tercer grupo de letras. 
+	 * En color VERDE
+	 */
+	private void setearColorVerde(){
+		bttnPrA.setTextColor(Color.rgb(0,159,1)); 
+		bttnPrF.setTextColor(Color.rgb(0,159,1));
+		bttnPrK.setTextColor(Color.rgb(0,159,1));
+		bttnPrO.setTextColor(Color.rgb(0,159,1));
+		bttnPrT.setTextColor(Color.rgb(0,159,1));
+		bttnPrA.setText("K");
+		bttnPrF.setText("L");
+		bttnPrK.setText("M");
+		bttnPrO.setText("N");
+		bttnPrT.setText("Ñ");
+		bttnPrSpace.setText("VOLVER ATRAS");
+	}
+	
+	/**
+	 * Setea el texto de los botones correspondientes con el cuarto grupo de letras. 
+	 * En color NEGRO
+	 */
+	private void setearColorNegro(){
+		bttnPrA.setTextColor(Color.rgb(0,0,0)); 
+		bttnPrF.setTextColor(Color.rgb(0,0,0));
+		bttnPrK.setTextColor(Color.rgb(0,0,0));
+		bttnPrO.setTextColor(Color.rgb(0,0,0));
+		bttnPrT.setTextColor(Color.rgb(0,0,0));
+		bttnPrA.setText("O");
+		bttnPrF.setText("P");
+		bttnPrK.setText("Q");
+		bttnPrO.setText("R");
+		bttnPrT.setText("S");
+		bttnPrSpace.setText("VOLVER ATRAS");
+	}
+	
+	/**
+	 * Setea el texto de los botones correspondientes con el quinto grupo de letras. 
+	 * En color NARANJA
+	 */
+	private void setearColorNaranja(){
+		bttnPrA.setTextColor(Color.rgb(255,147,0)); 
+		bttnPrF.setTextColor(Color.rgb(255,147,0));
+		bttnPrK.setTextColor(Color.rgb(255,147,0));
+		bttnPrO.setTextColor(Color.rgb(255,147,0));
+		bttnPrT.setTextColor(Color.rgb(255,147,0));
+		bttnPrA.setText("T");
+		bttnPrF.setText("U");
+		bttnPrK.setText("V");
+		bttnPrO.setText("X");
+		bttnPrT.setText("Y");
+		bttnPrSpace.setText("VOLVER ATRAS");
+	}
+	
+	/***
+	 *  Funcion que vuelve a poner los styles para la pantalla primaria
+	 */
+	private void setearStylesPrimarios(){
+		bttnPrA.setBackgroundResource(R.drawable.boton_a); 
+    	bttnPrF.setBackgroundResource(R.drawable.boton_f);
+    	bttnPrK.setBackgroundResource(R.drawable.boton_k);
+    	bttnPrO.setBackgroundResource(R.drawable.boton_o);
+    	bttnPrT.setBackgroundResource(R.drawable.boton_t);
+	}
+	
+	/***
+	 *  Funcion que borra el texto de los botones
+	 */
+	private void setTextoPrimario(){
+		bttnPrA.setText("");
+		bttnPrF.setText("");
+		bttnPrK.setText("");
+		bttnPrO.setText("");
+		bttnPrT.setText("");
+		bttnPrSpace.setText("");
+	   	bttnPrSpace.setText("");
+	}
+	
+	// --- FIN FUNCIONES CONTROLADORAS DE LOS SET DE STYLES Y TEXTOS --- //
 }
