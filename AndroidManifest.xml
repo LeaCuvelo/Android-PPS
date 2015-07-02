@@ -31,5 +31,6 @@
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="landscape" />
     </application>
+    
 
 </manifest>

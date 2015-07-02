@@ -100,6 +100,7 @@ public class MainActivity extends Activity  implements OnInitListener{
         Effects.getInstance().init(this);
 	}
 	
+	// ---------- TRABAJAR ACA! EN EL MENU! ---------- //
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
@@ -107,6 +108,7 @@ public class MainActivity extends Activity  implements OnInitListener{
 		return true;
 	}
 	
+	/*
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item){
 		switch (item.getItemId()) {
@@ -124,8 +126,7 @@ public class MainActivity extends Activity  implements OnInitListener{
             return super.onOptionsItemSelected(item);
     	}
 	}
-
-	// ---------- TRABAJAR ACA! EN EL MENU! ---------- //
+	*/
 	
 	//Items que se muestran cuando el usuario quiera acceder a la tecla MENU
 	private void CreateMenu(Menu menu){
@@ -133,13 +134,16 @@ public class MainActivity extends Activity  implements OnInitListener{
 		{
 			menuAjustes.setIcon(R.drawable.options);
 			menuAjustes.add(0,1,0,"Velocidad de Voz");
-			menuAjustes.add(0,2,1,"Genero de Voz");
+			menuAjustes.add(0,1,1,"Genero de Voz");
+			menuAjustes.add(0,1,2, "PRUEBA");
 		}
 		
 		SubMenu menuAcercaDe = menu.addSubMenu(1, 0, 1, "Acerca de");
 		{
 			menuAcercaDe.setIcon(R.drawable.acerca);
 		}
+		
+		SubMenu menuLALA = menu.addSubMenu(2, 0, 2, "TEST");
 	}
 	
 	//Acciones que suceden cuando usuario selecciona un item del menu
@@ -497,7 +501,6 @@ public class MainActivity extends Activity  implements OnInitListener{
 					}
 				}
 		}
-		
 	};
 	
 	//Acción al mantener presionado el botón Delete
@@ -537,57 +540,23 @@ public class MainActivity extends Activity  implements OnInitListener{
 	    	Effects.getInstance().playSound(Effects.SOUND_1);
 			switch (nroVentana){
         	case 1:
-					//Comprobamos el estado de la memoria externa
-					String estadoTarjeta = Environment.getExternalStorageState();
-					boolean tarjetaEscritura = false;
-					
-					if (estadoTarjeta.equals(Environment.MEDIA_MOUNTED)){
-						Toast.makeText(getBaseContext(),"HAY TARJETA!", Toast.LENGTH_LONG).show();
-						tarjetaEscritura = true;
+					//Intentamos escribir en memoria PERSISTENCIA DE DATOS
+					try {
+						//---- INTERNAL storage ----- //
+						FileOutputStream fOut = openFileOutput("Intercom.txt", MODE_WORLD_READABLE);
+						OutputStreamWriter fWrite = new OutputStreamWriter (fOut); 
+						//Escribe el contenido del editText al archivo
+						fWrite.write(texto.getText().toString());
+						fWrite.flush();
+						fWrite.close();
+						// ---- Mostramos un mensaje de guardado exitoso ---- //
+						Toast.makeText(getBaseContext(),"Texto guardado en memoria interna!", Toast.LENGTH_SHORT).show();
+						// --- BORRAMOS EL CONTENIDO DEL editText ???
+						// texto.setText(""); CONSULTAR A FLAVIO!!!
 					}
-					if (tarjetaEscritura) { // HAY SD en el dispositivo, por lo tanto escribimos en ella y no en la memoria interna
-						try {
-							//---- SD storage ----- //
-							File ruta_tarjeta = Environment.getExternalStorageDirectory();
-							File directory = new File (ruta_tarjeta.getAbsolutePath()+"/IntercomFiles");
-							directory.mkdirs();
-							File f = new File(ruta_tarjeta, "Intercom.txt");
-							FileOutputStream fOut = new FileOutputStream(f);
-							OutputStreamWriter osw = new OutputStreamWriter(fOut);
-							//Escribe el contenido del editText al archivo
-							osw.write(texto.getText().toString());
-							osw.flush();
-							osw.close();
-							// ---- Mostramos un mensaje de guardado exitoso ---- //
-							Toast.makeText(getBaseContext(),"Texto guardado en SD Card!", Toast.LENGTH_SHORT).show();
-							// --- BORRAMOS EL CONTENIDO DEL editText ??? -- SUPUESTAMENTE NO SE TENDRIA Q BORRAR ---
-							// texto.setText(""); CONSULTAR A FLAVIO!!!
-		
-						}
-						catch (Exception e){
-							
-							Toast.makeText(getBaseContext(),"ERROR al guardar archivo!", Toast.LENGTH_SHORT).show();
-						}
-					}
-					else // ESCRIBIMOS EN LA MEMORIA INTERNA!
-					{ 
-						try {
-							//---- INTERNAL storage ----- //
-							FileOutputStream fOut = openFileOutput("Intercom.txt", MODE_WORLD_READABLE);
-							OutputStreamWriter fWrite = new OutputStreamWriter (fOut); 
-							//Escribe el contenido del editText al archivo
-							fWrite.write(texto.getText().toString());
-							fWrite.flush();
-							fWrite.close();
-							// ---- Mostramos un mensaje de guardado exitoso ---- //
-							Toast.makeText(getBaseContext(),"Texto guardado en memoria interna!", Toast.LENGTH_SHORT).show();
-							// --- BORRAMOS EL CONTENIDO DEL editText ???
-							// texto.setText(""); CONSULTAR A FLAVIO!!!
-						}
-						catch (Exception e){
-							
-							Toast.makeText(getBaseContext(),"ERROR al guardar archivo!", Toast.LENGTH_SHORT).show();
-						}
+					catch (Exception e){
+						
+						Toast.makeText(getBaseContext(),"ERROR al guardar archivo!", Toast.LENGTH_SHORT).show();
 					}
 					break;
         	case 2: case 3:	case 4:case 5:case 6:

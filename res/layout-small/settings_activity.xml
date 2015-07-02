@@ -16,6 +16,12 @@
             	</menu>
             <item android:id="@+id/open"
                   android:title="Genero de voz" />
+                <menu>
+            	    <item android:id="@+id/male"
+                  		  android:title="Masculino" />
+            	    <item android:id="@+id/female"
+                          android:title="Femenino" />
+            	</menu>
         </menu>
     </item>
     <item android:id="@+id/file"

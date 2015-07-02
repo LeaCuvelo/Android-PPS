@@ -5,7 +5,7 @@
         <!-- "file" submenu -->
         <menu>
             <item android:id="@+id/create_new"
-                  android:title="Velocidad Menu" />
+                  android:title="Velocidad de Voz" />
             	<menu>
             	    <item android:id="@+id/low"
                   		  android:title="Lento" />
@@ -14,8 +14,11 @@
             	    <item android:id="@+id/high"
                           android:title="Rapido" />
             	</menu>
-            <item android:id="@+id/open"
+            	
+            <item android:id="@+id/gender"
                   android:title="Genero de voz" />
+            
+            
         </menu>
     </item>
     <item android:id="@+id/file"
