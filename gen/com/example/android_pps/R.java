@@ -8,6 +8,10 @@
 package com.example.android_pps;
 
 public final class R {
+    public static final class array {
+        public static final int generos=0x7f080001;
+        public static final int velocidades=0x7f080000;
+    }
     public static final class attr {
     }
     public static final class color {
@@ -59,35 +63,32 @@ public final class R {
         public static final int splash_screen=0x7f020019;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0014;
-        public static final int bttnPrA=0x7f0a0000;
-        public static final int bttnPrDelete=0x7f0a0006;
-        public static final int bttnPrF=0x7f0a0003;
-        public static final int bttnPrK=0x7f0a0007;
-        public static final int bttnPrNO=0x7f0a0008;
-        public static final int bttnPrO=0x7f0a0001;
-        public static final int bttnPrPoint=0x7f0a0005;
-        public static final int bttnPrSI=0x7f0a0009;
-        public static final int bttnPrSpace=0x7f0a0004;
-        public static final int bttnPrT=0x7f0a0002;
-        public static final int create_new=0x7f0a000c;
-        public static final int editText=0x7f0a000a;
-        public static final int female=0x7f0a0013;
-        public static final int file=0x7f0a000b;
-        public static final int gender=0x7f0a0011;
-        public static final int high=0x7f0a000f;
-        public static final int low=0x7f0a000d;
-        public static final int male=0x7f0a0012;
-        public static final int medium=0x7f0a000e;
-        public static final int open=0x7f0a0010;
+        public static final int LinearLayout1=0x7f0b000b;
+        public static final int action_settings=0x7f0b0011;
+        public static final int bttnPrA=0x7f0b0000;
+        public static final int bttnPrDelete=0x7f0b0006;
+        public static final int bttnPrF=0x7f0b0003;
+        public static final int bttnPrK=0x7f0b0007;
+        public static final int bttnPrNO=0x7f0b0008;
+        public static final int bttnPrO=0x7f0b0001;
+        public static final int bttnPrPoint=0x7f0b0005;
+        public static final int bttnPrSI=0x7f0b0009;
+        public static final int bttnPrSpace=0x7f0b0004;
+        public static final int bttnPrT=0x7f0b0002;
+        public static final int editText=0x7f0b000a;
+        public static final int genero=0x7f0b000e;
+        public static final int spinnerGenero=0x7f0b000f;
+        public static final int spinnerVelocidad=0x7f0b000d;
+        public static final int velocidad=0x7f0b000c;
+        public static final int volver=0x7f0b0010;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int settings_activity=0x7f030001;
+        public static final int configuraciones=0x7f030001;
         public static final int splash_screen=0x7f030002;
     }
     public static final class menu {
-        public static final int main=0x7f090000;
+        public static final int main=0x7f0a0000;
     }
     public static final class raw {
         public static final int sound_1=0x7f040000;
@@ -97,12 +98,11 @@ public final class R {
         public static final int action_settings=0x7f070001;
         public static final int app_name=0x7f070000;
         public static final int hello_world=0x7f070002;
-        public static final int my_name=0x7f070004;
     }
     public static final class style {
         /**   Apariencia del texto 
          */
-        public static final int AparienciaTextoNormal=0x7f080002;
+        public static final int AparienciaTextoNormal=0x7f090002;
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
@@ -118,34 +118,34 @@ public final class R {
     
  API 11 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f080000;
+        public static final int AppBaseTheme=0x7f090000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f080001;
+        public static final int AppTheme=0x7f090001;
         /**  Apariencia del boton A 
          */
-        public static final int boton_style_A=0x7f080003;
+        public static final int boton_style_A=0x7f090003;
         /**  Apariencia del boton F 
          */
-        public static final int boton_style_F=0x7f080004;
+        public static final int boton_style_F=0x7f090004;
         /**  Apariencia del boton K 
          */
-        public static final int boton_style_K=0x7f080005;
+        public static final int boton_style_K=0x7f090005;
         /**  Apariencia del boton O 
          */
-        public static final int boton_style_O=0x7f080006;
+        public static final int boton_style_O=0x7f090006;
         /**  Apariencia del boton T 
          */
-        public static final int boton_style_T=0x7f080007;
+        public static final int boton_style_T=0x7f090007;
         /**  Apariencia de la barra espacioadora 
          */
-        public static final int espacio_style=0x7f080008;
+        public static final int espacio_style=0x7f090008;
         /**  Apariencia del boton NO 
          */
-        public static final int no_style=0x7f08000a;
+        public static final int no_style=0x7f09000a;
         /**  Apariencia del boton SI 
          */
-        public static final int si_style=0x7f080009;
+        public static final int si_style=0x7f090009;
     }
 }

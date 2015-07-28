@@ -30,6 +30,13 @@
             android:configChanges="keyboardHidden"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="landscape" />
+       <activity android:name="Configuraciones"
+           		 android:label="Configuraciones" >
+           		 <intent-filter >
+           		     <action android:name="com.example.android_pps.Configuraciones" />
+           		     <category android:name="android.intent.category.DEFAULT" />
+           		 </intent-filter>
+       </activity>
     </application>
     
 

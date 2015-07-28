@@ -103,30 +103,26 @@ public class MainActivity extends Activity  implements OnInitListener{
 	// ---------- TRABAJAR ACA! EN EL MENU! ---------- //
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.layout.settings_activity, menu);
+		Intent i = new Intent(this,Configuraciones.class);
+    	startActivity(i);	
 		return true;
 	}
 	
-	/*
+	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item){
-		switch (item.getItemId()) {
-		case R.id.low: 
-        	Toast.makeText(this, "-LENTO- seleccionado",Toast.LENGTH_LONG).show();
-            return true;
-		case R.id.medium:
-        	Toast.makeText(this, "-MEDIO- seleccionado",Toast.LENGTH_LONG).show();
-            return true;
-        case R.id.high:
-        	Toast.makeText(this, "-RAPIDO- seleccionado",Toast.LENGTH_LONG).show();
+	/*	switch (item.getItemId()) {
+		case R.id.file: 
+        	Intent i = new Intent(this,Configuraciones.class);
+        	startActivity(i);
             return true;
         default:
         	Toast.makeText(this, "EN DESARROLLO... (Programando...)",Toast.LENGTH_LONG).show();
-            return super.onOptionsItemSelected(item);
-    	}
+           
+    	}*/
+		 return super.onOptionsItemSelected(item);
 	}
-	*/
+	
 	
 	//Items que se muestran cuando el usuario quiera acceder a la tecla MENU
 	private void CreateMenu(Menu menu){
@@ -163,6 +159,8 @@ public class MainActivity extends Activity  implements OnInitListener{
 		}
 		return false;
 	}
+
+	
 	
 	// ---------- TRABAJAR ACA! EN EL MENU! (ARRIBA)---------- //
 	
