@@ -41,7 +41,9 @@ public class MainActivity extends Activity  implements OnInitListener{
 	private int nroVentana = 1; //1=Principal;2=ventanaA;3=ventanaF;4=ventanaK;5=ventanaO;6=ventanaT;
 	public String mainBuffer;
 	public static EditText texto;
-	private TextToSpeech ourTts;
+	private static TextToSpeech ourTts;
+	public Intent config;
+	public static char velocidad = 'M';
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -94,7 +96,7 @@ public class MainActivity extends Activity  implements OnInitListener{
         bttnPrNO.setOnClickListener(controladorNO);
         
         //Instanciamos nuestro TTS
-        ourTts = new TextToSpeech(this,this);
+        setOurTts(new TextToSpeech(this,this));
         
         //Tomamos la instancia para los sonidos
         Effects.getInstance().init(this);
@@ -103,9 +105,20 @@ public class MainActivity extends Activity  implements OnInitListener{
 	// ---------- TRABAJAR ACA! EN EL MENU! ---------- //
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		Intent i = new Intent(this,Configuraciones.class);
-    	startActivity(i);	
-		return true;
+		String nombre = "com.example.android_pps.Configuraciones";
+		startActivity(new Intent(nombre));
+		if (MainActivity.velocidad == 'R'){
+			MainActivity.getTTS().setSpeechRate(1.5f);
+		}
+		else{
+			if (MainActivity.velocidad == 'M'){
+				MainActivity.getOurTts().setSpeechRate(1.0f);
+			}
+			else{
+				MainActivity.getOurTts().setSpeechRate(0.5f);
+			}
+		}
+		return false;
 	}
 	
 	
@@ -138,23 +151,21 @@ public class MainActivity extends Activity  implements OnInitListener{
 		{
 			menuAcercaDe.setIcon(R.drawable.acerca);
 		}
-		
-		SubMenu menuLALA = menu.addSubMenu(2, 0, 2, "TEST");
 	}
 	
 	//Acciones que suceden cuando usuario selecciona un item del menu
 	private boolean MenuChoice(MenuItem item){
 		switch (item.getGroupId()) {
 			case 0: 
-					switch (item.getItemId()) {
+					/*switch (item.getItemId()) {
 						case 1:Toast.makeText(this, "-Velocidad fue- seleccionado",Toast.LENGTH_LONG).show(); 
 						break; 
 						case 2:Toast.makeText(this, "-Genero fue- seleccionado",Toast.LENGTH_LONG).show(); 
 						break;
-					}
+					}*/
 					return true;
 			case 1:
-					Toast.makeText(this, "-Acerca de fue- seleccionado",Toast.LENGTH_LONG).show();
+					//Toast.makeText(this, "-Acerca de fue- seleccionado",Toast.LENGTH_LONG).show();
 					return true;
 		}
 		return false;
@@ -174,7 +185,7 @@ public class MainActivity extends Activity  implements OnInitListener{
 	
 	@Override protected void onDestroy(){
 		super.onDestroy();
-		ourTts.shutdown();
+		getOurTts().shutdown();
 	}
 	
 	@Override protected void onStop(){
@@ -188,6 +199,11 @@ public class MainActivity extends Activity  implements OnInitListener{
 	//Evita que se vuelva a cargar la actividad cuando el telefono es rotado
 	@Override public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
+	}
+	
+	//Damos acceso al sintetizador de voz
+	public static TextToSpeech getTTS(){
+		return getOurTts();
 	}
 	
 	//Para salir de la apliación tocando el botón "Atrás"
@@ -219,10 +235,21 @@ public class MainActivity extends Activity  implements OnInitListener{
 	@Override
 	public void onInit(int status) {
 		if (status==TextToSpeech.SUCCESS) {
-			ourTts.setLanguage(new Locale("spa","ESP"));
+			getOurTts().setLanguage(new Locale("spa","ESP"));
 		} else {
-			ourTts = null;
+			setOurTts(null);
 			Toast.makeText(this, "Failed to initialize TTS engine.", Toast.LENGTH_SHORT).show();
+		}
+		if (MainActivity.velocidad == 'R'){
+			MainActivity.getTTS().setSpeechRate(1.5f);
+		}
+		else{
+			if (MainActivity.velocidad == 'M'){
+				MainActivity.getOurTts().setSpeechRate(1.0f);
+			}
+			else{
+				MainActivity.getOurTts().setSpeechRate(0.5f);
+			}
 		}
 	}
 	
@@ -515,6 +542,17 @@ public class MainActivity extends Activity  implements OnInitListener{
 	
 	View.OnClickListener controladorPunto = new View.OnClickListener() {
 		public void onClick(View v) {
+			if (MainActivity.velocidad == 'R'){
+				MainActivity.getTTS().setSpeechRate(1.5f);
+			}
+			else{
+				if (MainActivity.velocidad == 'M'){
+					MainActivity.getOurTts().setSpeechRate(1.0f);
+				}
+				else{
+					MainActivity.getOurTts().setSpeechRate(0.5f);
+				}
+			}
 			switch (nroVentana){
         	case 1:
         			mainBuffer = texto.getText().toString(); 
@@ -522,7 +560,7 @@ public class MainActivity extends Activity  implements OnInitListener{
 					texto.setText(mainBuffer);
 					texto.setSelection(texto.getText().length());
         			nroVentana = 1;
-        			ourTts.speak(mainBuffer, TextToSpeech.QUEUE_FLUSH, null);
+        			getOurTts().speak(mainBuffer, TextToSpeech.QUEUE_FLUSH, null);
         			break;
         	case 2: case 3:	case 4:case 5:case 6:
 		   	default:break;
@@ -570,7 +608,7 @@ public class MainActivity extends Activity  implements OnInitListener{
 			final String textoSI = "si";
 			switch (nroVentana){
         	case 1: case 2: case 3:	case 4:case 5:
-        	case 6:ourTts.speak(textoSI, TextToSpeech.QUEUE_FLUSH, null);
+        	case 6:getOurTts().speak(textoSI, TextToSpeech.QUEUE_FLUSH, null);
 		   	default:break;
             }
 		}
@@ -582,7 +620,7 @@ public class MainActivity extends Activity  implements OnInitListener{
 			final String textoNO = "no";
 			switch (nroVentana){
         	case 1: case 2: case 3:	case 4:case 5:
-        	case 6:ourTts.speak(textoNO, TextToSpeech.QUEUE_FLUSH, null);
+        	case 6:getOurTts().speak(textoNO, TextToSpeech.QUEUE_FLUSH, null);
 		   	default:break;
             }
 		}
@@ -715,6 +753,14 @@ public class MainActivity extends Activity  implements OnInitListener{
 		bttnPrT.setText("");
 		bttnPrSpace.setText("");
 	   	bttnPrSpace.setText("");
+	}
+
+	public static TextToSpeech getOurTts() {
+		return ourTts;
+	}
+
+	public static void setOurTts(TextToSpeech ourTts) {
+		MainActivity.ourTts = ourTts;
 	}
 	
 	// --- FIN FUNCIONES CONTROLADORAS DE LOS SET DE STYLES Y TEXTOS --- //

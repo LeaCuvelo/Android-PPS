@@ -152,7 +152,7 @@
         android:minHeight="1dp"
         android:minWidth="1dp"
         android:width="213dp"
-        style="@style/boton_style_K"
+        style="@style/boton_style_F"
          />
  <EditText
         android:id="@+id/editText"
