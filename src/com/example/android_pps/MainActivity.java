@@ -1,8 +1,11 @@
 package com.example.android_pps;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.OutputStreamWriter;
+import java.util.Calendar;
 import java.util.Locale;
 
 import android.R.menu;
@@ -576,24 +579,56 @@ public class MainActivity extends Activity  implements OnInitListener{
 	    	Effects.getInstance().playSound(Effects.SOUND_1);
 			switch (nroVentana){
         	case 1:
-					//Intentamos escribir en memoria PERSISTENCIA DE DATOS
-					try {
-						//---- INTERNAL storage ----- //
-						FileOutputStream fOut = openFileOutput("Intercom.txt", MODE_WORLD_READABLE);
-						OutputStreamWriter fWrite = new OutputStreamWriter (fOut); 
-						//Escribe el contenido del editText al archivo
-						fWrite.write(texto.getText().toString());
-						fWrite.flush();
-						fWrite.close();
-						// ---- Mostramos un mensaje de guardado exitoso ---- //
-						Toast.makeText(getBaseContext(),"Texto guardado en memoria interna!", Toast.LENGTH_SHORT).show();
-						// --- BORRAMOS EL CONTENIDO DEL editText ???
-						// texto.setText(""); CONSULTAR A FLAVIO!!!
-					}
-					catch (Exception e){
-						
-						Toast.makeText(getBaseContext(),"ERROR al guardar archivo!", Toast.LENGTH_SHORT).show();
-					}
+        			//Comprobamos el estado de la memoria externa
+        			String estadoTarjeta = Environment.getExternalStorageState();
+        			boolean tarjetaEscritura = false;
+        			
+        			if (estadoTarjeta.equals(Environment.MEDIA_MOUNTED)){
+        				Toast.makeText(getBaseContext(), "Memoria OK", Toast.LENGTH_SHORT).show();
+        				tarjetaEscritura = true;
+        			}
+        			if (tarjetaEscritura){
+        				//HAY SD en el dispositivo, por lo tanto escribimos en ella y no en la interna
+        				try{
+        					// --- SD Storage --- //
+        					File path_SD = Environment.getExternalStorageDirectory();
+        					File directory = new File(path_SD.getAbsolutePath() + "/IntercomFiles");
+        					directory.mkdirs();
+        					Calendar c = Calendar.getInstance();
+        					File f = new File(directory, "Intercom" + c.getTime().toString() + ".txt" );
+        					FileOutputStream fOut = new FileOutputStream(f);
+        					OutputStreamWriter osw = new OutputStreamWriter(fOut);
+        					
+        					//Escribe el contenido del editText al archivo
+        					osw.write(texto.getText().toString());
+        					osw.flush();
+        					osw.close();
+        					
+        					// --- Mostramos un mensaje de guardado exitoso --- //
+        					Toast.makeText(getBaseContext(), "Guardado en: " + directory.toString(), Toast.LENGTH_SHORT).show();
+        				}
+        				catch (Exception e){
+        					Toast.makeText(getBaseContext(), "ERROR al guardar archivo", Toast.LENGTH_SHORT).show();
+        				}
+        			}else{
+        				// ESCRIBIMOS EN LA MEMORIA INTERNA
+        				try{
+        					// --- Internal Storage --- //
+        					FileOutputStream fOut = openFileOutput("Intercom.txt", MODE_WORLD_READABLE);		
+        					OutputStreamWriter fWrite = new OutputStreamWriter (fOut); 		
+        					
+        					//Escribe el contenido del editText al archivo		
+        					fWrite.write(texto.getText().toString());		
+        					fWrite.flush();		
+        					fWrite.close();		
+        					
+        					// ---- Mostramos un mensaje de guardado exitoso ---- //		
+        					Toast.makeText(getBaseContext(),"Guardado en Memoria Interna", Toast.LENGTH_SHORT).show();				
+        					}		
+        					catch (Exception e){		
+        						Toast.makeText(getBaseContext(),"ERROR al guardar archivo!", Toast.LENGTH_SHORT).show();		
+        					}
+        				}
 					break;
         	case 2: case 3:	case 4:case 5:case 6:
         	default:break;
